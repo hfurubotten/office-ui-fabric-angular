@@ -1,7 +1,7 @@
-<div class="ms-TextField ms-TextField--underlined">
+<div class="ms-TextField" [class.ms-TextField--underlined]="uifUnderlined">
   <label class="ms-Label">{{uifLabel}}</label>
   <input class="ms-TextField-field" type="text" [value]="inputValue" (keyup)="inputValue = $event.target.value"  placeholder="">
 </div>
 
-  <br/>
-  <input [(ngModel)]="inputValue">
+<br/><br/>
+<span>Testing data binding:</span> <input [(ngModel)]="inputValue" />

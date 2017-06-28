@@ -8,8 +8,9 @@ declare var fabric: any;
 })
 export class uiftextfieldComponent implements OnInit {   
     @Input() uifLabel: string;
-    inputValue = 'Alice';
-
+    @Input() uifUnderlined: boolean;
+    inputValue = '';
+    
     constructor() { }
 
     createTextFields() {
