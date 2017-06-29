@@ -17,6 +17,7 @@ export class UifTextFieldComponent implements OnInit {
     @Input() uifUnderlined: boolean = false;
     @Input() uifMultiline: boolean = false;
     @Input() uifDisabled: boolean = false;
+    @Input() uifType: string = 'Text';
     inputValue: string = '';
 
     constructor() {
