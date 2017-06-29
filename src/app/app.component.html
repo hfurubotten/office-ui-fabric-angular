@@ -4,13 +4,20 @@
   </h3>
 </div>
 
-<uif-textfield [uifLabel]="'Insert label text here:'"></uif-textfield>
+<uif-textfield [uifLabel]="'regular textfield:'"></uif-textfield>
 
-<br/><br/><br/><br/>
+<br/>
 
-<uif-textfield [uifLabel]="'Insert label text here:'" [uifUnderlined]="true"></uif-textfield>
+<uif-textfield [uifLabel]="'underlined textfield:'" [uifUnderlined]="true"></uif-textfield>
 
-<br/><br/><br/><br/>
+<br>
 
-<uif-textfield [uifLabel]="'Label goes here:'" [uifMultiline]="true"></uif-textfield>
+<uif-textfield [uifLabel]="'underlined textfield /w placeholder:'" [uifUnderlined]="true" [uifPlaceholder]="'what to type here'"></uif-textfield>
 
+<br/>
+
+<uif-textfield [uifLabel]="'disabled textfield /w placeholder'" [uifPlaceholder]="'what to type here'" [uifDisabled]="true"></uif-textfield>
+
+<br/>
+
+<uif-textfield [uifLabel]="'multiline textfield'" [uifMultiline]="true"></uif-textfield>
