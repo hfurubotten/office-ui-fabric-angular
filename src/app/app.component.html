@@ -5,8 +5,14 @@
 </div>
 
 
-<uif-textfield uifLabel="Insert label text here:"></uif-textfield>
+<uif-textfield [uifLabel]="'Insert label text here:'"></uif-textfield>
 
 <br/><br/><br/><br/>
 
-<uif-textfield uifLabel="Insert label text here:" uifUnderlined="true"></uif-textfield>
+<uif-textfield [uifLabel]="'Insert label text here:'" [uifUnderlined]="true"></uif-textfield>
+
+<br/><br/><br/><br/>
+
+<uif-textfield [uifLabel]="'Label goes here:'" [uifMultiline]="true"></uif-textfield>
+
+

@@ -14,6 +14,7 @@ import { TextField } from 'office-ui-fabric-js/src/components/TextField/TextFiel
 export class UifTextFieldComponent implements OnInit {   
     @Input() uifLabel: string;
     @Input() uifUnderlined: boolean;
+    @Input() uifMultiline: boolean;
     inputValue: string = '';
 
     constructor() { }
@@ -23,7 +24,6 @@ export class UifTextFieldComponent implements OnInit {
         for (var i = 0; i < TextFieldElements.length; i++) {
             new TextField['TextField'](TextFieldElements[i]);
         }
-        
     }
 
     ngOnInit() {

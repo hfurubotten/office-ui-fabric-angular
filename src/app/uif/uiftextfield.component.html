@@ -1,4 +1,4 @@
-<div class="ms-TextField" [class.ms-TextField--underlined]="uifUnderlined">
+<div class="ms-TextField" [class.ms-TextField--underlined]="uifUnderlined" [class.ms-TextField--multiline]="uifMultiline">
   <label class="ms-Label">{{uifLabel}}</label>
   <input class="ms-TextField-field" type="text" [value]="inputValue" (keyup)="inputValue = $event.target.value"  placeholder="">
 </div>
