@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, HostBinding, Input, OnInit } from '@angular/core';
 // import * as fabric from 'office-ui-fabric-js/dist/js/fabric.min';
 // declare var fabric: any;
 //Had to modify original source file and remove the namespace, else it would result in "is not a module" error.
@@ -22,7 +22,6 @@ export class UifTextFieldComponent implements OnInit {
     constructor() {
 
      }
-
 
     createTextField() {
         var TextFieldElements = document.querySelectorAll(".ms-TextField");

@@ -1,6 +1,7 @@
 <div class="ms-TextField" [class.ms-TextField--underlined]="uifUnderlined" [class.ms-TextField--multiline]="uifMultiline" [class.is-disabled]="uifDisabled">
   <label class="ms-Label">{{uifLabel}}</label>
-  <input class="ms-TextField-field" type="text" [value]="inputValue" (keyup)="inputValue = $event.target.value" [placeholder]="uifPlaceholder" [disabled]="uifDisabled">
+  <input class="ms-TextField-field" type="text" [value]="inputValue" (keyup)="inputValue = $event.target.value" [placeholder]="uifPlaceholder" [disabled]="uifDisabled" *ngIf="!uifMultiline">
+  <textarea class="ms-TextField-field" [value]="inputValue" (keyup)="inputValue = $event.target.value" [placeholder]="uifPlaceholder" [disabled]="uifDisabled" *ngIf="uifMultiline"></textarea>
 </div>
-<!--<br/><br/>-->
-<!--<span>Testing data binding:</span> <input [(ngModel)]="inputValue" />-->
+<!--<br/><br/>
+<span>Testing data binding:</span> <input [(ngModel)]="inputValue" />-->
