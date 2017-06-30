@@ -4,17 +4,17 @@
   </h3>
 </div>
 
-<uif-textfield [uifLabel]="'regular textfield:'"></uif-textfield>
+<uif-textfield [uifLabel]="'regular textfield:'" [(value)]="textFieldValue"></uif-textfield>
+<uif-textfield [uifLabel]="'underlined textfield:'" [uifUnderlined]="true" [(value)]="textFieldValue"></uif-textfield>
+<uif-textfield [uifLabel]="'underlined textfield ala password:'" [uifUnderlined]="true" [uifType]="'password'" [(value)]="textFieldValue"></uif-textfield>
+<uif-textfield [uifLabel]="'underlined textfield /w placeholder:'" [uifUnderlined]="true" [uifPlaceholder]="'what to type here'" [(value)]="textFieldValue"></uif-textfield>
+<uif-textfield [uifLabel]="'disabled textfield /w placeholder'" [uifPlaceholder]="'what to type here'" [uifDisabled]="true" [(value)]="textFieldValue"></uif-textfield>
+<uif-textfield [uifLabel]="'multiline textfield'" [uifMultiline]="true" [(value)]="anotherTextFieldValue"></uif-textfield>
+<uif-textfield [uifLabel]="'disabled multiline textfield w/ placeholder'" [uifMultiline]="true" [uifDisabled]="true" [uifPlaceholder]="'placeholder'" [(value)]="anotherTextFieldValue"></uif-textfield>
 
+<div>
+<p>Binding test:</p>
+<span>Testing data binding:</span> <input [(ngModel)]="textFieldValue" />
 <br/>
-<uif-textfield [uifLabel]="'underlined textfield:'" [uifUnderlined]="true"></uif-textfield>
-<br/>
-<uif-textfield [uifLabel]="'underlined textfield ala password:'" [uifUnderlined]="true" [uifType]="'password'"></uif-textfield>
-<br>
-<uif-textfield [uifLabel]="'underlined textfield /w placeholder:'" [uifUnderlined]="true" [uifPlaceholder]="'what to type here'"></uif-textfield>
-<br/>
-<uif-textfield [uifLabel]="'disabled textfield /w placeholder'" [uifPlaceholder]="'what to type here'" [uifDisabled]="true"></uif-textfield>
-<br/>
-<uif-textfield [uifLabel]="'multiline textfield'" [uifMultiline]="true"></uif-textfield>
-<br/>
-<uif-textfield [uifLabel]="'disabled multiline textfield w/ placeholder'" [uifMultiline]="true" [uifDisabled]="true" [uifPlaceholder]="'placeholder'" ></uif-textfield>
+<span>Testing data binding:</span> <input [(ngModel)]="anotherTextFieldValue" />
+</div>

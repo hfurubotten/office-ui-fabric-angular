@@ -7,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Office UI Fabric test';
+  title: string = 'Office UI Fabric test component';
+  textFieldValue: string = 'Testing text field';
+  anotherTextFieldValue: string = 'Testing another value';
 }
