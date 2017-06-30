@@ -1,0 +1,13 @@
+  <select>
+      <option [value]="option.value" *ngFor="let option of uifOptions">{{option.text}}</option>
+  </select>
+
+<div class="ms-Dropdown" tabindex="0" [class.is-disabled]="uifDisabled">
+  <label class="ms-Label">{{uifLabel}}</label>
+  <i class="ms-Dropdown-caretDown ms-Icon ms-Icon--ChevronDown"></i>
+  <select class="ms-Dropdown-select">
+    <option>test&amp;hellip;</option>
+    <option>test2</option>
+    <option *ngFor="let option of uifOptions">{{option.text}}</option>
+  </select>
+</div>

@@ -1,20 +1,24 @@
 <div style="text-align:center">
-  <h3>
+  <h1 class="ms-font-xxl">
    {{title}}
-  </h3>
+  </h1>
 </div>
 
-<uif-textfield [uifLabel]="'regular textfield:'" [(value)]="textFieldValue"></uif-textfield>
+
+<uif-dropdown [uifLabel]="'Soundpicker:'" [uifDisabled]="false" [uifOptions]="dropdownValues"></uif-dropdown>
+<!--<uif-dropdown-option *ngFor="let sound of dropdownValues"></uif-dropdown-option>-->
+<!--<uif-textfield [uifLabel]="'regular textfield:'" [(value)]="textFieldValue"></uif-textfield>
 <uif-textfield [uifLabel]="'underlined textfield:'" [uifUnderlined]="true" [(value)]="textFieldValue"></uif-textfield>
 <uif-textfield [uifLabel]="'underlined textfield ala password:'" [uifUnderlined]="true" [uifType]="'password'" [(value)]="textFieldValue"></uif-textfield>
 <uif-textfield [uifLabel]="'underlined textfield /w placeholder:'" [uifUnderlined]="true" [uifPlaceholder]="'what to type here'" [(value)]="textFieldValue"></uif-textfield>
 <uif-textfield [uifLabel]="'disabled textfield /w placeholder'" [uifPlaceholder]="'what to type here'" [uifDisabled]="true" [(value)]="textFieldValue"></uif-textfield>
 <uif-textfield [uifLabel]="'multiline textfield'" [uifMultiline]="true" [(value)]="anotherTextFieldValue"></uif-textfield>
-<uif-textfield [uifLabel]="'disabled multiline textfield w/ placeholder'" [uifMultiline]="true" [uifDisabled]="true" [uifPlaceholder]="'placeholder'" [(value)]="anotherTextFieldValue"></uif-textfield>
+<uif-textfield [uifLabel]="'disabled multiline textfield w/ placeholder'" [uifMultiline]="true" [uifDisabled]="true" [uifPlaceholder]="'placeholder'" [(value)]="anotherTextFieldValue"></uif-textfield>-->
 
-<div>
-<p>Binding test:</p>
-<span>Testing data binding:</span> <input [(ngModel)]="textFieldValue" />
 <br/>
-<span>Testing data binding:</span> <input [(ngModel)]="anotherTextFieldValue" />
+<div>
+<p class="ms-font-m">Binding test:</p>
+<span class="ms-font-m">Testing data binding:</span> <input class="ms-font-m" [(ngModel)]="textFieldValue" />
+<br/>
+<span class="ms-font-m">Testing data binding:</span> <input class="ms-font-m" [(ngModel)]="anotherTextFieldValue" />
 </div>
