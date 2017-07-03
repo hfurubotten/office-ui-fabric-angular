@@ -11,12 +11,13 @@ export class AppComponent implements OnInit {
   title: string = 'Office UI Fabric test component';
   textFieldValue: string = 'Testing text field';
   anotherTextFieldValue: string = 'Testing another value';
-  
+
   dropdownValues: {value: string, text: string}[] = [
-    { 'value': '5', 'text': 'moo'},
-    {'value': '15', 'text': 'meow'},
-    {'value': '11', 'text': 'woof'}
+    { 'value': 'm00', 'text': 'moo'},
+    {'value': 'm30w', 'text': 'meow'},
+    {'value': 'w00f', 'text': 'woof'}
   ];
+  dropDownSelected = this.dropdownValues[2].value;
 
 
   constructor() {}

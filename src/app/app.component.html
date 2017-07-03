@@ -5,7 +5,7 @@
 </div>
 
 
-<uif-dropdown [uifLabel]="'Soundpicker:'" [uifDisabled]="false" [uifOptions]="dropdownValues"></uif-dropdown>
+<uif-dropdown [uifLabel]="'Soundpicker:'" [uifDisabled]="false" [uifOptions]="dropdownValues" [(uifSelectedValue)]="dropDownSelected"></uif-dropdown>
 <!--<uif-dropdown-option *ngFor="let sound of dropdownValues"></uif-dropdown-option>-->
 <!--<uif-textfield [uifLabel]="'regular textfield:'" [(value)]="textFieldValue"></uif-textfield>
 <uif-textfield [uifLabel]="'underlined textfield:'" [uifUnderlined]="true" [(value)]="textFieldValue"></uif-textfield>
@@ -21,4 +21,12 @@
 <span class="ms-font-m">Testing data binding:</span> <input class="ms-font-m" [(ngModel)]="textFieldValue" />
 <br/>
 <span class="ms-font-m">Testing data binding:</span> <input class="ms-font-m" [(ngModel)]="anotherTextFieldValue" />
+<br>
+<span class="ms-font-m">Testing dropdown data binding:</span> <input class="ms-font-m" [(ngModel)]="dropDownSelected" />
 </div>
+
+
+
+
+
+
