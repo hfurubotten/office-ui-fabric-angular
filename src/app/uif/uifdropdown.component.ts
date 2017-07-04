@@ -1,6 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-import { Dropdown } from 'office-ui-fabric-js/src/components/Dropdown/Dropdown';
-// import * as $ from "jquery";
+declare var fabric: any;
 
 @Component({
     moduleId: module.id,
@@ -22,19 +21,21 @@ export class UifDropdownComponent implements OnInit {
     createDropdown() {
         var DropdownHTMLElements = document.querySelectorAll('.ms-Dropdown');
         for (var i = 0; i < DropdownHTMLElements.length; ++i) {
-            new Dropdown(<HTMLElement>DropdownHTMLElements[i]);
+            new fabric['Dropdown'](DropdownHTMLElements[i]);
         }
     }
 
-    onValueChanged() {
-        this.uifSelectedValue = this.uifSelected.value;
+    onValueChanged(event:Event):void {
+        console.log("event data: " + (event.target as HTMLSelectElement).innerHTML);
+        this.uifSelectedValue = (event.target as HTMLSelectElement).value;
         this.uifSelectedValueChange.emit(this.uifSelectedValue);
-        console.log("selected changed: " + this.uifSelected.text);
     }
 
     ngOnInit() {
         this.uifSelected = this.uifOptions.filter(o => o.value == this.uifSelectedValue)[0];
-        console.log(this.uifOptions.filter(o => o.value == this.uifSelectedValue)[0]);
+        this.uifSelectedValue = this.uifOptions.filter(o => o.value == this.uifSelectedValue)[0].value;
+        // console.log("on init: " + this.uifSelected.value + ":" + this.uifSelected.text);
+        // console.log("on init: " + this.uifOptions.filter(o => o.value == this.uifSelectedValue)[0].value);
     }
 
      ngAfterViewInit() {
