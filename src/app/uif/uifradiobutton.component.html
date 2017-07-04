@@ -1,31 +1,13 @@
-<div class="ms-ChoiceFieldGroup" id="choicefieldgroup" role="radiogroup">
+<div class="ms-ChoiceFieldGroup" [id]="uifId" role="radiogroup">
   <div class="ms-ChoiceFieldGroup-title">
     <label class="ms-Label" [class.is-required]="uifRequired">{{uifLabel}}</label>
   </div>
-  <ul class="ms-ChoiceFieldGroup-list">
+  <ul class="ms-ChoiceFieldGroup-list" *ngFor="let option of uifOptions">
     <li class="ms-RadioButton">
-      <input tabindex="-1" type="radio" class="ms-RadioButton-input">
-      <label role="radio" class="ms-RadioButton-field" tabindex="0" aria-checked="false" name="choicefieldgroup">
-        <span class="ms-Label">Option 1</span> 
-      </label>
-    </li>
-    <li class="ms-RadioButton">
-      <input tabindex="-1" type="radio" class="ms-RadioButton-input">
-      <label role="radio" class="ms-RadioButton-field" tabindex="0" aria-checked="false" name="choicefieldgroup">
-        <span class="ms-Label">Option 2</span> 
-      </label>
-    </li>
-    <li class="ms-RadioButton">
-      <input tabindex="-1" type="radio" class="ms-RadioButton-input">
-      <label role="radio" class="ms-RadioButton-field is-disabled" tabindex="0" aria-checked="false" name="choicefieldgroup" aria-disabled="true">
-        <span class="ms-Label">Option 3</span> 
-      </label>
-    </li>
-    <li class="ms-RadioButton">
-      <input tabindex="-1" type="radio" class="ms-RadioButton-input">
-      <label role="radio" class="ms-RadioButton-field" tabindex="0" aria-checked="false" name="choicefieldgroup">
-        <span class="ms-Label">Option 4</span> 
-      </label>
+    <input tabindex="-1" type="radio" class="ms-RadioButton-input">
+        <label role="radio" class="ms-RadioButton-field" [class.is-disabled]="option.disabled" tabindex="0" [attr.aria-checked]="option.value == uifSelectedValue ? true : false" [attr.name]="uifId" (click)="onValueChanged(option.value)">
+        <span class="ms-Label">{{option.text}}</span> 
+    </label>
     </li>
   </ul>
 </div>
