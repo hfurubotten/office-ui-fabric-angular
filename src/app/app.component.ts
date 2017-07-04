@@ -20,6 +20,13 @@ export class AppComponent implements OnInit {
   dropdownSelected = this.dropdownValues[1].value;
   dropdownPlaceholder = 'Please select a sound...';
 
+  radioValues: {value: string, text: string}[] = [
+    { 'value': 'm00', 'text': 'moo'},
+    {'value': 'm30w', 'text': 'meow'},
+    {'value': 'w00f', 'text': 'woof'}
+  ];
+  radioSelected = this.radioValues[1].value;
+
   constructor() {}
 
   ngOnInit() {
