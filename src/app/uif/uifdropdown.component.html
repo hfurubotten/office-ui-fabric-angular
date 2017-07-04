@@ -1,21 +1,11 @@
-  <!--<select>
-      <option [value]="option.value" *ngFor="let option of uifOptions">{{option.text}}</option>
-  </select>-->
-
 <div class="ms-Dropdown" tabindex="0" [class.is-disabled]="uifDisabled">
   <label class="ms-Label">{{uifLabel}}</label>
   <i class="ms-Dropdown-caretDown ms-Icon ms-Icon--ChevronDown"></i>
-  <select class="ms-Dropdown-select" [(ngModel)]="uifSelected" (ngModelChange)="onValueChanged($event)">
-    <!--<option *ngFor="let option of uifOptions" [ngValue]="option" [selected]="option.value == uifSelected.value ? true : null">{{option.text}}</option>-->
-    <!--<option *ngFor="let option of uifOptions; let idx = index" [ngValue]="option" [attr.selected]="idx == 2">{{option.text}}</option>-->
-
-    <option *ngFor="let option of uifOptions" [ngValue]="option">{{option.text}}</option>
-    
-    <!--<select class="ms-Dropdown-select">
-    <option value="-1">Select one option....</option>
-    <option value="1">test</option>
-    <option value="2">banan</option>
-     </select>-->
-
-    </select>
+  <select class="ms-Dropdown-select" name="test" [(ngModel)]="uifSelected" (ngModelChange)="onValueChanged($event)">
+    <!--<option value="-1" disabled>{{uifPlaceholder}}</option>-->
+    <!--<option *ngFor="let option of uifOptions" ngValue="{{option}}" [selected]="option === uifSelected">{{option.text}}</option>-->
+    <option *ngFor="let option of uifOptions" [ngValue]="option" [selected]="option.value === uifSelected.value ? true : null">{{option.text}}</option>
+    <!--<option *ngFor="let option of uifOptions; let i = index" [ngValue]="option" [selected]="i === 2 ? true : false">{{option.text}}</option>-->
+</select>
+<p>{{uifSelected.value}}</p>
 </div>

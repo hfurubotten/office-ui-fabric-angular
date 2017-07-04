@@ -17,8 +17,8 @@ export class AppComponent implements OnInit {
     {'value': 'm30w', 'text': 'meow'},
     {'value': 'w00f', 'text': 'woof'}
   ];
-  dropDownSelected = this.dropdownValues[2].value;
-
+  dropdownSelected = this.dropdownValues[1].value;
+  dropdownPlaceholder = 'Please select a sound...';
 
   constructor() {}
 
