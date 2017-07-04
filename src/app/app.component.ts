@@ -26,6 +26,7 @@ export class AppComponent implements OnInit {
     {'value': 'w00f', 'text': 'woof'}
   ];
   radioSelected = this.radioValues[1].value;
+  radioLabel: string = 'Select color:'
 
   constructor() {}
 

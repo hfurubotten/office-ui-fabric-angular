@@ -8,7 +8,10 @@ import { RadioButton } from 'office-ui-fabric-js/src/components/RadioButton/Radi
 })
 export class UifRadioButtonComponent implements OnInit {
     @Input() uifLabel: string = '';
-    @Input() uifDisabled: boolean = false;
+    @Input() uifId: string = '';
+    @Input() uifRequired: boolean = false;
+    @Input() uifOptions: {value: string, text: string}[];
+    @Input() uifSelectedValue: string = '';
 
     constructor() { }
 
@@ -19,5 +22,7 @@ export class UifRadioButtonComponent implements OnInit {
         }
     }
 
-    ngOnInit() { }
+    ngOnInit() { 
+        this.createRadioButtons();
+    }
 }
