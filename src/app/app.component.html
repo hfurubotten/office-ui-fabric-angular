@@ -5,31 +5,33 @@
 </div>
 
 
-<!--<uif-dropdown [uifLabel]="'Soundpicker:'" [uifDisabled]="false" [uifOptions]="dropdownValues" [(uifSelectedValue)]="dropdownSelected"></uif-dropdown>-->
-<uif-radiobutton [uifLabel]="radioLabel" [uifRequired]="true" [uifId]="'InsertUniqueIdHere'" [uifOptions]="radioValues" [(uifSelectedValue)]="radioSelected"></uif-radiobutton>
 
+<h1 class="ms-font-xxl">Radio button examples:</h1>
+<uif-radiobutton [uifLabel]="radioLabel" [uifRequired]="true" [uifId]="'InsertUniqueIdHere'" [uifOptions]="radioValues" [(uifSelectedValue)]="radioSelected"></uif-radiobutton>
+<uif-radiobutton [uifLabel]="radioLabel" [uifRequired]="true" [uifId]="'InsertUniqueIdHere'" [uifOptions]="radioValuesWithDisabled" [(uifSelectedValue)]="radioSelected"></uif-radiobutton>
+<span class="ms-font-m">Testing radio button data binding:</span> <input class="ms-font-m" [(ngModel)]="radioSelected" />
 
 <!--<uif-dropdown [uifLabel]="'Soundpicker:'" [uifDisabled]="false" [uifOptions]="dropdownValues" [uifPlaceholder]="dropdownPlaceholder"></uif-dropdown>-->
 <!--<uif-dropdown-option *ngFor="let sound of dropdownValues"></uif-dropdown-option>-->
-<!--<uif-textfield [uifLabel]="'regular textfield:'" [(value)]="textFieldValue"></uif-textfield>
+
+<h1 class="ms-font-xxl">Dropdown examples:</h1>
+<!--<uif-dropdown [uifLabel]="'Soundpicker:'" [uifDisabled]="false" [uifOptions]="dropdownValues" [(uifSelectedValue)]="dropdownSelected"></uif-dropdown>-->
+
+<h1 class="ms-font-xxl">Textfield examples:</h1>
+<uif-textfield [uifLabel]="'regular textfield:'" [(value)]="textFieldValue"></uif-textfield>
 <uif-textfield [uifLabel]="'underlined textfield:'" [uifUnderlined]="true" [(value)]="textFieldValue"></uif-textfield>
 <uif-textfield [uifLabel]="'underlined textfield ala password:'" [uifUnderlined]="true" [uifType]="'password'" [(value)]="textFieldValue"></uif-textfield>
 <uif-textfield [uifLabel]="'underlined textfield /w placeholder:'" [uifUnderlined]="true" [uifPlaceholder]="'what to type here'" [(value)]="textFieldValue"></uif-textfield>
 <uif-textfield [uifLabel]="'disabled textfield /w placeholder'" [uifPlaceholder]="'what to type here'" [uifDisabled]="true" [(value)]="textFieldValue"></uif-textfield>
 <uif-textfield [uifLabel]="'multiline textfield'" [uifMultiline]="true" [(value)]="anotherTextFieldValue"></uif-textfield>
-<uif-textfield [uifLabel]="'disabled multiline textfield w/ placeholder'" [uifMultiline]="true" [uifDisabled]="true" [uifPlaceholder]="'placeholder'" [(value)]="anotherTextFieldValue"></uif-textfield>-->
+<uif-textfield [uifLabel]="'disabled multiline textfield w/ placeholder'" [uifMultiline]="true" [uifDisabled]="true" [uifPlaceholder]="'placeholder'" [(value)]="anotherTextFieldValue"></uif-textfield>
 
-<br/>
-<div>
-<p class="ms-font-m">Binding test:</p>
 <span class="ms-font-m">Testing data binding:</span> <input class="ms-font-m" [(ngModel)]="textFieldValue" />
 <br/>
 <span class="ms-font-m">Testing data binding:</span> <input class="ms-font-m" [(ngModel)]="anotherTextFieldValue" />
 <br>
+
 <span class="ms-font-m">Testing dropdown data binding:</span> <input class="ms-font-m" [(ngModel)]="dropdownSelected" />
-<br>
-<span class="ms-font-m">Testing radio button data binding:</span> <input class="ms-font-m" [(ngModel)]="radioSelected" />
-</div>
 
 
 

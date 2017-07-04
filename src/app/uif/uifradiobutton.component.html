@@ -5,7 +5,7 @@
   <ul class="ms-ChoiceFieldGroup-list" *ngFor="let option of uifOptions">
     <li class="ms-RadioButton">
     <input tabindex="-1" type="radio" class="ms-RadioButton-input">
-        <label role="radio" class="ms-RadioButton-field" [class.is-disabled]="option.disabled" tabindex="0" [attr.aria-checked]="option.value == uifSelectedValue ? true : false" [attr.name]="uifId" (click)="onValueChanged(option.value)">
+        <label role="radio" class="ms-RadioButton-field" [class.is-disabled]="option.disabled" tabindex="0" [attr.aria-checked]="option.value == uifSelectedValue ? true : false" [attr.name]="uifId" (click)="onValueChanged(option)">
         <span class="ms-Label">{{option.text}}</span> 
     </label>
     </li>

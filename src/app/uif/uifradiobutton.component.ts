@@ -23,17 +23,28 @@ export class UifRadioButtonComponent implements OnInit {
         }
     }
 
-    onValueChanged(value: string) {
-        if(value != this.uifSelectedValue) {
-            this.uifSelectedValue = value;
+    onValueChanged(selected: Option) {
+        if(selected.value != this.uifSelectedValue && selected.disabled != true) {
+            this.uifSelectedValue = selected.value;
             this.uifSelectedValueChange.emit(this.uifSelectedValue);
         }
     }
 
-    ngOnInit() { 
-    }
+    ngOnInit() { }
 
     ngAfterViewInit() {
         this.createRadioButtons();
      }
+}
+
+class Option {
+    value: string = '';
+    text: string = '';
+    disabled: boolean = false;
+
+    constructor(value: string, text: string, disabled: boolean) {
+        this.value = value;
+        this.text = text;
+        this.disabled = disabled;
+    }
 }
