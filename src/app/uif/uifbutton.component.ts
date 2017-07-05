@@ -9,6 +9,7 @@ declare var fabric: any;
 
 export class UifButtonComponent implements OnInit {
     @Input() uifLabel: string = '';
+    @Input() uifDisabled: boolean = false;
     @Input() uifType: string = '';
     @Input() uifDescription: string = '';
     buttonBaseClass: string = 'ms-Button';
