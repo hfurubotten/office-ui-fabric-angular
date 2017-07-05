@@ -11,6 +11,14 @@ export class AppComponent implements OnInit {
   title: string = 'Office UI Fabric test component';
   textFieldValue: string = 'Testing text field';
   anotherTextFieldValue: string = 'Testing another value';
+  
+  button1Click() {
+    console.log("button1 clicked!");
+  }
+
+  button2Click() {
+    console.log("button2 clicked!");
+  }
 
   dropdownValues: {value: string, text: string}[] = [
     {'value': 'mø', 'text': 'moo'},

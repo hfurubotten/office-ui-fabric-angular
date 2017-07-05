@@ -4,6 +4,9 @@
   </h1>
 </div>
 
+<h1 class="ms-font-xxl">Button examples:</h1>
+<uif-button [uifLabel]="'Click here'" (click)="button1Click()"></uif-button>
+<uif-button [uifLabel]="'Click here too'" (click)="button2Click()"></uif-button>
 
 <h1 class="ms-font-xxl">Dropdown examples:</h1>
 <uif-dropdown [uifLabel]="'Soundpicker:'" [uifDisabled]="false" [uifOptions]="dropdownValues" [(uifSelectedValue)]="dropdownSelected" [uifPlaceholder]="dropdownPlaceholder"></uif-dropdown>

@@ -25,7 +25,7 @@ export class UifDropdownComponent implements OnInit {
         }
     }
 
-    onValueChanged(target: HTMLSelectElement):void {
+    onValueChanged(target: HTMLSelectElement) {
         this.uifSelectedValue = target.value;
         this.uifSelectedValueChange.emit(this.uifSelectedValue);
     }
