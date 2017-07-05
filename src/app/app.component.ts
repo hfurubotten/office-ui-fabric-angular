@@ -13,25 +13,25 @@ export class AppComponent implements OnInit {
   anotherTextFieldValue: string = 'Testing another value';
 
   dropdownValues: {value: string, text: string}[] = [
-    {'value': 'm00', 'text': 'moo'},
-    {'value': 'm30w', 'text': 'meow'},
-    {'value': 'w00f', 'text': 'woof'}
+    {'value': 'mø', 'text': 'moo'},
+    {'value': 'mjau', 'text': 'meow'},
+    {'value': 'voff', 'text': 'woof'}
   ];
   dropdownSelected = this.dropdownValues[1].value;
   dropdownPlaceholder = 'Please select a sound...';
 
   radioValuesWithDisabled: {value: string, text: string, disabled: boolean}[] = [
-    {'value': 'gr33n', 'text': 'Green', 'disabled': false},
-    {'value': 'r3d', 'text': 'Red', 'disabled': false},
-    {'value': 'b1u', 'text': 'Blue', 'disabled': true},
-    {'value': 'y3ll0w', 'text': 'Yellow', 'disabled': false}
+    {'value': 'grønn', 'text': 'Green', 'disabled': false},
+    {'value': 'rød', 'text': 'Red', 'disabled': false},
+    {'value': 'blå', 'text': 'Blue', 'disabled': true},
+    {'value': 'gul', 'text': 'Yellow', 'disabled': false}
   ];
   
   radioValues: {value: string, text: string}[] = [
-    {'value': 'gr33n', 'text': 'Green'},
-    {'value': 'r3d', 'text': 'Red'},
-    {'value': 'b1u', 'text': 'Blue'},
-    {'value': 'y3ll0w', 'text': 'Yellow'}
+    {'value': 'grønn', 'text': 'Green'},
+    {'value': 'rød', 'text': 'Red'},
+    {'value': 'blå', 'text': 'Blue'},
+    {'value': 'gul', 'text': 'Yellow'}
   ];
 
   radioSelected = this.radioValues[1].value;

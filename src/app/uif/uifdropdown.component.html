@@ -2,7 +2,8 @@
   <label class="ms-Label">{{uifLabel}}</label>
   <i class="ms-Dropdown-caretDown ms-Icon ms-Icon--ChevronDown"></i>
     <select class="ms-Dropdown-select" (change)="onValueChanged($event.target)">
-    <option *ngFor="let option of uifOptions" [value]="option.value" [selected]="option == uifSelected ? true : false">{{option.text}}</option>
-</select>
+      <option value="-1" disabled *ngIf="uifPlaceholder != ''">{{uifPlaceholder}}</option>
+      <option *ngFor="let option of uifOptions" [value]="option.value" [selected]="option == uifSelected ? true : false">{{option.text}}</option>
+    </select>
 </div>
 
