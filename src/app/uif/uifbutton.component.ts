@@ -9,7 +9,10 @@ declare var fabric: any;
 
 export class UifButtonComponent implements OnInit {
     @Input() uifLabel: string = '';
-    @Input() uifType: string = 'hero';
+    @Input() uifType: string = '';
+    @Input() uifDescription: string = '';
+    buttonBaseClass: string = 'ms-Button';
+    buttonExtendedClass: string = ' ms-Button--';
 
     constructor() { }
 
@@ -20,6 +23,14 @@ export class UifButtonComponent implements OnInit {
                 //Insert event here
             });
         }
+    }
+
+    getCssClass() {
+        var cssClass = this.buttonBaseClass;
+        if(this.uifType != '') {
+            cssClass += this.buttonExtendedClass + this.uifType;
+        }
+        return cssClass;
     }
 
     ngOnInit() { }

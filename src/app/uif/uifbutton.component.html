@@ -1,3 +1,5 @@
-<button [id]="uifId" class="ms-Button">
-  <span class="ms-Button-label">{{uifLabel}}</span> 
+<button [ngClass]="getCssClass()">
+  <span class="ms-Button-icon"><i class="ms-Icon ms-Icon--Add"></i></span> 
+  <span class="ms-Button-label">{{uifLabel}}</span>
+  <span class="ms-Button-description">{{uifDescription}}</span> 
 </button>
