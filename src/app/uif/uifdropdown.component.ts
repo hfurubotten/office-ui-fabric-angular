@@ -25,17 +25,13 @@ export class UifDropdownComponent implements OnInit {
         }
     }
 
-    onValueChanged(event:Event):void {
-        console.log("event data: " + (event.target as HTMLSelectElement).innerHTML);
-        this.uifSelectedValue = (event.target as HTMLSelectElement).value;
+    onValueChanged(target: HTMLSelectElement):void {
+        this.uifSelectedValue = target.value;
         this.uifSelectedValueChange.emit(this.uifSelectedValue);
     }
 
     ngOnInit() {
         this.uifSelected = this.uifOptions.filter(o => o.value == this.uifSelectedValue)[0];
-        this.uifSelectedValue = this.uifOptions.filter(o => o.value == this.uifSelectedValue)[0].value;
-        // console.log("on init: " + this.uifSelected.value + ":" + this.uifSelected.text);
-        // console.log("on init: " + this.uifOptions.filter(o => o.value == this.uifSelectedValue)[0].value);
     }
 
      ngAfterViewInit() {

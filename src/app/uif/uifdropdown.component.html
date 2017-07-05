@@ -1,14 +1,8 @@
 <div class="ms-Dropdown" tabindex="0" [class.is-disabled]="uifDisabled">
   <label class="ms-Label">{{uifLabel}}</label>
   <i class="ms-Dropdown-caretDown ms-Icon ms-Icon--ChevronDown"></i>
-  <!--<select class="ms-Dropdown-select" name="testing" [(ngModel)]="uifSelected" (ngModelChange)="onValueChanged($event)">-->
-    <select class="ms-Dropdown-select" (change)="onValueChanged($event)">
-    <!--<option value="-1" disabled>{{uifPlaceholder}}</option>-->
-    <!--<option *ngFor="let option of uifOptions" ngValue="{{option}}" [selected]="option === uifSelected">{{option.text}}</option>-->
-    <option *ngFor="let option of uifOptions" [ngValue]="option" [selected]="option == uifSelected ? true : false" (onclick)="onValueChanged(option.value)">{{option.text}}</option>
-    <!--<option *ngFor="let option of uifOptions" [ngValue]="option">{{option.text}}: [{{option.value}}]</option>-->
-    <!--<option *ngFor="let option of uifOptions; let i = index" [ngValue]="option" [selected]="i === 2 ? true : false">{{option.text}}</option>-->
+    <select class="ms-Dropdown-select" (change)="onValueChanged($event.target)">
+    <option *ngFor="let option of uifOptions" [value]="option.value" [selected]="option == uifSelected ? true : false">{{option.text}}</option>
 </select>
 </div>
-<p>{{uifSelectedValue}}</p>
 
