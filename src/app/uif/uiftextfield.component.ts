@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-declare var fabric: any;
+declare let fabric: any;
 //Had to modify original source file and remove the namespace, else it would result in "is not a module" error.
 //reference: https://github.com/OfficeDev/Word-Add-in-Angular2-StyleChecker/blob/master/app/shared/office-fabric-component-wrappers/TextField.js
 // import { TextField } from 'office-ui-fabric-js/src/components/TextField/TextField';

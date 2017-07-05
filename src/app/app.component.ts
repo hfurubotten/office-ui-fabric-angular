@@ -13,11 +13,11 @@ export class AppComponent implements OnInit {
   anotherTextFieldValue: string = 'Testing another value';
   
   button1Click() {
-    console.log("button1 clicked!");
+    alert("button1 clicked!");
   }
 
   button2Click() {
-    console.log("button2 clicked!");
+    alert("button2 clicked!");
   }
 
   dropdownValues: {value: string, text: string}[] = [

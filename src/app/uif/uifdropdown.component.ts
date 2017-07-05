@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-declare var fabric: any;
+declare let fabric: any;
 
 @Component({
     moduleId: module.id,

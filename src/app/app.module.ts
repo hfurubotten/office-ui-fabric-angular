@@ -4,15 +4,16 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { UifTextFieldComponent, UifDropdownComponent, UifRadioButtonComponent, UifButtonComponent } from './uif';
+import * as uif from './uif';
 
 @NgModule({
   declarations: [
     AppComponent, 
-    UifTextFieldComponent, 
-    UifDropdownComponent, 
-    UifRadioButtonComponent,
-    UifButtonComponent
+    uif.UifTextFieldComponent, 
+    uif.UifDropdownComponent, 
+    uif.UifRadioButtonComponent,
+    uif.UifButtonComponent,
+    uif.UifCheckBoxComponent
   ],
   imports: [
     BrowserModule,

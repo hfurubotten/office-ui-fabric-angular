@@ -3,26 +3,31 @@
    {{title}}
   </h1>
 </div>
+<h1 class="ms-font-xxl">Checkbox examples:</h1>
+<uif-checkbox [uifLabel]="'Lion'"></uif-checkbox>
+<hr/>
 
 <h1 class="ms-font-xxl">Button examples:</h1>
 <uif-button [uifLabel]="'Click here'" (click)="button1Click()"></uif-button>
 <uif-button [uifLabel]="'Click here too'" [uifType]="'primary'" (click)="button2Click()"></uif-button>
 <uif-button [uifLabel]="'Small button (requires 1.4.0)'" [uifType]="'small'" [uifDisabled]="'true'"></uif-button>
 <br/><br/>
-<uif-button [uifLabel]="'Click here too'" [uifType]="'compound'" [uifDescription]="'Some words about this button'" (click)="button2Click()"></uif-button>
+<uif-button [uifLabel]="'Click here too'" [uifType]="'compound'" [uifDescription]="'Some words about this button'"></uif-button>
 <br/>
 <uif-button [uifLabel]="'Click here too'" [uifType]="'hero'"></uif-button>
+<hr/>
 
 <h1 class="ms-font-xxl">Dropdown examples:</h1>
 <uif-dropdown [uifLabel]="'Soundpicker:'" [uifDisabled]="false" [uifOptions]="dropdownValues" [(uifSelectedValue)]="dropdownSelected" [uifPlaceholder]="dropdownPlaceholder"></uif-dropdown>
 <br/>
 <span class="ms-font-m">Testing dropdown data binding:</span> <input class="ms-font-m" [(ngModel)]="dropdownSelected" />
-
+<hr/>
 
 <h1 class="ms-font-xxl">Radio button examples:</h1>
 <uif-radiobutton [uifLabel]="radioLabel" [uifRequired]="true" [uifId]="'InsertUniqueIdHere'" [uifOptions]="radioValues" [(uifSelectedValue)]="radioSelected"></uif-radiobutton>
 <uif-radiobutton [uifLabel]="radioLabel" [uifRequired]="true" [uifId]="'InsertUniqueIdHere'" [uifOptions]="radioValuesWithDisabled" [(uifSelectedValue)]="radioSelected"></uif-radiobutton>
 <span class="ms-font-m">Testing radio button data binding:</span> <input class="ms-font-m" [(ngModel)]="radioSelected" />
+<hr/>
 
 <h1 class="ms-font-xxl">Textfield examples:</h1>
 <uif-textfield [uifLabel]="'regular textfield:'" [(value)]="textFieldValue"></uif-textfield>
