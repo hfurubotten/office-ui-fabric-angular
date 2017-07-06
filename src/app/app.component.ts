@@ -27,6 +27,8 @@ export class AppComponent implements OnInit {
   ];
   dropdownSelected = this.dropdownValues[1].value;
   dropdownPlaceholder = 'Please select a sound...';
+  dropdownPlaceHolderSelected = '-1';
+  
 
   radioValuesWithDisabled: {value: string, text: string, disabled: boolean}[] = [
     {'value': 'banan', 'text': 'Banana', 'disabled': false},

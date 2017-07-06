@@ -13,19 +13,22 @@ export class UifDropdownComponent implements OnInit {
     @Input() uifOptions: {value: string, text: string}[];
     @Input() uifSelectedValue: string = '';
     @Input() uifPlaceholder: string = '';
+    @Input() uifId: string = '';
     @Output() uifSelectedValueChange:EventEmitter<string> = new EventEmitter<string>();
     uifSelected: {value: string, text: string} = {'value':'', 'text':''};
 
     constructor() { }
 
-    createDropdown() {
-        var DropdownHTMLElements = document.querySelectorAll('.ms-Dropdown');
+    private createDropdown():void {
+        let DropdownHTMLElements = document.querySelectorAll('.ms-Dropdown');
         for (var i = 0; i < DropdownHTMLElements.length; ++i) {
-            new Dropdown(<HTMLElement>DropdownHTMLElements[i]);
+            if(DropdownHTMLElements[i].id == this.uifId) {
+                new Dropdown(<HTMLElement>DropdownHTMLElements[i]);
+            }
         }
     }
 
-    onValueChanged(target: HTMLSelectElement) {
+    private onValueChanged(target: HTMLSelectElement):void {
         this.uifSelectedValue = target.value;
         this.uifSelectedValueChange.emit(this.uifSelectedValue);
     }

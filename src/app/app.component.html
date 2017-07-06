@@ -4,7 +4,7 @@
   </h1>
 </div>
 <h1 class="ms-font-xxl">Checkbox examples:</h1>
-<uif-checkbox [uifLabel]="'Lion'"></uif-checkbox>
+<uif-checkbox [uifLabel]="'New York'" [uifId]="'citypicker'"></uif-checkbox>
 <hr/>
 
 <h1 class="ms-font-xxl">Button examples:</h1>
@@ -18,7 +18,8 @@
 <hr/>
 
 <h1 class="ms-font-xxl">Dropdown examples:</h1>
-<uif-dropdown [uifLabel]="'Soundpicker:'" [uifDisabled]="false" [uifOptions]="dropdownValues" [(uifSelectedValue)]="dropdownSelected" [uifPlaceholder]="dropdownPlaceholder"></uif-dropdown>
+<uif-dropdown [uifId]="'soundpicker'" [uifLabel]="'Soundpicker:'" [uifDisabled]="false" [uifOptions]="dropdownValues" [(uifSelectedValue)]="dropdownSelected"></uif-dropdown>
+<uif-dropdown [uifId]="'placeholdertest'" [uifLabel]="'Testing placeholder:'" [uifDisabled]="false" [uifOptions]="dropdownValues" [(uifSelectedValue)]="dropdownPlaceHolderSelected" [uifPlaceholder]="dropdownPlaceholder"></uif-dropdown>
 <br/>
 <span class="ms-font-m">Testing dropdown data binding:</span> <input class="ms-font-m" [(ngModel)]="dropdownSelected" />
 <hr/>
