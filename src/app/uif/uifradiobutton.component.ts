@@ -1,4 +1,7 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+// import { RadioButton } from 'office-ui-fabric-js/src/components/RadioButton/RadioButton';
+// import { CheckBox } from 'office-ui-fabric-js/src/components/CheckBox/CheckBox';
+// import { ChoiceFieldGroup } from 'office-ui-fabric-js/src/components/ChoiceFieldGroup/ChoiceFieldGroup';
 declare let fabric: any;
 
 @Component({
@@ -19,6 +22,7 @@ export class UifRadioButtonComponent implements OnInit {
     createRadioButtons() {
         var ChoiceFieldGroupElements = document.querySelectorAll(".ms-ChoiceFieldGroup");
         for (var i = 0; i < ChoiceFieldGroupElements.length; i++) {
+            // new ChoiceFieldGroup(<HTMLElement>ChoiceFieldGroupElements[i]);
             new fabric['ChoiceFieldGroup'](ChoiceFieldGroupElements[i]);
         }
     }
