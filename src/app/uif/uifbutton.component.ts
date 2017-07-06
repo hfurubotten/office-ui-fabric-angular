@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-declare let fabric: any;
+import { Button } from 'office-ui-fabric-js/src/components/Button/Button';
 
 @Component({
     moduleId: module.id,
@@ -20,7 +20,7 @@ export class UifButtonComponent implements OnInit {
     createButtons() {
         var ButtonElements = document.querySelectorAll(".ms-Button");
         for (var i = 0; i < ButtonElements.length; i++) {
-            new fabric['Button'](ButtonElements[i], function() {    
+            new Button(ButtonElements[i], function() {    
                 //Insert event here
             });
         }

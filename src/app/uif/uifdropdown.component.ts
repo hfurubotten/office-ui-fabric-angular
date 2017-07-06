@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-declare let fabric: any;
+import { Dropdown } from 'office-ui-fabric-js/src/components/Dropdown/Dropdown';
 
 @Component({
     moduleId: module.id,
@@ -21,7 +21,7 @@ export class UifDropdownComponent implements OnInit {
     createDropdown() {
         var DropdownHTMLElements = document.querySelectorAll('.ms-Dropdown');
         for (var i = 0; i < DropdownHTMLElements.length; ++i) {
-            new fabric['Dropdown'](DropdownHTMLElements[i]);
+            new Dropdown(<HTMLElement>DropdownHTMLElements[i]);
         }
     }
 

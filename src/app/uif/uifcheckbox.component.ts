@@ -1,5 +1,4 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-// declare let fabric: any;
 import { CheckBox } from 'office-ui-fabric-js/src/components/CheckBox/CheckBox';
 
 @Component({
@@ -15,7 +14,6 @@ export class UifCheckBoxComponent implements OnInit {
     createCheckBoxes() {
         var CheckBoxElements = document.querySelectorAll(".ms-CheckBox");
         for (var i = 0; i < CheckBoxElements.length; i++) {
-            // var checkBox = new fabric['CheckBox'](CheckBoxElements[i]);
             var checkBox = new CheckBox(<HTMLElement>CheckBoxElements[i]);
             checkBox.unCheck();
             console.log("toggles...");
