@@ -1,4 +1,4 @@
-<div class="ms-Dropdown" tabindex="0" [class.is-disabled]="uifDisabled">
+<div [id]="uifId" class="ms-Dropdown" tabindex="0" [class.is-disabled]="uifDisabled">
   <label class="ms-Label">{{uifLabel}}</label>
   <i class="ms-Dropdown-caretDown ms-Icon ms-Icon--ChevronDown"></i>
     <select class="ms-Dropdown-select" (change)="onValueChanged($event.target)">
