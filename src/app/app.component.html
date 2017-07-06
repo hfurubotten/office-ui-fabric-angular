@@ -25,8 +25,9 @@
 
 <h1 class="ms-font-xxl">Radio button examples:</h1>
 <uif-radiobutton [uifLabel]="radioLabel" [uifRequired]="true" [uifId]="'InsertUniqueIdHere'" [uifOptions]="radioValues" [(uifSelectedValue)]="radioSelected"></uif-radiobutton>
-<uif-radiobutton [uifLabel]="radioLabel" [uifRequired]="true" [uifId]="'InsertUniqueIdHere'" [uifOptions]="radioValuesWithDisabled" [(uifSelectedValue)]="radioSelected"></uif-radiobutton>
 <span class="ms-font-m">Testing radio button data binding:</span> <input class="ms-font-m" [(ngModel)]="radioSelected" />
+<uif-radiobutton [uifLabel]="'Select fruit:'" [uifRequired]="false" [uifId]="'Fruitpicker'" [uifOptions]="radioValuesWithDisabled" [(uifSelectedValue)]="radioSelectedFruit"></uif-radiobutton>
+<span class="ms-font-m">Testing radio button fruit binding:</span> <input class="ms-font-m" [(ngModel)]="radioSelectedFruit" />
 <hr/>
 
 <h1 class="ms-font-xxl">Textfield examples:</h1>
