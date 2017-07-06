@@ -29,21 +29,22 @@ export class AppComponent implements OnInit {
   dropdownPlaceholder = 'Please select a sound...';
 
   radioValuesWithDisabled: {value: string, text: string, disabled: boolean}[] = [
-    {'value': 'grønn', 'text': 'Green', 'disabled': false},
-    {'value': 'rød', 'text': 'Red', 'disabled': false},
-    {'value': 'blå', 'text': 'Blue', 'disabled': true},
-    {'value': 'gul', 'text': 'Yellow', 'disabled': false}
+    {'value': 'banan', 'text': 'Banana', 'disabled': false},
+    {'value': 'eple', 'text': 'Apple', 'disabled': false},
+    {'value': 'druer', 'text': 'Grapes', 'disabled': true},
+    {'value': 'ananas', 'text': 'Pineapple', 'disabled': false}
   ];
-  
-  radioValues: {value: string, text: string}[] = [
+    radioValues: {value: string, text: string}[] = [
     {'value': 'grønn', 'text': 'Green'},
     {'value': 'rød', 'text': 'Red'},
     {'value': 'blå', 'text': 'Blue'},
     {'value': 'gul', 'text': 'Yellow'}
   ];
 
-  radioSelected = this.radioValues[1].value;
   radioLabel: string = 'Select color:'
+  radioSelected = this.radioValues[1].value;
+  radioSelectedFruit = '';
+  
   
 
   constructor() {}
