@@ -1,19 +1,31 @@
-<Query Kind="Program">
-  <Reference>&lt;RuntimeDirectory&gt;\System.IO.dll</Reference>
-  <Reference>&lt;RuntimeDirectory&gt;\System.Text.RegularExpressions.dll</Reference>
-</Query>
-
+using System;
+using System.IO;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Diagnostics;
+using System.Threading;
+using System.Reflection;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Data;
+using System.Data.SqlClient;
+using System.Data.Linq;
+using System.Data.Linq.SqlClient;
+using System.Transactions;
+using System.Xml;
+using System.Xml.Linq;
+using System.Xml.XPath;
+class UserQuery {
+    static int Main(string[] args) {
+        new UserQuery().Main(); return 0;
+    }
 void Main()
 {
 	var currentDir = Directory.GetCurrentDirectory();
 	var removeNamespace = new Regex("[^//]namespace fabric {");
 	var removeEndBracket = new Regex(@"([^//}]+)}$");
-	
-	
-	//setting directory for debugging:
-		var directoryPath = @"C:\Users\john.holen-tjelta\Dropbox\code\ouifa2";
-		Directory.SetCurrentDirectory(directoryPath);
-		currentDir = Directory.GetCurrentDirectory();
 	
 	var filepaths = new List<string>();
 	filepaths.Add(@"\node_modules\office-ui-fabric-js\src\components\button\Button.ts");
@@ -24,13 +36,14 @@ void Main()
 	
 	foreach (var filepath in filepaths)
 	{
-		var fileContent = File.ReadAllText(currentDir.ToString() + filepath.TrimEnd());
+		var fileContent = File.ReadAllText(currentDir.ToString() + filepaths.FirstOrDefault()).TrimEnd();
 		var fixedContent = removeNamespace.Replace(fileContent, "\n//namespace fabric {");
 		fixedContent = removeEndBracket.Replace(fixedContent, "\n//}");
-		File.WriteAllText(currentDir.ToString() + filepath, fixedContent);
-		fixedContent.Dump();
+		File.WriteAllText(currentDir.ToString() + filepaths.FirstOrDefault(), fixedContent);
 	}
 
 }
 
 // Define other methods and classes here
+}
+
