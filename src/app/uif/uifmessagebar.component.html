@@ -1,0 +1,9 @@
+<div [ngClass]="getCssClass()">
+  <div class="ms-MessageBar-content">
+    <div class="ms-MessageBar-icon">
+      <i [ngClass]="getCssIcon()"></i>
+    </div>
+    <div class="ms-MessageBar-text" [innerHTML]="uifContent">
+    </div>
+  </div>
+</div>
