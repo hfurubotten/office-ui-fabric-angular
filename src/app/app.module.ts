@@ -13,7 +13,8 @@ import * as uif from './uif';
     uif.UifDropdownComponent, 
     uif.UifRadioButtonComponent,
     uif.UifButtonComponent,
-    uif.UifCheckBoxComponent
+    uif.UifCheckBoxComponent,
+    uif.UifMessageBarComponent
   ],
   imports: [
     BrowserModule,
