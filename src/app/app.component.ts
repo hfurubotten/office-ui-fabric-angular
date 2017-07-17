@@ -47,8 +47,8 @@ export class AppComponent implements OnInit {
   radioSelected = this.radioValues[1].value;
   radioSelectedFruit = '';
   
+  messageBarText = 'Some random, medium length text for the message bar here. Feel free to add <i>html</i> formatting as well';
   
-
   constructor() {}
 
   ngOnInit() {

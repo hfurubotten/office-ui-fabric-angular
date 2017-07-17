@@ -3,6 +3,14 @@
    {{title}}
   </h1>
 </div>
+
+<h1 class="ms-font-xxl">Message bar examples:</h1>
+<uif-message-bar [uifContent]="messageBarText" [uifLinkLabel]="'Click me'" [uifLinkURL]="'https://google.com'" [uifType]="'error'"></uif-message-bar>
+<uif-message-bar [uifContent]="messageBarText" [uifLinkLabel]="'Click me'" [uifLinkURL]="'https://google.com'" [uifType]="'blocked'"></uif-message-bar>
+<uif-message-bar [uifContent]="messageBarText" [uifLinkLabel]="'Click me'" [uifLinkURL]="'https://google.com'" [uifType]="'warning'"></uif-message-bar>
+<uif-message-bar [uifContent]="messageBarText" [uifLinkLabel]="'Click me'" [uifLinkURL]="'https://google.com'" [uifType]="'severeWarning'"></uif-message-bar>
+<hr/>
+
 <h1 class="ms-font-xxl">Checkbox examples:</h1>
 <uif-checkbox [uifLabel]="'New York'" [uifId]="'citypicker'"></uif-checkbox>
 <hr/>
