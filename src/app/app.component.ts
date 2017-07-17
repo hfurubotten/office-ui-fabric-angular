@@ -20,6 +20,18 @@ export class AppComponent implements OnInit {
     alert("button2 clicked!");
   }
 
+  messageBannerActionButtonClick() {
+    alert("message banner button clicked!");
+  }
+
+  messageBannerActionButton2Click() {
+    alert("message banner button #2 clicked!");
+  }
+
+  messageBannerCloseButtonClick() {
+    alert("Banner close button clicked!");
+  }
+
   dropdownValues: {value: string, text: string}[] = [
     {'value': 'mø', 'text': 'moo'},
     {'value': 'mjau', 'text': 'meow'},
@@ -47,7 +59,7 @@ export class AppComponent implements OnInit {
   radioSelected = this.radioValues[1].value;
   radioSelectedFruit = '';
   
-  messageBarText = 'Some random, medium length text for the message bar here. Feel free to add <i>html</i> formatting as well';
+  messageBarText = 'Some random, medium length text for the message bar here. Feel free to add <i>html</i> formatting as well. Some random, medium length text for the message bar here. Feel free to add <i>html</i> formatting as well';
   
   constructor() {}
 
