@@ -21,6 +21,7 @@ void Main()
 	filepaths.Add(@"\node_modules\office-ui-fabric-js\src\components\dropdown\Dropdown.ts");
 	filepaths.Add(@"\node_modules\office-ui-fabric-js\src\components\radiobutton\radiobutton.ts");
 	filepaths.Add(@"\node_modules\office-ui-fabric-js\src\components\textfield\TextField.ts");
+	filepaths.Add(@"\node_modules\office-ui-fabric-js\src\components\messagebanner\MessageBanner.ts");
 	
 	foreach (var filepath in filepaths)
 	{

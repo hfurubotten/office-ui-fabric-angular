@@ -1,0 +1,19 @@
+<div [id]="uifId" class="ms-MessageBanner" [hidden]="uifHidden">
+  <div class="ms-MessageBanner-content">
+    <div class="ms-MessageBanner-text">
+      <div class="ms-MessageBanner-clipper" [innerHTML]="uifContent">
+      </div>
+    </div>
+    <button class="ms-MessageBanner-expand">
+      <i class="ms-Icon ms-Icon--ChevronDown"></i>
+    </button>
+    <div class="ms-MessageBanner-action">
+      <button class="ms-Button ms-Button--primary" (click)="actionButtonClick()">
+        <span class="ms-Button-label">{{uifActionLabel}}</span> 
+      </button>
+    </div>
+  </div>
+  <button class="ms-MessageBanner-close" (click)="closeButtonClick()">
+    <i class="ms-Icon ms-Icon--Clear"></i>
+  </button>
+</div>

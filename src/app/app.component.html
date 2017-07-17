@@ -3,6 +3,12 @@
    {{title}}
   </h1>
 </div>
+  
+<h1 class="ms-font-xxl">Message banner examples:</h1>
+<uif-message-banner [uifId]="'banner1'" [uifHidden]="false" [uifContent]="messageBarText" [uifActionLabel]="'Button text'" (uifActionButtonClicked)="messageBannerActionButtonClick()" (uifCloseButtonClicked)="messageBannerCloseButtonClick()"></uif-message-banner>
+<br/>
+<uif-message-banner [uifId]="'banner2'" [uifHidden]="false" [uifContent]="messageBarText" [uifActionLabel]="'Button 2 text'" (uifActionButtonClicked)="messageBannerActionButton2Click()"></uif-message-banner>
+<hr/>
 
 <h1 class="ms-font-xxl">Message bar examples:</h1>
 <uif-message-bar [uifContent]="messageBarText" [uifLinkLabel]="'Click me'" [uifLinkURL]="'https://google.com'"></uif-message-bar>
