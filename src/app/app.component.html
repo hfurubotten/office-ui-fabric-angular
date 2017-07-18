@@ -4,6 +4,11 @@
   </h1>
 </div>
 
+<h1 class="ms-font-xxl">Overlay example:</h1>
+<uif-button [uifLabel]="'Click here to show/hide overlay'" [uifType]="'primary'" (click)="overlayButtonClicked()"></uif-button>
+<uif-overlay [uifId]="'overlay1'" [uifDark]="true" [(uifShow)]="displayOverlay"></uif-overlay>
+<hr/>
+
 <h1 class="ms-font-xxl">Link examples:</h1>
 <uif-link [uifUrl]="'http://google.com'" [uifTitle]="'This is the hover text'">Example link</uif-link>
 <hr/>

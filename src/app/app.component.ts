@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
   title: string = 'Office UI Fabric test component';
   textFieldValue: string = 'Testing text field';
   anotherTextFieldValue: string = 'Testing another value';
+  displayOverlay: boolean = false;
   
   button1Click() {
     alert("button1 clicked!");
@@ -30,6 +31,10 @@ export class AppComponent implements OnInit {
 
   messageBannerCloseButtonClick() {
     alert("Banner close button clicked!");
+  }
+
+  overlayButtonClicked() {
+    this.displayOverlay = this.displayOverlay == false ? true : false;
   }
 
   dropdownValues: {value: string, text: string}[] = [
