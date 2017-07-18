@@ -11,8 +11,8 @@ export class UifMessageBannerComponent implements OnInit {
     @Input() uifContent: string = '';
     @Input() uifAction: string = '';
     @Input() uifId: string = '';
-    @Output() uifActionButtonClicked:EventEmitter<boolean> = new EventEmitter<boolean>();
-    @Output() uifCloseButtonClicked:EventEmitter<boolean> = new EventEmitter<boolean>();
+    @Output() uifActionButtonClicked:EventEmitter<any> = new EventEmitter<any>();
+    @Output() uifCloseButtonClicked:EventEmitter<any> = new EventEmitter<any>();
     messageBanner: MessageBanner;
 
     constructor() { }
@@ -27,11 +27,11 @@ export class UifMessageBannerComponent implements OnInit {
     }
 
     actionButtonClick():void {
-        this.uifActionButtonClicked.emit(true);
+        this.uifActionButtonClicked.emit();
     }
 
     closeButtonClick():void {
-        this.uifCloseButtonClicked.emit(true);
+        this.uifCloseButtonClicked.emit();
     }
 
     ngOnInit() {}
