@@ -4,8 +4,18 @@
   </h1>
 </div>
 
+<h1 class="ms-font-xxl">Panel example:</h1>
+<uif-panel [uifId]="'testPanel'" [uifPanelHeader]="'Panel header here!'" (uifCloseButtonClicked)="panelCloseButtonClick()">
+  <br/>
+  <p>Adding some content into the panel...</p>
+  <uif-button [uifLabel]="'Click here to show/hide overlay'" [uifType]="'primary'" (click)="overlayButtonClicked()"></uif-button>
+</uif-panel>
+
+<hr/>
+
 <h1 class="ms-font-xxl">Overlay example:</h1>
 <uif-button [uifLabel]="'Click here to show/hide overlay'" [uifType]="'primary'" (click)="overlayButtonClicked()"></uif-button>
+
 <uif-overlay [uifId]="'overlay1'" [uifDark]="true" [(uifShow)]="displayOverlay"></uif-overlay>
 <hr/>
 

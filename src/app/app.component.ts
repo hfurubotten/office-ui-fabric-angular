@@ -33,6 +33,10 @@ export class AppComponent implements OnInit {
     alert("Banner close button clicked!");
   }
 
+  panelCloseButtonClick() {
+    alert("Panel close button clicked!");
+  }
+
   overlayButtonClicked() {
     this.displayOverlay = this.displayOverlay == false ? true : false;
   }

@@ -1,16 +1,19 @@
-<div class="ms-PanelExample">
+<!-- <div class="ms-PanelExample">
   <button class="ms-Button">
     <span class="ms-Button-label">Open Panel</span> 
-  </button>
+  </button> -->
+<div [id]="uifId">
   <div class="ms-Panel">
-    <button class="ms-Panel-closeButton ms-PanelAction-close">
+    <button class="ms-Panel-closeButton ms-PanelAction-close" (click)="closeButtonClick()">
       <i class="ms-Panel-closeIcon ms-Icon ms-Icon--Cancel"></i>
     </button>
     <div class="ms-Panel-contentInner">
-      <p class="ms-Panel-headerText">Panel</p>
+      <p class="ms-Panel-headerText">{{uifPanelHeader}}</p>
       <div class="ms-Panel-content">
-        <span class="ms-font-m">Content goes here</span> 
+        <span class="ms-font-m">
+          <ng-content></ng-content>
+        </span> 
       </div>
     </div>
   </div>
-</div>
+ </div> 
