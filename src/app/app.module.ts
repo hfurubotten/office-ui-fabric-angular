@@ -16,7 +16,8 @@ import * as uif from './uif';
     uif.UifCheckBoxComponent,
     uif.UifMessageBarComponent,
     uif.UifMessageBannerComponent,
-    uif.UifLabelComponent
+    uif.UifLabelComponent,
+    uif.UifLinkComponent
   ],
   imports: [
     BrowserModule,
