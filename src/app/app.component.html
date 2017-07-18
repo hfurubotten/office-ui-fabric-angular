@@ -3,7 +3,13 @@
    {{title}}
   </h1>
 </div>
-  
+
+<h1 class="ms-font-xxl">Label examples:</h1>
+<uif-label>Insert name here:</uif-label>
+<uif-label [uifRequired]="true">This label is required:</uif-label>
+<uif-label [uifDisabled]="true">This label is disabled:</uif-label>
+<hr/>
+
 <h1 class="ms-font-xxl">Message banner examples:</h1>
 <uif-message-banner [uifId]="'banner1'" [uifHidden]="false" [uifContent]="messageBarText" [uifActionLabel]="'Button text'" (uifActionButtonClicked)="messageBannerActionButtonClick()" (uifCloseButtonClicked)="messageBannerCloseButtonClick()"></uif-message-banner>
 <br/>
