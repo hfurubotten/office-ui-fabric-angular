@@ -22,7 +22,7 @@
 <br/>
 
 <uif-button [uifLabel]="'Click here to show persistent panel'" [uifType]="'primary'" (click)="persistentPanelButtonClick()"></uif-button>
-<uif-panel [uifId]="'persistentPanel'" [uifPersistent]="true" [uifDarkOverlay]="false" [uifPanelHeader]="'Persistent'" [uifPanelSize]="'lg'" (uifCloseButtonClicked)="panelCloseButtonClick()" [uifPositionLeft]="true" [uifOpen]="displayPersistentPanel">
+<uif-panel [uifId]="'persistentPanel'" [uifPersistent]="true" [uifDarkOverlay]="true" [uifPanelHeader]="'Persistent'" [uifPanelSize]="'md'" (uifCloseButtonClicked)="persistentPanelCloseButtonClick()" [uifPositionLeft]="true" [uifOpen]="displayPersistentPanel">
 <p>Have to X this to make it go away. Clicking the overlay won't.</p>
 </uif-panel>
 <hr/>

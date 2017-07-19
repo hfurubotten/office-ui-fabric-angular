@@ -37,7 +37,6 @@ export class UifPanelComponent implements OnInit {
     }
 
     private initializePanel():void {
-        console.log('this panel should have dark overlay: ' + this.uifDarkOverlay);
         this.panel = new fabric['Panel'](this.panelElement);
         this.handlePersistence();
     }
@@ -46,9 +45,7 @@ export class UifPanelComponent implements OnInit {
     private handlePersistence() {
         if(this.uifPersistent) {
             this.panel.panelHost.overlay.remove();
-            console.log('this is persistent.');
         } else {
-            console.log('overlay clickable');
             this.panel.panelHost.overlay.overlayElement.onclick = () => this.overlayClick();
 
             if(this.uifDarkOverlay) {
@@ -68,7 +65,6 @@ export class UifPanelComponent implements OnInit {
     }
 
     closeButtonClick():void {
-        this.uifOpen = false;
         this.uifCloseButtonClicked.emit();
     }
 

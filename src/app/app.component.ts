@@ -47,7 +47,6 @@ export class AppComponent implements OnInit {
 
   persistentPanelCloseButtonClick() {
     this.displayPersistentPanel = false;
-    console.log("close button clicked");
   }
 
   panelCloseButtonClick() {
