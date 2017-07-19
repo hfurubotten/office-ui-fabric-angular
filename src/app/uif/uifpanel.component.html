@@ -1,9 +1,5 @@
-<!-- <div class="ms-PanelExample">
-  <button class="ms-Button">
-    <span class="ms-Button-label">Open Panel</span> 
-  </button> -->
 <div [id]="uifId">
-  <div class="ms-Panel">
+  <div class="ms-Panel" [class.ms-Panel--left]="uifPositionLeft">
     <button class="ms-Panel-closeButton ms-PanelAction-close" (click)="closeButtonClick()">
       <i class="ms-Panel-closeIcon ms-Icon ms-Icon--Cancel"></i>
     </button>
@@ -11,6 +7,7 @@
       <p class="ms-Panel-headerText">{{uifPanelHeader}}</p>
       <div class="ms-Panel-content">
         <span class="ms-font-m">
+          <p>dismisstest</p>
           <ng-content></ng-content>
         </span> 
       </div>

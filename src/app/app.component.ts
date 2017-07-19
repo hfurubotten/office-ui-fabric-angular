@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
   textFieldValue: string = 'Testing text field';
   anotherTextFieldValue: string = 'Testing another value';
   displayOverlay: boolean = false;
+  displayPanel: boolean = false;
   
   button1Click() {
     alert("button1 clicked!");
@@ -39,6 +40,10 @@ export class AppComponent implements OnInit {
 
   overlayButtonClicked() {
     this.displayOverlay = this.displayOverlay == false ? true : false;
+  }
+
+  panelButtonClick() {
+    this.displayPanel = this.displayPanel == false ? true : false;
   }
 
   dropdownValues: {value: string, text: string}[] = [

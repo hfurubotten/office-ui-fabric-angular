@@ -9,25 +9,49 @@ declare let fabric: any;
 export class UifPanelComponent implements OnInit {
     @Input() uifId: string = '';
     @Input() uifPanelHeader: string = '';
+    @Input() uifOpen: boolean = false;
+    @Input() uifPositionLeft: boolean = false;
+    @Input() uifPanelSize: string = '';
     @Output() uifCloseButtonClicked:EventEmitter<any> = new EventEmitter<any>();
+    panelElement: Element;
     panel: any;
     constructor() { }
 
     private createPanel():void {
         if(this.uifId != null) {
             var panelContainer = document.getElementById(this.uifId);
-            var panelElement = panelContainer.querySelector(".ms-Panel");
-            this.panel = new fabric['Panel'](panelElement);
+            this.panelElement = panelContainer.querySelector(".ms-Panel");
+            this.togglePanel();
         }
+    }
+    
+    private togglePanel():void {
+        if(this.uifOpen) {
+            this.initializePanel();
+        } else {
+            if(this.panel != null) {
+                this.panel.dismiss();
+            }
+        }
+    }
+
+    private initializePanel():void {
+        console.log("initializing panel!");
+        this.panel = new fabric['Panel'](this.panelElement);
     }
 
     closeButtonClick():void {
         this.uifCloseButtonClicked.emit();
     }
 
-    ngOnInit() { }
+    ngOnChanges(changes: any) {
+
+     }
 
     ngAfterViewInit() {
         this.createPanel();        
     }
+
+    ngOnInit() { }
+
 }
