@@ -16,19 +16,20 @@
     <li>Xtra Large: <b>xl</b></li>
     <li>Xtraxtra Large: <b>xxl</b></li>
   </ul>
-  <uif-button [uifLabel]="'Click here to show/hide overlay'" [uifType]="'primary'" (click)="overlayButtonClicked()"></uif-button>
 </uif-panel>
 
 <hr/>
 
 <h1 class="ms-font-xxl">Overlay example:</h1>
-<uif-button [uifLabel]="'Click here to show/hide overlay'" [uifType]="'primary'" (click)="overlayButtonClicked()"></uif-button>
-
-<uif-overlay [uifId]="'overlay1'" [uifDark]="true" [(uifShow)]="displayOverlay" (uifClick)="overlayClicked()"></uif-overlay>
+<uif-button [uifLabel]="'Click here to show dark overlay'" [uifType]="'primary'" (click)="darkOverlayButtonClick()"></uif-button> 
+<uif-overlay [uifId]="'darkOverlay'" [uifDark]="true" [(uifShow)]="displayDarkOverlay" (uifClick)="overlayClicked()"></uif-overlay>
+<br/>
+<uif-button [uifLabel]="'Click here to show light overlay'" [uifType]="'primary'" (click)="lightOverlayButtonClick()"></uif-button>
+<uif-overlay [uifId]="'lightOverlay'" [uifDark]="false" [(uifShow)]="displayLightOverlay" (uifClick)="overlayLightClicked()"></uif-overlay> 
 <hr/>
 
 <h1 class="ms-font-xxl">Link examples:</h1>
-<uif-link [uifUrl]="'http://google.com'" [uifTitle]="'This is the hover text'">Example link</uif-link>
+<span class="ms-font-m">Some text here, followed by an example link: <uif-link [uifUrl]="'http://google.com'" [uifTitle]="'This is the hover text'">Example link</uif-link>...</span>
 <hr/>
 
 <h1 class="ms-font-xxl">Label examples:</h1>
