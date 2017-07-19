@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 //Didn't import Overlay module because commenting the fabric namespace breaks PanelHost
 declare let fabric: any;
 
@@ -6,22 +6,20 @@ declare let fabric: any;
     selector: 'uif-overlay',
     templateUrl: './uifoverlay.component.html'
 })
-export class UifOverlayComponent implements OnInit {
+export class UifOverlayComponent {
     @Input() uifId: string = '';
     @Input() uifDark: boolean = false;
     @Input() uifShow: boolean = false;
-    overlay: any;
+    @Output() uifClick: EventEmitter<any> = new EventEmitter<any>();
+    private overlay: fabric.Overlay;
+    private visible: boolean = false;
 
     constructor() { }
 
-    private createOverlay():void {
-        var OverlayContainers = document.querySelectorAll(".ms-OverlayContainer");
-        for (var i = 0; i < OverlayContainers.length; i++) {
-            if(OverlayContainers[i].id == this.uifId) {
-                var OverlayComponent = OverlayContainers[i].querySelector(".ms-Overlay");
-                this.overlay = new fabric['Overlay'](OverlayComponent);
-            }
-        }
+    private initialize():void {
+        var overlayContainer = document.getElementById(this.uifId);
+        var overlayElement = overlayContainer.querySelector(".ms-Overlay");
+        this.overlay = new fabric['Overlay'](overlayElement);
     }
 
     private showOverlay():void {
@@ -34,17 +32,19 @@ export class UifOverlayComponent implements OnInit {
         }
     }
 
+    private overlayClick():void {
+        console.log("overlay was clicked!");
+        this.uifClick.emit();
+    }
+
     ngOnChanges(changes: any) {
-        this.showOverlay();                  
+        this.showOverlay();
+        console.log("overlay visible - show: " + this.uifShow);
      }
 
      ngAfterViewInit() {
-        this.createOverlay();
+        this.initialize();
         this.showOverlay();
-     }
-
-    ngOnInit() {
-
      }
      
 }

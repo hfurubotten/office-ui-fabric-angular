@@ -35,6 +35,7 @@ export class AppComponent implements OnInit {
   }
 
   panelCloseButtonClick() {
+    this.displayPanel = false;
     alert("Panel close button clicked!");
   }
 
@@ -44,6 +45,11 @@ export class AppComponent implements OnInit {
 
   panelButtonClick() {
     this.displayPanel = this.displayPanel == false ? true : false;
+  }
+
+  overlayClicked() {
+    this.displayOverlay = false;
+    alert("Overlay has been clicked!");
   }
 
   dropdownValues: {value: string, text: string}[] = [
