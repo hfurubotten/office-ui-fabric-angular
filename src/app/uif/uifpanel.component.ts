@@ -1,20 +1,21 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 //Didn't import Panel module because of fabric namespace dependencies
-declare let fabric: any;
 
 @Component({
     selector: 'uif-panel',
     templateUrl: './uifpanel.component.html'
 })
-export class UifPanelComponent implements OnInit {
+export class UifPanelComponent {
     @Input() uifId: string = '';
     @Input() uifPanelHeader: string = '';
     @Input() uifOpen: boolean = false;
     @Input() uifPositionLeft: boolean = false;
     @Input() uifPanelSize: string = '';
     @Output() uifCloseButtonClicked:EventEmitter<any> = new EventEmitter<any>();
-    panelElement: Element;
-    panel: any;
+    private panelSizeBaseClass: string = 'ms-Panel--';
+    private panelElement: Element;
+    private panel: fabric.Panel;
+
     constructor() { }
 
     private createPanel():void {
@@ -35,7 +36,12 @@ export class UifPanelComponent implements OnInit {
         this.panel = new fabric['Panel'](this.panelElement);
     }
 
-    closeButtonClick():void {
+    private getPanelSize():string {
+        return this.panelSizeBaseClass + this.uifPanelSize;
+    }
+
+    private closeButtonClick():void {
+        this.uifOpen = false;
         this.uifCloseButtonClicked.emit();
     }
 
@@ -46,7 +52,5 @@ export class UifPanelComponent implements OnInit {
     ngAfterViewInit() {
         this.createPanel();        
     }
-
-    ngOnInit() { }
 
 }
