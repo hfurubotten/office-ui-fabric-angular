@@ -1,18 +1,20 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'uif-panel',
     templateUrl: './uifpanel.component.html'
 })
-export class UifPanelComponent {
+export class UifPanelComponent implements OnInit {
     @Input() uifId: string = '';
     @Input() uifPanelHeader: string = '';
     @Input() uifOpen: boolean = false;
     @Input() uifPositionLeft: boolean = false;
     @Input() uifPanelSize: string = '';
     @Input() uifPersistent: boolean = false;
+    @Input() uifDarkOverlay: boolean = false;
     @Output() uifCloseButtonClicked: EventEmitter<any> = new EventEmitter<any>();
     @Output() uifOverlayClicked: EventEmitter<any> = new EventEmitter<any>();
+    panelId: string;
     private panelSizeBaseClass: string = 'ms-Panel--';
     private panelElement: Element;
     private panel: fabric.Panel;
@@ -35,10 +37,12 @@ export class UifPanelComponent {
     }
 
     private initializePanel():void {
+        console.log('this panel should have dark overlay: ' + this.uifDarkOverlay);
         this.panel = new fabric['Panel'](this.panelElement);
         this.handlePersistence();
     }
 
+    //todo: needs refactoring:
     private handlePersistence() {
         if(this.uifPersistent) {
             this.panel.panelHost.overlay.remove();
@@ -46,7 +50,11 @@ export class UifPanelComponent {
         } else {
             console.log('overlay clickable');
             this.panel.panelHost.overlay.overlayElement.onclick = () => this.overlayClick();
-            this.panel.panelHost.overlay.overlayElement.classList.add('ms-Overlay--dark');
+
+            if(this.uifDarkOverlay) {
+                this.panel.panelHost.overlay.overlayElement.classList.add('ms-Overlay--dark');
+            }
+            
         }
     }
 
@@ -72,4 +80,7 @@ export class UifPanelComponent {
         this.createPanel();        
     }
 
+    ngOnInit() {
+        this.panelId = this.uifId + 'Overlay';
+    }
 }

@@ -1,5 +1,5 @@
 <div [id]="uifId">
-  <!-- <uif-overlay uifId="PanelOverlay" [uifPersistent]="true" [uifDark]="true" [uifShow]="uifOpen" (uifClick)="overlayClick()"></uif-overlay>  -->
+  <uif-overlay [uifId]="panelId" [uifPersistent]="true" [uifDark]="uifDarkOverlay" [uifShow]="uifOpen && uifPersistent" (uifClick)="overlayClick()"></uif-overlay>  
   <div class="ms-Panel" [ngClass]="getPanelSize()" [class.ms-Panel--left]="uifPositionLeft">
     <button class="ms-Panel-closeButton ms-PanelAction-close" (click)="closeButtonClick()">
       <i class="ms-Panel-closeIcon ms-Icon ms-Icon--Cancel"></i>
