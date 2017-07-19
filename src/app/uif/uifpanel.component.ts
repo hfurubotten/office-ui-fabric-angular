@@ -28,15 +28,10 @@ export class UifPanelComponent implements OnInit {
     private togglePanel():void {
         if(this.uifOpen) {
             this.initializePanel();
-        } else {
-            if(this.panel != null) {
-                this.panel.dismiss();
-            }
         }
     }
 
     private initializePanel():void {
-        console.log("initializing panel!");
         this.panel = new fabric['Panel'](this.panelElement);
     }
 
@@ -45,7 +40,7 @@ export class UifPanelComponent implements OnInit {
     }
 
     ngOnChanges(changes: any) {
-
+        this.togglePanel();
      }
 
     ngAfterViewInit() {
