@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
   displayLightOverlay: boolean = false;
   displayPersistentOverlay: boolean = false;
   displayPanel: boolean = false;
+  displayPersistentPanel: boolean = false;
   
   button1Click() {
     alert("button1 clicked!");
@@ -36,9 +37,27 @@ export class AppComponent implements OnInit {
     alert("Banner close button clicked!");
   }
 
+  panelButtonClick() {
+    this.displayPanel = this.displayPanel == false ? true : false;
+  }
+
+  persistentPanelButtonClick() {
+    this.displayPersistentPanel = true;
+  }
+
+  persistentPanelCloseButtonClick() {
+    this.displayPersistentPanel = false;
+    console.log("close button clicked");
+  }
+
   panelCloseButtonClick() {
     this.displayPanel = false;
-    alert("Panel close button clicked!");
+    console.log("Panel close button clicked!");
+  }
+
+  panelOverlayClick() {
+    this.displayPanel = false;
+    console.log("Panel overlay clicked!");
   }
 
   darkOverlayButtonClick() {
@@ -51,10 +70,6 @@ export class AppComponent implements OnInit {
 
   persistentOverlayButtonClick() {
     this.displayPersistentOverlay = true;
-  }
-
-  panelButtonClick() {
-    this.displayPanel = this.displayPanel == false ? true : false;
   }
 
   overlayClicked() {

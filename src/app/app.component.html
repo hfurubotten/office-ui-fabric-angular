@@ -5,8 +5,9 @@
 </div>
 
 <h1 class="ms-font-xxl">Panel example:</h1>
-<uif-button [uifLabel]="'Click here to show/hide panel'" [uifType]="'primary'" (click)="panelButtonClick()"></uif-button>
-<uif-panel [uifId]="'testPanel'" [uifPanelHeader]="'Panel header here!'" [uifPanelSize]="'lg'" (uifCloseButtonClicked)="panelCloseButtonClick()" [uifPositionLeft]="false" [uifOpen]="displayPanel">
+
+<uif-button [uifLabel]="'Click here to show panel'" [uifType]="'primary'" (click)="panelButtonClick()"></uif-button>
+<uif-panel [uifId]="'lightPanel'" [uifPanelHeader]="'Panel header here!'" [uifPanelSize]="'lg'" (uifCloseButtonClicked)="panelCloseButtonClick()" (uifOverlayClicked)="panelOverlayClick()" [uifPositionLeft]="false" [uifOpen]="displayPanel">
   <br/>
   <p>Available panel sizes:</p>
   <ul>
@@ -18,6 +19,12 @@
   </ul>
 </uif-panel>
 
+<br/>
+
+<uif-button [uifLabel]="'Click here to show persistent panel'" [uifType]="'primary'" (click)="persistentPanelButtonClick()"></uif-button>
+<uif-panel [uifId]="'persistentPanel'" [uifPersistent]="true" [uifPanelHeader]="'Persistent'" [uifPanelSize]="'lg'" (uifCloseButtonClicked)="panelCloseButtonClick()" [uifPositionLeft]="true" [uifOpen]="displayPersistentPanel">
+<p>Have to X this to make it go away. Clicking the overlay won't.</p>
+</uif-panel>
 <hr/>
 
 <h1 class="ms-font-xxl">Overlay example:</h1>
