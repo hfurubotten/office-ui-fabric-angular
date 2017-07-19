@@ -26,6 +26,10 @@
 <br/>
 <uif-button [uifLabel]="'Click here to show light overlay'" [uifType]="'primary'" (click)="lightOverlayButtonClick()"></uif-button>
 <uif-overlay [uifId]="'lightOverlay'" [uifDark]="false" [(uifShow)]="displayLightOverlay" (uifClick)="overlayLightClicked()"></uif-overlay> 
+<br/>
+<uif-button [uifLabel]="'Click here to show persistent overlay'" [uifType]="'primary'" (click)="persistentOverlayButtonClick()"></uif-button>
+<uif-overlay [uifId]="'persistentOverlay'" [uifDark]="true" [uifPersistent]="true" [(uifShow)]="displayPersistentOverlay" (uifClick)="overlayPersistentClicked()"></uif-overlay> 
+
 <hr/>
 
 <h1 class="ms-font-xxl">Link examples:</h1>

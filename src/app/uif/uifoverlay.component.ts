@@ -1,6 +1,4 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-//Didn't import Overlay module because commenting the fabric namespace breaks PanelHost
-declare let fabric: any;
 
 @Component({
     selector: 'uif-overlay',
@@ -10,6 +8,7 @@ export class UifOverlayComponent {
     @Input() uifId: string = '';
     @Input() uifDark: boolean = false;
     @Input() uifShow: boolean = false;
+    @Input() uifPersistent: boolean = false;
     @Output() uifClick: EventEmitter<any> = new EventEmitter<any>();
     private overlay: fabric.Overlay;
     private visible: boolean = false;
@@ -19,7 +18,7 @@ export class UifOverlayComponent {
     private initialize():void {
         var overlayContainer = document.getElementById(this.uifId);
         var overlayElement = overlayContainer.querySelector(".ms-Overlay");
-        this.overlay = new fabric['Overlay'](overlayElement);
+        this.overlay = new fabric['Overlay'](<HTMLElement>overlayElement);
     }
 
     private showOverlay():void {
@@ -33,13 +32,20 @@ export class UifOverlayComponent {
     }
 
     private overlayClick():void {
-        console.log("overlay was clicked!");
+        this.handlePersistence();
         this.uifClick.emit();
+    }
+
+    private handlePersistence():void {
+        if(this.uifPersistent) {
+            this.showOverlay();
+        } else {
+            this.uifShow = false;
+        }
     }
 
     ngOnChanges(changes: any) {
         this.showOverlay();
-        console.log("overlay visible - show: " + this.uifShow);
      }
 
      ngAfterViewInit() {

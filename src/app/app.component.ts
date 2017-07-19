@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   anotherTextFieldValue: string = 'Testing another value';
   displayDarkOverlay: boolean = false;
   displayLightOverlay: boolean = false;
+  displayPersistentOverlay: boolean = false;
   displayPanel: boolean = false;
   
   button1Click() {
@@ -48,6 +49,10 @@ export class AppComponent implements OnInit {
     this.displayLightOverlay = true;
   }
 
+  persistentOverlayButtonClick() {
+    this.displayPersistentOverlay = true;
+  }
+
   panelButtonClick() {
     this.displayPanel = this.displayPanel == false ? true : false;
   }
@@ -57,8 +62,12 @@ export class AppComponent implements OnInit {
   }
 
   overlayLightClicked() {
-    this.displayLightOverlay = false;
+    // this.displayLightOverlay = false;
     alert("light overlay clicked...");
+  }
+
+  overlayPersistentClicked() {
+    alert("persistent overlay clicked...");
   }
 
   dropdownValues: {value: string, text: string}[] = [
