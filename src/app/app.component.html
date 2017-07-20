@@ -4,13 +4,43 @@
   </h1>
 </div>
 
+<h1 class="ms-font-xxl">Panel example:</h1>
+
+<uif-button [uifLabel]="'Click here to show panel'" [uifType]="'primary'" (click)="panelButtonClick()"></uif-button>
+<uif-panel [uifId]="'lightPanel'" [uifPanelHeader]="'Panel header here!'" [uifPanelSize]="'lg'" [uifDarkOverlay]="true" (uifCloseButtonClicked)="panelCloseButtonClick()" (uifOverlayClicked)="panelOverlayClick()" [uifPositionLeft]="false" [uifOpen]="displayPanel">
+  <br/>
+  <p>Available panel sizes:</p>
+  <ul>
+    <li>Small (default): <b>sm</b></li>
+    <li>Medium: <b>md</b></li>
+    <li>Large: <b>lg</b></li>
+    <li>Xtra Large: <b>xl</b></li>
+    <li>Xtraxtra Large: <b>xxl</b></li>
+  </ul>
+</uif-panel>
+
+<br/>
+
+<uif-button [uifLabel]="'Click here to show persistent panel'" [uifType]="'primary'" (click)="persistentPanelButtonClick()"></uif-button>
+<uif-panel [uifId]="'persistentPanel'" [uifPersistent]="true" [uifDarkOverlay]="true" [uifPanelHeader]="'Persistent'" [uifPanelSize]="'md'" (uifCloseButtonClicked)="persistentPanelCloseButtonClick()" [uifPositionLeft]="true" [uifOpen]="displayPersistentPanel">
+<p>Have to X this to make it go away. Clicking the overlay won't.</p>
+</uif-panel>
+<hr/>
+
 <h1 class="ms-font-xxl">Overlay example:</h1>
-<uif-button [uifLabel]="'Click here to show/hide overlay'" [uifType]="'primary'" (click)="overlayButtonClicked()"></uif-button>
-<uif-overlay [uifId]="'overlay1'" [uifDark]="true" [(uifShow)]="displayOverlay"></uif-overlay>
+<uif-button [uifLabel]="'Click here to show dark overlay'" [uifType]="'primary'" (click)="darkOverlayButtonClick()"></uif-button> 
+<uif-overlay [uifId]="'darkOverlay'" [uifDark]="true" [(uifShow)]="displayDarkOverlay" (uifClick)="overlayClicked()"></uif-overlay>
+<br/>
+<uif-button [uifLabel]="'Click here to show light overlay'" [uifType]="'primary'" (click)="lightOverlayButtonClick()"></uif-button>
+<uif-overlay [uifId]="'lightOverlay'" [uifDark]="false" [(uifShow)]="displayLightOverlay" (uifClick)="overlayLightClicked()"></uif-overlay> 
+<br/>
+<uif-button [uifLabel]="'Click here to show persistent overlay'" [uifType]="'primary'" (click)="persistentOverlayButtonClick()"></uif-button>
+<uif-overlay [uifId]="'persistentOverlay'" [uifDark]="true" [uifPersistent]="true" [(uifShow)]="displayPersistentOverlay" (uifClick)="overlayPersistentClicked()"></uif-overlay> 
+
 <hr/>
 
 <h1 class="ms-font-xxl">Link examples:</h1>
-<uif-link [uifUrl]="'http://google.com'" [uifTitle]="'This is the hover text'">Example link</uif-link>
+<span class="ms-font-m">Some text here, followed by an example link: <uif-link [uifUrl]="'http://google.com'" [uifTitle]="'This is the hover text'">Example link</uif-link>...</span>
 <hr/>
 
 <h1 class="ms-font-xxl">Label examples:</h1>

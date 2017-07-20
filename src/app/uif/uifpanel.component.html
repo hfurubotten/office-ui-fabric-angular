@@ -1,0 +1,16 @@
+<div [id]="uifId">
+  <uif-overlay [uifId]="panelId" [uifPersistent]="true" [uifDark]="uifDarkOverlay" [uifShow]="uifOpen && uifPersistent" (uifClick)="overlayClick()"></uif-overlay>  
+  <div class="ms-Panel" [ngClass]="getPanelSize()" [class.ms-Panel--left]="uifPositionLeft">
+    <button class="ms-Panel-closeButton ms-PanelAction-close" (click)="closeButtonClick()">
+      <i class="ms-Panel-closeIcon ms-Icon ms-Icon--Cancel"></i>
+    </button>
+    <div class="ms-Panel-contentInner">
+      <p class="ms-Panel-headerText">{{uifPanelHeader}}</p>
+      <div class="ms-Panel-content">
+        <span class="ms-font-m">
+          <ng-content></ng-content>
+        </span> 
+      </div>
+    </div>
+  </div>
+ </div>

@@ -11,7 +11,11 @@ export class AppComponent implements OnInit {
   title: string = 'Office UI Fabric test component';
   textFieldValue: string = 'Testing text field';
   anotherTextFieldValue: string = 'Testing another value';
-  displayOverlay: boolean = false;
+  displayDarkOverlay: boolean = false;
+  displayLightOverlay: boolean = false;
+  displayPersistentOverlay: boolean = false;
+  displayPanel: boolean = false;
+  displayPersistentPanel: boolean = false;
   
   button1Click() {
     alert("button1 clicked!");
@@ -33,8 +37,51 @@ export class AppComponent implements OnInit {
     alert("Banner close button clicked!");
   }
 
-  overlayButtonClicked() {
-    this.displayOverlay = this.displayOverlay == false ? true : false;
+  panelButtonClick() {
+    this.displayPanel = this.displayPanel == false ? true : false;
+  }
+
+  persistentPanelButtonClick() {
+    this.displayPersistentPanel = true;
+  }
+
+  persistentPanelCloseButtonClick() {
+    this.displayPersistentPanel = false;
+  }
+
+  panelCloseButtonClick() {
+    this.displayPanel = false;
+    console.log("Panel close button clicked!");
+  }
+
+  panelOverlayClick() {
+    this.displayPanel = false;
+    console.log("Panel overlay clicked!");
+  }
+
+  darkOverlayButtonClick() {
+    this.displayDarkOverlay = true;
+  }
+
+  lightOverlayButtonClick() {
+    this.displayLightOverlay = true;
+  }
+
+  persistentOverlayButtonClick() {
+    this.displayPersistentOverlay = true;
+  }
+
+  overlayClicked() {
+    this.displayDarkOverlay = false;
+  }
+
+  overlayLightClicked() {
+    // this.displayLightOverlay = false;
+    alert("light overlay clicked...");
+  }
+
+  overlayPersistentClicked() {
+    alert("persistent overlay clicked...");
   }
 
   dropdownValues: {value: string, text: string}[] = [

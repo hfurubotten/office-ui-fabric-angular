@@ -1,27 +1,24 @@
-import { Component, OnInit, Input } from '@angular/core';
-//Didn't import Overlay module because commenting the fabric namespace breaks PanelHost
-declare let fabric: any;
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'uif-overlay',
     templateUrl: './uifoverlay.component.html'
 })
-export class UifOverlayComponent implements OnInit {
+export class UifOverlayComponent {
     @Input() uifId: string = '';
     @Input() uifDark: boolean = false;
     @Input() uifShow: boolean = false;
-    overlay: any;
+    @Input() uifPersistent: boolean = false;
+    @Output() uifClick: EventEmitter<any> = new EventEmitter<any>();
+    private overlay: fabric.Overlay;
+    private visible: boolean = false;
 
     constructor() { }
 
-    private createOverlay():void {
-        var OverlayContainers = document.querySelectorAll(".ms-OverlayContainer");
-        for (var i = 0; i < OverlayContainers.length; i++) {
-            if(OverlayContainers[i].id == this.uifId) {
-                var OverlayComponent = OverlayContainers[i].querySelector(".ms-Overlay");
-                this.overlay = new fabric['Overlay'](OverlayComponent);
-            }
-        }
+    private initialize():void {
+        var overlayContainer = document.getElementById(this.uifId);
+        var overlayElement = overlayContainer.querySelector(".ms-Overlay");
+        this.overlay = new fabric['Overlay'](<HTMLElement>overlayElement);
     }
 
     private showOverlay():void {
@@ -34,17 +31,26 @@ export class UifOverlayComponent implements OnInit {
         }
     }
 
-    ngOnChanges(changes: any) {
-        this.showOverlay();                  
-     }
+    private overlayClick():void {
+        this.handlePersistence();
+        this.uifClick.emit();
+    }
 
-     ngAfterViewInit() {
-        this.createOverlay();
+    private handlePersistence():void {
+        if(this.uifPersistent) {
+            this.showOverlay();
+        } else {
+            this.uifShow = false;
+        }
+    }
+
+    ngOnChanges(changes: any) {
         this.showOverlay();
      }
 
-    ngOnInit() {
-
+     ngAfterViewInit() {
+        this.initialize();
+        this.showOverlay();
      }
      
 }
