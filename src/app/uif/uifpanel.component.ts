@@ -14,10 +14,10 @@ export class UifPanelComponent implements OnInit {
     @Input() uifDarkOverlay: boolean = false;
     @Output() uifCloseButtonClicked: EventEmitter<any> = new EventEmitter<any>();
     @Output() uifOverlayClicked: EventEmitter<any> = new EventEmitter<any>();
-    panelId: string;
     private panelSizeBaseClass: string = 'ms-Panel--';
     private panelElement: Element;
     private panel: fabric.Panel;
+    panelId: string;
 
     constructor() { }
 
@@ -25,33 +25,29 @@ export class UifPanelComponent implements OnInit {
         if(this.uifId != null) {
             var panelContainer = document.getElementById(this.uifId);
             this.panelElement = panelContainer.querySelector(".ms-Panel");
-
             this.togglePanel();
         }
     }
     
     private togglePanel():void {
         if(this.uifOpen) {
-            this.initializePanel();
+            this.panel = new fabric['Panel'](this.panelElement);
+            this.handlePersistence();
         }
     }
 
-    private initializePanel():void {
-        this.panel = new fabric['Panel'](this.panelElement);
-        this.handlePersistence();
-    }
-
-    //todo: needs refactoring:
     private handlePersistence() {
         if(this.uifPersistent) {
             this.panel.panelHost.overlay.remove();
         } else {
             this.panel.panelHost.overlay.overlayElement.onclick = () => this.overlayClick();
+            this.setPanelOverlayColor();
+        }
+    }
 
-            if(this.uifDarkOverlay) {
-                this.panel.panelHost.overlay.overlayElement.classList.add('ms-Overlay--dark');
-            }
-            
+    private setPanelOverlayColor():void {
+        if(this.uifDarkOverlay) {
+            this.panel.panelHost.overlay.overlayElement.classList.add('ms-Overlay--dark');
         }
     }
 
@@ -60,7 +56,6 @@ export class UifPanelComponent implements OnInit {
     }
 
     overlayClick() {
-        this.uifOpen = false;
         this.uifOverlayClicked.emit();
     }
 
