@@ -1,4 +1,4 @@
-<div class="ms-TextField" [class.ms-TextField--underlined]="uifUnderlined" [class.ms-TextField--multiline]="uifMultiline" [class.is-disabled]="uifDisabled">
+<div [id]="uifId" class="ms-TextField" [class.ms-TextField--underlined]="uifUnderlined" [class.ms-TextField--multiline]="uifMultiline" [class.is-disabled]="uifDisabled">
   <label class="ms-Label">{{uifLabel}}</label>
   <input class="ms-TextField-field" [type]="uifType" [(ngModel)]="value" (keyup)="onValueChanged()" [placeholder]="uifPlaceholder" [disabled]="uifDisabled" *ngIf="!uifMultiline">
   <textarea class="ms-TextField-field" [(ngModel)]="value" (keyup)="onValueChanged()" [placeholder]="uifPlaceholder" [disabled]="uifDisabled" *ngIf="uifMultiline"></textarea>

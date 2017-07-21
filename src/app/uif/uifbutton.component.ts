@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Button } from 'office-ui-fabric-js/src/components/Button/Button';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import 'office-ui-fabric-js/src/components/Button/Button';
 
 @Component({
     moduleId: module.id,
@@ -8,25 +8,30 @@ import { Button } from 'office-ui-fabric-js/src/components/Button/Button';
 })
 
 export class UifButtonComponent implements OnInit {
+    @Input() uifId: string = '';
     @Input() uifLabel: string = '';
     @Input() uifDisabled: boolean = false;
     @Input() uifType: string = '';
     @Input() uifDescription: string = '';
+    @Output() uifButtonClicked:EventEmitter<any> = new EventEmitter<any>();
+    private button: fabric.Button;
     buttonBaseClass: string = 'ms-Button';
     buttonExtendedClass: string = ' ms-Button--';
 
-    constructor() { }
+    constructor() {}
 
-    createButtons() {
-        var ButtonElements = document.querySelectorAll(".ms-Button");
-        for (var i = 0; i < ButtonElements.length; i++) {
-            new Button(ButtonElements[i], function() {    
-                //Insert event here
-            });
+    createButtons():void {
+        if(this.uifId != null) {
+            var buttonElement = document.getElementById(this.uifId);
+            this.button = new fabric.Button(buttonElement);
         }
     }
 
-    getCssClass() {
+    buttonClicked():void {
+        this.uifButtonClicked.emit();
+    }
+
+    getCssClass():string {
         var cssClass = this.buttonBaseClass;
         if(this.uifType != '') {
             cssClass += this.buttonExtendedClass + this.uifType;
@@ -34,11 +39,10 @@ export class UifButtonComponent implements OnInit {
         return cssClass;
     }
 
-    ngOnInit() { }
-
     ngAfterViewInit() {
         this.createButtons();
      }
 
-}
+    ngOnInit() { }
 
+}

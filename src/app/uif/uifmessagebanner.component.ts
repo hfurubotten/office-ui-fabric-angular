@@ -1,7 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { MessageBanner } from 'office-ui-fabric-js/src/components/MessageBanner/MessageBanner';
+import 'office-ui-fabric-js/src/components/MessageBanner/MessageBanner';
 
 @Component({
+    moduleId: module.id,
     selector: 'uif-message-banner',
     templateUrl: './uifmessagebanner.component.html'
 })
@@ -13,16 +14,14 @@ export class UifMessageBannerComponent implements OnInit {
     @Input() uifId: string = '';
     @Output() uifActionButtonClicked:EventEmitter<any> = new EventEmitter<any>();
     @Output() uifCloseButtonClicked:EventEmitter<any> = new EventEmitter<any>();
-    messageBanner: MessageBanner;
+    private messageBanner: fabric.MessageBanner;
 
     constructor() { }
 
     createBanner():void {
-        let messageBanners = document.querySelectorAll('.ms-MessageBanner');
-        for(var i = 0; i < messageBanners.length; ++i) {
-            if(messageBanners[i].id == this.uifId) {
-                this.messageBanner = new MessageBanner(<HTMLElement>messageBanners[i]);
-            }
+        if(this.uifId != '') {
+            var messageBanner = document.getElementById(this.uifId);
+            this.messageBanner = new fabric.MessageBanner(messageBanner);
         }
     }
 

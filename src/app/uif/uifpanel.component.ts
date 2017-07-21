@@ -1,6 +1,8 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import 'office-ui-fabric-js/src/components/Panel/Panel';
 
 @Component({
+    moduleId: module.id,
     selector: 'uif-panel',
     templateUrl: './uifpanel.component.html'
 })
@@ -31,12 +33,12 @@ export class UifPanelComponent implements OnInit {
     
     private togglePanel():void {
         if(this.uifOpen) {
-            this.panel = new fabric['Panel'](this.panelElement);
+            this.panel = new fabric.Panel(this.panelElement);
             this.handlePersistence();
         }
     }
 
-    private handlePersistence() {
+    private handlePersistence():void {
         if(this.uifPersistent) {
             this.panel.panelHost.overlay.remove();
         } else {
@@ -55,7 +57,7 @@ export class UifPanelComponent implements OnInit {
         return this.panelSizeBaseClass + this.uifPanelSize;
     }
 
-    overlayClick() {
+    overlayClick():void {
         this.uifOverlayClicked.emit();
     }
 

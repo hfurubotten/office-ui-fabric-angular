@@ -1,6 +1,8 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import 'office-ui-fabric-js/src/components/Overlay/Overlay';
 
 @Component({
+    moduleId: module.id,
     selector: 'uif-overlay',
     templateUrl: './uifoverlay.component.html'
 })
@@ -17,8 +19,8 @@ export class UifOverlayComponent {
 
     private initialize():void {
         var overlayContainer = document.getElementById(this.uifId);
-        var overlayElement = overlayContainer.querySelector(".ms-Overlay");
-        this.overlay = new fabric['Overlay'](<HTMLElement>overlayElement);
+        var overlayElement = <HTMLElement>overlayContainer.querySelector(".ms-Overlay");
+        this.overlay = new fabric.Overlay(overlayElement);
     }
 
     private showOverlay():void {
@@ -31,7 +33,7 @@ export class UifOverlayComponent {
         }
     }
 
-    private overlayClick():void {
+    overlayClick():void {
         this.handlePersistence();
         this.uifClick.emit();
     }
