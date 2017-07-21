@@ -76,7 +76,6 @@ export class AppComponent implements OnInit {
   }
 
   overlayLightClicked() {
-    // this.displayLightOverlay = false;
     alert("light overlay clicked...");
   }
 

@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-import { Dropdown } from 'office-ui-fabric-js/src/components/Dropdown/Dropdown';
+import 'office-ui-fabric-js/src/components/Dropdown/Dropdown';
 
 @Component({
     moduleId: module.id,
@@ -15,16 +15,15 @@ export class UifDropdownComponent implements OnInit {
     @Input() uifPlaceholder: string = '';
     @Input() uifId: string = '';
     @Output() uifSelectedValueChange:EventEmitter<string> = new EventEmitter<string>();
+    private dropdown: fabric.Dropdown;
     uifSelected: {value: string, text: string} = {'value':'', 'text':''};
 
     constructor() { }
 
     private createDropdown():void {
-        let DropdownHTMLElements = document.querySelectorAll('.ms-Dropdown');
-        for (var i = 0; i < DropdownHTMLElements.length; ++i) {
-            if(DropdownHTMLElements[i].id == this.uifId) {
-                new Dropdown(<HTMLElement>DropdownHTMLElements[i]);
-            }
+        if(this.uifId != null) {
+            var dropdownElement = document.getElementById(this.uifId);
+            this.dropdown = new fabric.Dropdown(dropdownElement);
         }
     }
 

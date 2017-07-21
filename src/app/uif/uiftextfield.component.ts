@@ -1,8 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-// declare let fabric: any;
-//Had to modify original source file and remove the namespace, else it would result in "is not a module" error.
-//reference: https://github.com/OfficeDev/Word-Add-in-Angular2-StyleChecker/blob/master/app/shared/office-fabric-component-wrappers/TextField.js
-import { TextField } from 'office-ui-fabric-js/src/components/TextField/TextField';
+import 'office-ui-fabric-js/src/components/TextField/TextField';
 
 @Component({
     moduleId: module.id,
@@ -11,6 +8,7 @@ import { TextField } from 'office-ui-fabric-js/src/components/TextField/TextFiel
 })
 
 export class UifTextFieldComponent implements OnInit {   
+    @Input() uifId: string = '';
     @Input() uifLabel: string = '';
     @Input() uifPlaceholder: string = '';
     @Input() uifUnderlined: boolean = false;
@@ -19,14 +17,14 @@ export class UifTextFieldComponent implements OnInit {
     @Input() uifType: string = 'Text';
     @Input() value: string = '';
     @Output() valueChange:EventEmitter<string> = new EventEmitter<string>();
+    private textfield: fabric.TextField;
     
     constructor() { }
 
-    createTextField() {
-        var TextFieldElements = document.querySelectorAll(".ms-TextField");
-        for (var i = 0; i < TextFieldElements.length; i++) {
-            new TextField(<HTMLElement>TextFieldElements[i]);
-            // new fabric['TextField'](TextFieldElements[i]);
+    createTextField():void {
+        if(this.uifId != null) {
+            var textfieldElement = document.getElementById(this.uifId);
+            var textfield = new fabric.TextField(textfieldElement);
         }
     }
 
@@ -34,8 +32,10 @@ export class UifTextFieldComponent implements OnInit {
         this.valueChange.emit(this.value);
     }
 
-    ngOnInit() {
+    ngAfterViewInit() {
         this.createTextField();
      }
+
+     ngOnInit() {}
 }
 

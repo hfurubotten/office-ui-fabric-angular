@@ -6,7 +6,7 @@
 
 <h1 class="ms-font-xxl">Panel example:</h1>
 
-<uif-button [uifLabel]="'Click here to show panel'" [uifType]="'primary'" (click)="panelButtonClick()"></uif-button>
+<uif-button [uifId]="'Showpanel'" [uifLabel]="'Click here to show panel'" [uifType]="'primary'" (uifButtonClicked)="panelButtonClick()"></uif-button>
 <uif-panel [uifId]="'lightPanel'" [uifPanelHeader]="'Panel header here!'" [uifPanelSize]="'lg'" [uifDarkOverlay]="true" (uifCloseButtonClicked)="panelCloseButtonClick()" (uifOverlayClicked)="panelOverlayClick()" [uifPositionLeft]="false" [uifOpen]="displayPanel">
   <br/>
   <p>Available panel sizes:</p>
@@ -21,20 +21,20 @@
 
 <br/>
 
-<uif-button [uifLabel]="'Click here to show persistent panel'" [uifType]="'primary'" (click)="persistentPanelButtonClick()"></uif-button>
+<uif-button [uifId]="'ShowPersistentPanel'" [uifLabel]="'Click here to show persistent panel'" [uifType]="'primary'" (click)="persistentPanelButtonClick()"></uif-button>
 <uif-panel [uifId]="'persistentPanel'" [uifPersistent]="true" [uifDarkOverlay]="true" [uifPanelHeader]="'Persistent'" [uifPanelSize]="'md'" (uifCloseButtonClicked)="persistentPanelCloseButtonClick()" [uifPositionLeft]="true" [uifOpen]="displayPersistentPanel">
 <p>Have to X this to make it go away. Clicking the overlay won't.</p>
 </uif-panel>
 <hr/>
 
 <h1 class="ms-font-xxl">Overlay example:</h1>
-<uif-button [uifLabel]="'Click here to show dark overlay'" [uifType]="'primary'" (click)="darkOverlayButtonClick()"></uif-button> 
+<uif-button [uifId]="'showDarkOverlay'" [uifLabel]="'Click here to show dark overlay'" [uifType]="'primary'" (click)="darkOverlayButtonClick()"></uif-button> 
 <uif-overlay [uifId]="'darkOverlay'" [uifDark]="true" [(uifShow)]="displayDarkOverlay" (uifClick)="overlayClicked()"></uif-overlay>
 <br/>
-<uif-button [uifLabel]="'Click here to show light overlay'" [uifType]="'primary'" (click)="lightOverlayButtonClick()"></uif-button>
+<uif-button [uifId]="'showLightOverlay'" [uifLabel]="'Click here to show light overlay'" [uifType]="'primary'" (click)="lightOverlayButtonClick()"></uif-button>
 <uif-overlay [uifId]="'lightOverlay'" [uifDark]="false" [(uifShow)]="displayLightOverlay" (uifClick)="overlayLightClicked()"></uif-overlay> 
 <br/>
-<uif-button [uifLabel]="'Click here to show persistent overlay'" [uifType]="'primary'" (click)="persistentOverlayButtonClick()"></uif-button>
+<uif-button [uifId]="'showPersistentOverlay'" [uifLabel]="'Click here to show persistent overlay'" [uifType]="'primary'" (click)="persistentOverlayButtonClick()"></uif-button>
 <uif-overlay [uifId]="'persistentOverlay'" [uifDark]="true" [uifPersistent]="true" [(uifShow)]="displayPersistentOverlay" (uifClick)="overlayPersistentClicked()"></uif-overlay> 
 
 <hr/>
@@ -52,7 +52,7 @@
 <h1 class="ms-font-xxl">Message banner examples:</h1>
 <uif-message-banner [uifId]="'banner1'" [uifHidden]="false" [uifContent]="messageBarText" [uifActionLabel]="'Button text'" (uifActionButtonClicked)="messageBannerActionButtonClick()" (uifCloseButtonClicked)="messageBannerCloseButtonClick()"></uif-message-banner>
 <br/>
-<uif-message-banner [uifId]="'banner2'" [uifHidden]="false" [uifContent]="messageBarText" [uifActionLabel]="'Button 2 text'" (uifActionButtonClicked)="messageBannerActionButton2Click()"></uif-message-banner>
+ <uif-message-banner [uifId]="'banner2'" [uifHidden]="false" [uifContent]="messageBarText" [uifActionLabel]="'Button 2 text'" (uifActionButtonClicked)="messageBannerActionButton2Click()"></uif-message-banner> 
 <hr/>
 
 <h1 class="ms-font-xxl">Message bar examples:</h1>
@@ -69,13 +69,13 @@
 <hr/>
 
 <h1 class="ms-font-xxl">Button examples:</h1>
-<uif-button [uifLabel]="'Click here'" (click)="button1Click()"></uif-button>
-<uif-button [uifLabel]="'Click here too'" [uifType]="'primary'" (click)="button2Click()"></uif-button>
-<uif-button [uifLabel]="'Small button (requires 1.4.0)'" [uifType]="'small'" [uifDisabled]="'true'"></uif-button>
+<uif-button [uifId]="'button1'" [uifLabel]="'Click here'" (uifButtonClicked)="button1Click()"></uif-button>
+<uif-button [uifId]="'button2'" [uifLabel]="'Click here too'" [uifType]="'primary'" (click)="button2Click()"></uif-button>
+<uif-button [uifId]="'button3'" [uifLabel]="'Small button (requires 1.4.0)'" [uifType]="'small'" [uifDisabled]="'true'"></uif-button>
 <br/><br/>
-<uif-button [uifLabel]="'Click here too'" [uifType]="'compound'" [uifDescription]="'Some words about this button'"></uif-button>
+<uif-button [uifId]="'button4'" [uifLabel]="'Click here too'" [uifType]="'compound'" [uifDescription]="'Some words about this button'"></uif-button>
 <br/>
-<uif-button [uifLabel]="'Click here too'" [uifType]="'hero'"></uif-button>
+<uif-button [uifId]="'button5'" [uifLabel]="'Click here too'" [uifType]="'hero'"></uif-button>
 <hr/>
 
 <h1 class="ms-font-xxl">Dropdown examples:</h1>
@@ -93,13 +93,13 @@
 <hr/>
 
 <h1 class="ms-font-xxl">Textfield examples:</h1>
-<uif-textfield [uifLabel]="'regular textfield:'" [(value)]="textFieldValue"></uif-textfield>
-<uif-textfield [uifLabel]="'underlined textfield:'" [uifUnderlined]="true" [(value)]="textFieldValue"></uif-textfield>
-<uif-textfield [uifLabel]="'underlined textfield ala password:'" [uifUnderlined]="true" [uifType]="'password'" [(value)]="textFieldValue"></uif-textfield>
-<uif-textfield [uifLabel]="'underlined textfield /w placeholder:'" [uifUnderlined]="true" [uifPlaceholder]="'what to type here'" [(value)]="textFieldValue"></uif-textfield>
-<uif-textfield [uifLabel]="'disabled textfield /w placeholder'" [uifPlaceholder]="'what to type here'" [uifDisabled]="true" [(value)]="textFieldValue"></uif-textfield>
-<uif-textfield [uifLabel]="'multiline textfield'" [uifMultiline]="true" [(value)]="anotherTextFieldValue"></uif-textfield>
-<uif-textfield [uifLabel]="'disabled multiline textfield w/ placeholder'" [uifMultiline]="true" [uifDisabled]="true" [uifPlaceholder]="'placeholder'" [(value)]="anotherTextFieldValue"></uif-textfield>
+<uif-textfield [uifId]="'text1'" [uifLabel]="'regular textfield:'" [(value)]="textFieldValue"></uif-textfield>
+<uif-textfield [uifId]="'text2'" [uifLabel]="'underlined textfield:'" [uifUnderlined]="true" [(value)]="textFieldValue"></uif-textfield>
+<uif-textfield [uifId]="'text3'" [uifLabel]="'underlined textfield ala password:'" [uifUnderlined]="true" [uifType]="'password'" [(value)]="textFieldValue"></uif-textfield>
+<uif-textfield [uifId]="'text4'" [uifLabel]="'underlined textfield /w placeholder:'" [uifUnderlined]="true" [uifPlaceholder]="'what to type here'" [(value)]="textFieldValue"></uif-textfield>
+<uif-textfield [uifId]="'text5'" [uifLabel]="'disabled textfield /w placeholder'" [uifPlaceholder]="'what to type here'" [uifDisabled]="true" [(value)]="textFieldValue"></uif-textfield>
+<uif-textfield [uifId]="'text6'" [uifLabel]="'multiline textfield'" [uifMultiline]="true" [(value)]="anotherTextFieldValue"></uif-textfield>
+<uif-textfield [uifId]="'text7'" [uifLabel]="'disabled multiline textfield w/ placeholder'" [uifMultiline]="true" [uifDisabled]="true" [uifPlaceholder]="'placeholder'" [(value)]="anotherTextFieldValue"></uif-textfield>
 <span class="ms-font-m">Testing data binding:</span> <input class="ms-font-m" [(ngModel)]="textFieldValue" />
 <br/>
 <span class="ms-font-m">Testing data binding:</span> <input class="ms-font-m" [(ngModel)]="anotherTextFieldValue" />
