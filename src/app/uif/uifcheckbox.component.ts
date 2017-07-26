@@ -1,29 +1,68 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { CheckboxData } from '../DataObjects/CheckboxData';
+import { EmitterService } from '../EmitterService/emitter.service';
 import 'office-ui-fabric-js/src/components/CheckBox/CheckBox';
+
 
 @Component({
     moduleId: module.id,
     selector: 'uif-checkbox',
-    templateUrl: './uifcheckbox.component.html',
+    templateUrl: './uifcheckbox.component.html'
 })
 export class UifCheckBoxComponent implements OnInit {
     @Input() uifLabel: string = '';
     @Input() uifId: string = '';
+    @Input() uifChecked: boolean = false;
+    @Input() uifDisabled: boolean = false;
+    @Output() uifClicked: EventEmitter<boolean> = new EventEmitter<boolean>();
+    private emitterService: EmitterService;
+    private checkboxLabel: HTMLElement;
     private checkbox: fabric.CheckBox;
-    constructor() { }
+    private checkboxData: CheckboxData = new CheckboxData();
 
-    createCheckBoxes() {
-        var CheckBoxElements = document.querySelectorAll(".ms-CheckBox");
-        for (var i = 0; i < CheckBoxElements.length; i++) {
-            this.checkbox = new fabric.CheckBox(<HTMLElement>CheckBoxElements[i]);
-            this.checkbox.unCheck();
-            console.log("toggles...");
+    constructor(private emitter: EmitterService) {
+        this.emitterService = emitter;
+    }
+
+    private initialize() {
+        if (this.uifId != null) {
+            let checkboxElement = document.getElementById(this.uifId);
+            this.checkboxLabel = <HTMLElement>checkboxElement.querySelector('.ms-CheckBox-field');
+            this.checkbox = new fabric.CheckBox(checkboxElement);
+            this.toggleInitialCheck();
         }
     }
 
-    ngOnInit() { }
+    private toggleInitialCheck() {
+        if (this.uifChecked) {
+            this.checkbox.check();
+        }
+    }
+
+    private isDisabled(): boolean {
+        let disabled = this.checkboxLabel.classList.contains('is-disabled');
+        return disabled;
+    }
+
+    private assignCheckboxData(): void {
+        this.checkboxData.checked = this.uifChecked;
+        this.checkboxData.value = this.uifId;
+        this.checkboxData.disabled = this.uifDisabled;
+    }
+
+    checkboxClicked(): void {
+        this.uifChecked = this.uifChecked === true ? false : true;
+        if (!this.isDisabled()) {
+            this.assignCheckboxData();
+            this.uifClicked.emit(this.uifChecked);
+            this.emitterService.emit(this.checkboxData);
+            console.log('emitting:' + this.uifChecked);
+        }
+    }
 
     ngAfterViewInit() {
-        this.createCheckBoxes();
-     }
+        this.initialize();
+    }
+
+    ngOnInit() { }
 }
