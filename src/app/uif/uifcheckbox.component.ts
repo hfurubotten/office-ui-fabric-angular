@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, AfterViewInit, Input, Output, EventEmitter } from '@angular/core';
 import { CheckboxData } from '../DataObjects/CheckboxData';
 import { EmitterService } from '../EmitterService/emitter.service';
 import 'office-ui-fabric-js/src/components/CheckBox/CheckBox';
@@ -9,7 +9,7 @@ import 'office-ui-fabric-js/src/components/CheckBox/CheckBox';
     selector: 'uif-checkbox',
     templateUrl: './uifcheckbox.component.html'
 })
-export class UifCheckBoxComponent implements OnInit {
+export class UifCheckBoxComponent implements AfterViewInit {
     @Input() uifLabel: string = '';
     @Input() uifId: string = '';
     @Input() uifChecked: boolean = false;
@@ -45,8 +45,8 @@ export class UifCheckBoxComponent implements OnInit {
     }
 
     private assignCheckboxData(): void {
-        this.checkboxData.checked = this.uifChecked;
         this.checkboxData.value = this.uifId;
+        this.checkboxData.checked = this.uifChecked;
         this.checkboxData.disabled = this.uifDisabled;
     }
 
@@ -64,5 +64,4 @@ export class UifCheckBoxComponent implements OnInit {
         this.initialize();
     }
 
-    ngOnInit() { }
 }
