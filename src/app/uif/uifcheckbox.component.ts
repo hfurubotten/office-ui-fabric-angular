@@ -56,7 +56,6 @@ export class UifCheckBoxComponent implements AfterViewInit {
             this.assignCheckboxData();
             this.uifClicked.emit(this.uifChecked);
             this.emitterService.emit(this.checkboxData);
-            console.log('emitting:' + this.uifChecked);
         }
     }
 
