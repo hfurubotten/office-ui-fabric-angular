@@ -50,7 +50,7 @@ export class UifCheckBoxComponent implements AfterViewInit {
         this.checkboxData.disabled = this.uifDisabled;
     }
 
-    private checkboxClicked(): void {
+    checkboxClicked(): void {
         this.uifChecked = this.uifChecked === true ? false : true;
         if (!this.isDisabled()) {
             this.assignCheckboxData();
