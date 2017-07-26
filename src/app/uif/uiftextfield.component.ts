@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, AfterViewInit } from '@angular/core';
 import 'office-ui-fabric-js/src/components/TextField/TextField';
 
 @Component({
@@ -7,7 +7,7 @@ import 'office-ui-fabric-js/src/components/TextField/TextField';
     templateUrl: './uiftextfield.component.html',
 })
 
-export class UifTextFieldComponent implements OnInit {   
+export class UifTextFieldComponent implements AfterViewInit {
     @Input() uifId: string = '';
     @Input() uifLabel: string = '';
     @Input() uifPlaceholder: string = '';
@@ -16,13 +16,13 @@ export class UifTextFieldComponent implements OnInit {
     @Input() uifDisabled: boolean = false;
     @Input() uifType: string = 'Text';
     @Input() value: string = '';
-    @Output() valueChange:EventEmitter<string> = new EventEmitter<string>();
+    @Output() valueChange: EventEmitter<string> = new EventEmitter<string>();
     private textfield: fabric.TextField;
-    
+
     constructor() { }
 
-    createTextField():void {
-        if(this.uifId != null) {
+    private initialize(): void {
+        if (this.uifId != null) {
             var textfieldElement = document.getElementById(this.uifId);
             var textfield = new fabric.TextField(textfieldElement);
         }
@@ -33,9 +33,7 @@ export class UifTextFieldComponent implements OnInit {
     }
 
     ngAfterViewInit() {
-        this.createTextField();
-     }
-
-     ngOnInit() {}
+        this.initialize();
+    }
 }
 
