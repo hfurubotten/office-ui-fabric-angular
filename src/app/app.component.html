@@ -4,8 +4,22 @@
   </h1>
 </div>
 
-<h1 class="ms-font-xxl">Panel example:</h1>
+<h1 class="ms-font-xxl">Checkbox examples:</h1>
+ <uif-choicefieldgroup [uifId]="'citypicker'" [uifLabel]="'Pick a city:'" [uifRequired]="true" [uifType]="'checkbox'" (uifValuesChanged)="choiceFieldGroupValuesChanged($event)">
+  <uif-checkbox [uifLabel]="'New York'" [uifId]="'newyork'" [uifDisabled]="false"></uif-checkbox>
+  <uif-checkbox [uifLabel]="'Tokyo'" [uifId]="'tokyo'" [uifDisabled]="true" ></uif-checkbox>
+  <uif-checkbox [uifLabel]="'London'" [uifId]="'london'" [uifDisabled]="false"></uif-checkbox>
+  <uif-checkbox [uifLabel]="'Oslo'" [uifId]="'oslo'" [uifDisabled]="false" [uifChecked]="true"></uif-checkbox>
+</uif-choicefieldgroup> 
+<uif-textfield [uifId]="'multiplecheckboxesvalues'" [uifMultiline]="true" [uifLabel]="'Checkbox status:'" [value]="checkboxValues"></uif-textfield>
 
+<uif-choicefieldgroup [uifId]="'Singlecheckboxexample'" [uifLabel]="'Single checkbox with checkbox clicked event:'">
+ <uif-checkbox [uifLabel]="'Single checkbox'" [uifId]="'single'" [uifDisabled]="false" [uifChecked]="singleCheckboxChecked" (uifClicked)="singleCheckboxClicked($event)"></uif-checkbox> 
+</uif-choicefieldgroup>
+<uif-textfield [uifId]="'singhecheckboxvalue'" [uifLabel]="'The checkbox is checked:'" [value]="singleCheckboxChecked"></uif-textfield>
+<hr/>
+
+<h1 class="ms-font-xxl">Panel example:</h1>
 <uif-button [uifId]="'Showpanel'" [uifLabel]="'Click here to show panel'" [uifType]="'primary'" (uifButtonClicked)="panelButtonClick()"></uif-button>
 <uif-panel [uifId]="'lightPanel'" [uifPanelHeader]="'Panel header here!'" [uifPanelSize]="'lg'" [uifDarkOverlay]="true" (uifCloseButtonClicked)="panelCloseButtonClick()" (uifOverlayClicked)="panelOverlayClick()" [uifPositionLeft]="false" [uifOpen]="displayPanel">
   <br/>
@@ -62,10 +76,6 @@
 <uif-message-bar [uifContent]="messageBarText" [uifLinkLabel]="'Click me'" [uifLinkURL]="'https://google.com'" [uifType]="'blocked'"></uif-message-bar>
 <uif-message-bar [uifContent]="messageBarText" [uifLinkLabel]="'Click me'" [uifLinkURL]="'https://google.com'" [uifType]="'warning'"></uif-message-bar>
 <uif-message-bar [uifContent]="messageBarText" [uifLinkLabel]="'Click me'" [uifLinkURL]="'https://google.com'" [uifType]="'severeWarning'"></uif-message-bar>
-<hr/>
-
-<h1 class="ms-font-xxl">Checkbox examples:</h1>
-<uif-checkbox [uifLabel]="'New York'" [uifId]="'citypicker'"></uif-checkbox>
 <hr/>
 
 <h1 class="ms-font-xxl">Button examples:</h1>
