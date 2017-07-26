@@ -19,7 +19,8 @@ import * as uif from './uif';
     uif.UifLabelComponent,
     uif.UifLinkComponent,
     uif.UifOverlayComponent,
-    uif.UifPanelComponent
+    uif.UifPanelComponent,
+    uif.UifChoiceFieldGroupComponent
   ],
   imports: [
     BrowserModule,

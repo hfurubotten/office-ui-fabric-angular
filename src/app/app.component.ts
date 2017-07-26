@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ComponentFactory } from '@angular/core';
+import { CheckboxData } from './DataObjects/CheckboxData'
 
 @Component({
   moduleId: module.id,
@@ -16,7 +17,20 @@ export class AppComponent implements OnInit {
   displayPersistentOverlay: boolean = false;
   displayPanel: boolean = false;
   displayPersistentPanel: boolean = false;
+  singleCheckboxChecked: boolean = false;
+  checkboxValues: string;
   
+  singleCheckboxClicked(value: boolean) {
+    this.singleCheckboxChecked = value;
+  }
+
+  choiceFieldGroupValuesChanged(values: CheckboxData[]) {
+    this.checkboxValues = '';
+    for(let i = 0; i < values.length; i++) {
+      this.checkboxValues += '{value: ' + values[i].value + '} {checked: ' + values[i].checked + '} {disabled: ' + values[i].disabled + '}\n';
+    }
+  }
+
   button1Click() {
     alert("button1 clicked!");
   }
@@ -83,6 +97,8 @@ export class AppComponent implements OnInit {
     alert("persistent overlay clicked...");
   }
 
+  
+
   dropdownValues: {value: string, text: string}[] = [
     {'value': 'mø', 'text': 'moo'},
     {'value': 'mjau', 'text': 'meow'},
@@ -115,7 +131,7 @@ export class AppComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-
+    
   }
 
 }
