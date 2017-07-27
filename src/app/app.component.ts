@@ -1,5 +1,5 @@
 import { Component, OnInit, ComponentFactory } from '@angular/core';
-import { CheckboxData } from './DataObjects/CheckboxData'
+import { CheckboxData } from './Components/DataObjects/CheckboxData'
 
 @Component({
   moduleId: module.id,
