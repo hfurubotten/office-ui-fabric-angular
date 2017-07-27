@@ -15,18 +15,20 @@ export class UifTextFieldComponent implements OnInit, AfterViewInit {
     @Input() uifMultiline: boolean = false;
     @Input() uifDisabled: boolean = false;
     @Input() uifPassword: boolean = false;
+    @Input() uifAutoAdjustSize: boolean = false;
     @Input() value: string = '';
     @Output() valueChange: EventEmitter<string> = new EventEmitter<string>();
     private textfield: fabric.TextField;
     private textfieldElement: HTMLElement;
-    inputType: string = 'Text';
+    public inputType: string = 'Text';
 
     constructor() { }
 
     private initialize(): void {
         if (this.uifId != null) {
-            this.textfieldElement = document.getElementById(this.uifId);
-            var textfield = new fabric.TextField(this.textfieldElement);
+            let textfieldContainer = document.getElementById(this.uifId);
+            this.textfieldElement = <HTMLElement>textfieldContainer.querySelector('.ms-TextField-field');
+            var textfield = new fabric.TextField(textfieldContainer);
         }
     }
 
@@ -36,16 +38,26 @@ export class UifTextFieldComponent implements OnInit, AfterViewInit {
         }
     }
 
-    onValueChanged() {
+    private setAutoAdjustSize(): void {
+        if (this.uifId != null && this.uifMultiline && this.uifAutoAdjustSize) {
+            this.textfieldElement.style.height = '';
+            let scrollHeight = this.textfieldElement.scrollHeight + 20; // +20 to avoid vertical scroll bars
+            this.textfieldElement.style.height = scrollHeight + 'px';
+        }
+    }
+
+    public onValueChanged() {
+        this.setAutoAdjustSize();
         this.valueChange.emit(this.value);
     }
 
-    ngOnInit() {
+    public ngOnInit() {
         this.setTypePassword();
     }
 
-    ngAfterViewInit() {
+    public ngAfterViewInit() {
         this.initialize();
+        this.setAutoAdjustSize();
     }
 }
 

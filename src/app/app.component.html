@@ -11,7 +11,7 @@
   <uif-checkbox [uifLabel]="'London'" [uifId]="'london'" [uifDisabled]="false"></uif-checkbox>
   <uif-checkbox [uifLabel]="'Oslo'" [uifId]="'oslo'" [uifDisabled]="false" [uifChecked]="true"></uif-checkbox>
 </uif-choicefieldgroup> 
-<uif-textfield [uifId]="'multiplecheckboxesvalues'" [uifMultiline]="true" [uifLabel]="'Checkbox status:'" [value]="checkboxValues"></uif-textfield>
+<uif-textfield [uifId]="'multiplecheckboxesvalues'" [uifMultiline]="true" [uifAutoAdjustSize]="true" [uifLabel]="'Checkbox status:'" [value]="checkboxValues"></uif-textfield>
 
 <uif-choicefieldgroup [uifId]="'Singlecheckboxexample'" [uifLabel]="'Single checkbox with checkbox clicked event:'">
  <uif-checkbox [uifLabel]="'Single checkbox'" [uifId]="'single'" [uifDisabled]="false" [uifChecked]="singleCheckboxChecked" (uifClicked)="singleCheckboxClicked($event)"></uif-checkbox> 
@@ -110,6 +110,7 @@
 <uif-textfield [uifId]="'text5'" [uifLabel]="'disabled textfield /w placeholder'" [uifPlaceholder]="'what to type here'" [uifDisabled]="true" [(value)]="textFieldValue"></uif-textfield>
 <uif-textfield [uifId]="'text6'" [uifLabel]="'multiline textfield'" [uifMultiline]="true" [(value)]="anotherTextFieldValue"></uif-textfield>
 <uif-textfield [uifId]="'text7'" [uifLabel]="'disabled multiline textfield w/ placeholder'" [uifMultiline]="true" [uifDisabled]="true" [uifPlaceholder]="'placeholder'" [(value)]="anotherTextFieldValue"></uif-textfield>
+<uif-textfield [uifId]="'text8'" [uifLabel]="'auto-resizable multiline w/placeholder'" [uifMultiline]="true" [uifAutoAdjustSize]="true" [uifPlaceholder]="'placeholder'" [(value)]="anotherTextFieldValue"></uif-textfield>
 <span class="ms-font-m">Testing data binding:</span> <input class="ms-font-m" [(ngModel)]="textFieldValue" />
 <br/>
 <span class="ms-font-m">Testing data binding:</span> <input class="ms-font-m" [(ngModel)]="anotherTextFieldValue" />
