@@ -20,7 +20,8 @@ import * as uif from './uif';
     uif.UifLinkComponent,
     uif.UifOverlayComponent,
     uif.UifPanelComponent,
-    uif.UifChoiceFieldGroupComponent
+    uif.UifChoiceFieldGroupComponent,
+    uif.UifSpinnerComponent
   ],
   imports: [
     BrowserModule,

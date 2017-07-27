@@ -4,6 +4,17 @@
   </h1>
 </div>
 
+<h1 class="ms-font-xxl">Spinner examples:</h1>
+<uif-spinner [uifId]="'spinner1'" [uifSpin]="spinSpinners" [uifHide]="hideSpinners">Spinner label...</uif-spinner>
+<br/>
+<uif-spinner [uifId]="'spinner2'" [uifLarge]="true" [uifSpin]="spinSpinners" [uifHide]="hideSpinners">Loading...</uif-spinner>
+<br/>
+<uif-spinner [uifId]="'spinner3'" [uifLarge]="true" [uifAnimationSpeed]="400"></uif-spinner>
+<br/>
+<uif-button [uifId]="'spinSpinners'" [uifLabel]="'Stop/start spinners'" (uifButtonClicked)="stopSpinners()"></uif-button>
+<uif-button [uifId]="'hideSpinners'" [uifLabel]="'Show/hide spinners'" (uifButtonClicked)="showSpinners()"></uif-button>
+<hr/>
+
 <h1 class="ms-font-xxl">Checkbox examples:</h1>
  <uif-choicefieldgroup [uifId]="'citypicker'" [uifLabel]="'Pick a city:'" [uifRequired]="true" [uifType]="'checkbox'" (uifValuesChanged)="choiceFieldGroupValuesChanged($event)">
   <uif-checkbox [uifLabel]="'New York'" [uifId]="'newyork'" [uifDisabled]="false"></uif-checkbox>
@@ -115,11 +126,3 @@
 <br/>
 <span class="ms-font-m">Testing data binding:</span> <input class="ms-font-m" [(ngModel)]="anotherTextFieldValue" />
 <br>
-
-
-
-
-
-
-
-
