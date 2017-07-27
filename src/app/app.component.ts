@@ -41,6 +41,18 @@ export class AppComponent implements OnInit {
     this.hideSpinners = this.hideSpinners === true ? false : true;
   }
 
+  listItemButton1Clicked() {
+    alert('List item action button #1 clicked!');
+  }
+
+  listItemButton2Clicked() {
+    alert('List item action button #2 clicked!');
+  }
+
+  listItemButton3Clicked() {
+    alert('List item action button #3 clicked!');
+  }
+
   button1Click() {
     alert("button1 clicked!");
   }
