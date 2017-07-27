@@ -4,6 +4,59 @@
   </h1>
 </div>
 
+<h1 class="ms-font-xxl">ListItem examples:</h1>
+<!-- List of available action icons: https://github.com/OfficeDev/office-ui-fabric-core/blob/master/src/data/icons.json -->
+<uif-listitem 
+  [uifId]="'listitem1'" 
+  [uifPrimaryText]="'List Item: Extended and selectable'" 
+  [uifSecondaryText]="'Secondary text...'" 
+  [uifTertiaryText]="'Tertiary text...'" 
+  [uifMetaText]="'Meta text'"
+  [uifSelectable]="true"
+  [uifSelected]="false"
+  [uifAction1Enabled]="true"
+  [uifAction1Icon]="'Code'"
+  (uifAction1Clicked)="listItemButton1Clicked()"
+  [uifAction2Enabled]="true"
+  [uifAction2Icon]="'Save'"
+  (uifAction2Clicked)="listItemButton2Clicked()"
+  [uifAction3Enabled]="true"
+  [uifAction3Icon]="'Cancel'"
+  (uifAction3Clicked)="listItemButton3Clicked()"
+></uif-listitem>
+<uif-listitem 
+  [uifId]="'listitem2'" 
+  [uifPrimaryText]="'List Item: Extended and focused'" 
+  [uifSecondaryText]="'Secondary text...'" 
+  [uifTertiaryText]="'Tertiary text...'" 
+  [uifMetaText]="'Meta text'"
+  [uifSelectable]="true"
+  [uifSelected]="true"
+  [uifFocused]="true"
+  [uifAction1Enabled]="true"
+  [uifAction2Enabled]="true"
+  [uifAction2Icon]="'Cancel'"
+></uif-listitem>
+<uif-listitem 
+  [uifId]="'listitem3'" 
+  [uifPrimaryText]="'List Item: Simple and selected'" 
+  [uifSelectable]="true"
+  [uifSelected]="true"
+  [uifAction1Enabled]="true"
+  (uifAction1Clicked)="listItemButton1Clicked()"
+></uif-listitem>
+<uif-listitem 
+  [uifId]="'listitem4'" 
+  [uifPrimaryText]="'List Item: Simple, non-selectable'" 
+  ></uif-listitem>
+<uif-listitem 
+  [uifId]="'listitem5'" 
+  [uifPrimaryText]="'List Item: Simple'" 
+  [uifSelectable]="true"
+  [uifSelected]="true"
+  ></uif-listitem>
+<hr/>
+
 <h1 class="ms-font-xxl">Spinner examples:</h1>
 <uif-spinner [uifId]="'spinner1'" [uifSpin]="spinSpinners" [uifHide]="hideSpinners">Spinner label...</uif-spinner>
 <br/>

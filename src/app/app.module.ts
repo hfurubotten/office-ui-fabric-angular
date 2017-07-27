@@ -21,7 +21,8 @@ import * as components from './components';
     components.UifOverlayComponent,
     components.UifPanelComponent,
     components.UifChoiceFieldGroupComponent,
-    components.UifSpinnerComponent
+    components.UifSpinnerComponent,
+    components.UifListItemComponent
   ],
   imports: [
     BrowserModule,
