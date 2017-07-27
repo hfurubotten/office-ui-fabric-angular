@@ -14,6 +14,7 @@ export class UifListItemComponent implements AfterViewInit {
     @Input() uifMetaText: string = '';
     @Input() uifSelectable: boolean = false;
     @Input() uifSelected: boolean = false;
+    @Input() uifFocused: boolean = false;
     @Input() uifAction1Enabled: boolean = false;
     @Input() uifAction2Enabled: boolean = false;
     @Input() uifAction3Enabled: boolean = false;

@@ -26,6 +26,19 @@
 ></uif-listitem>
 <uif-listitem 
   [uifId]="'listitem2'" 
+  [uifPrimaryText]="'List Item: Extended and focused'" 
+  [uifSecondaryText]="'Secondary text...'" 
+  [uifTertiaryText]="'Tertiary text...'" 
+  [uifMetaText]="'Meta text'"
+  [uifSelectable]="true"
+  [uifSelected]="true"
+  [uifFocused]="true"
+  [uifAction1Enabled]="true"
+  [uifAction2Enabled]="true"
+  [uifAction2Icon]="'Cancel'"
+></uif-listitem>
+<uif-listitem 
+  [uifId]="'listitem3'" 
   [uifPrimaryText]="'List Item: Simple and selected'" 
   [uifSelectable]="true"
   [uifSelected]="true"
@@ -33,11 +46,11 @@
   (uifAction1Clicked)="listItemButton1Clicked()"
 ></uif-listitem>
 <uif-listitem 
-  [uifId]="'listitem3'" 
+  [uifId]="'listitem4'" 
   [uifPrimaryText]="'List Item: Simple, non-selectable'" 
   ></uif-listitem>
 <uif-listitem 
-  [uifId]="'listitem3'" 
+  [uifId]="'listitem5'" 
   [uifPrimaryText]="'List Item: Simple'" 
   [uifSelectable]="true"
   [uifSelected]="true"
