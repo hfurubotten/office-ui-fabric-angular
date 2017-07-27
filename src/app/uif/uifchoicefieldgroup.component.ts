@@ -64,6 +64,8 @@ export class UifChoiceFieldGroupComponent implements OnDestroy, AfterViewInit {
         }
     }
 
+    //can this be done better? by not using setTimeout? E.g. by doing it on ngOnInit?
+    //if so, the settimeout can be removed from uiftextfieldcomponent as well
     private emitInitialValues(): void {
         setTimeout(() => {
             if (this.checkboxValues.size > 0) {

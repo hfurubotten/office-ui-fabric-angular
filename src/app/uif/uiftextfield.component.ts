@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, AfterViewInit } from '@angular/core';
 import 'office-ui-fabric-js/src/components/TextField/TextField';
 
 @Component({
@@ -7,35 +7,57 @@ import 'office-ui-fabric-js/src/components/TextField/TextField';
     templateUrl: './uiftextfield.component.html',
 })
 
-export class UifTextFieldComponent implements OnInit {   
+export class UifTextFieldComponent implements OnInit, AfterViewInit {
     @Input() uifId: string = '';
     @Input() uifLabel: string = '';
     @Input() uifPlaceholder: string = '';
     @Input() uifUnderlined: boolean = false;
     @Input() uifMultiline: boolean = false;
     @Input() uifDisabled: boolean = false;
-    @Input() uifType: string = 'Text';
+    @Input() uifPassword: boolean = false;
+    @Input() uifAutoAdjustSize: boolean = false;
     @Input() value: string = '';
-    @Output() valueChange:EventEmitter<string> = new EventEmitter<string>();
+    @Output() valueChange: EventEmitter<string> = new EventEmitter<string>();
     private textfield: fabric.TextField;
-    
+    private textfieldElement: HTMLElement;
+    public inputType: string = 'Text';
+
     constructor() { }
 
-    createTextField():void {
-        if(this.uifId != null) {
-            var textfieldElement = document.getElementById(this.uifId);
-            var textfield = new fabric.TextField(textfieldElement);
+    private initialize(): void {
+        if (this.uifId != null) {
+            let textfieldContainer = document.getElementById(this.uifId);
+            this.textfieldElement = <HTMLElement>textfieldContainer.querySelector('.ms-TextField-field');
+            var textfield = new fabric.TextField(textfieldContainer);
         }
     }
 
-    onValueChanged() {
+    private setTypePassword(): void {
+        if (this.uifPassword === true) {
+            this.inputType = 'Password';
+        }
+    }
+
+    private setAutoAdjustSize(): void {
+        if (this.uifId != null && this.uifMultiline && this.uifAutoAdjustSize) {
+            this.textfieldElement.style.height = '';
+            let scrollHeight = this.textfieldElement.scrollHeight + 20; // +20 to avoid vertical scroll bars
+            this.textfieldElement.style.height = scrollHeight + 'px';
+        }
+    }
+
+    public onValueChanged() {
+        this.setAutoAdjustSize();
         this.valueChange.emit(this.value);
     }
 
-    ngAfterViewInit() {
-        this.createTextField();
-     }
+    public ngOnInit() {
+        this.setTypePassword();
+    }
 
-     ngOnInit() {}
+    public ngAfterViewInit() {
+        this.initialize();
+        this.setAutoAdjustSize();
+    }
 }
 
