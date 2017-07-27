@@ -4,24 +4,24 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import * as uif from './uif';
+import * as components from './components';
 
 @NgModule({
   declarations: [
     AppComponent, 
-    uif.UifTextFieldComponent, 
-    uif.UifDropdownComponent, 
-    uif.UifRadioButtonComponent,
-    uif.UifButtonComponent,
-    uif.UifCheckBoxComponent,
-    uif.UifMessageBarComponent,
-    uif.UifMessageBannerComponent,
-    uif.UifLabelComponent,
-    uif.UifLinkComponent,
-    uif.UifOverlayComponent,
-    uif.UifPanelComponent,
-    uif.UifChoiceFieldGroupComponent,
-    uif.UifSpinnerComponent
+    components.UifTextFieldComponent, 
+    components.UifDropdownComponent, 
+    components.UifRadioButtonComponent,
+    components.UifButtonComponent,
+    components.UifCheckBoxComponent,
+    components.UifMessageBarComponent,
+    components.UifMessageBannerComponent,
+    components.UifLabelComponent,
+    components.UifLinkComponent,
+    components.UifOverlayComponent,
+    components.UifPanelComponent,
+    components.UifChoiceFieldGroupComponent,
+    components.UifSpinnerComponent
   ],
   imports: [
     BrowserModule,

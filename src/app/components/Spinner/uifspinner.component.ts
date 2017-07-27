@@ -2,6 +2,7 @@ import { Component, Input, AfterViewInit, OnChanges } from '@angular/core';
 import 'office-ui-fabric-js/src/components/Spinner/Spinner';
 
 @Component({
+    moduleId: module.id,
     selector: 'uif-spinner',
     templateUrl: './uifspinner.component.html'
 })
