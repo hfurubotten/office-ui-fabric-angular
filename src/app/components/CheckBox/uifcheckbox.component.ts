@@ -56,8 +56,8 @@ export class UifCheckBoxComponent implements AfterViewInit {
         this.uifChecked = this.uifChecked === true ? false : true;
     }
 
-    private emitCheckboxDataToChoiceFieldGroupComponent(): void {
-        let checkboxData =  this.getCheckboxData();
+    private emitCheckboxDataToEmitterService(): void {
+        let checkboxData = this.getCheckboxData();
         this.emitterService.emit(checkboxData);
     }
 
@@ -65,7 +65,7 @@ export class UifCheckBoxComponent implements AfterViewInit {
         if (!this.isDisabled()) {
             this.toggleChecked();
             this.uifClicked.emit(this.uifChecked);
-            this.emitCheckboxDataToChoiceFieldGroupComponent();
+            this.emitCheckboxDataToEmitterService();
         }
     }
 
