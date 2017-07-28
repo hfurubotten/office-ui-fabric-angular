@@ -1,4 +1,4 @@
-<button [id]="uifId" [ngClass]="getCssClass()" [disabled]="uifDisabled" (click)="buttonClicked()">
+<button [id]="uifId" class="ms-Button" [ngClass]="'ms-Button--' + uifType" [disabled]="uifDisabled" (click)="buttonClicked()">
   <span class="ms-Button-icon"><i class="ms-Icon ms-Icon--Add"></i></span> 
   <span class="ms-Button-label">{{uifLabel}}</span>
   <span class="ms-Button-description">{{uifDescription}}</span> 
