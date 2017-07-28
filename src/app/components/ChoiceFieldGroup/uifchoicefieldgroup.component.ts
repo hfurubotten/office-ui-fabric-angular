@@ -21,6 +21,7 @@ export class UifChoiceFieldGroupComponent implements OnDestroy, AfterViewInit {
     private choiceFieldGroupElement: HTMLElement;
     private subscription: Subscription;
     private checkboxValues: Map<string, CheckboxData> = new Map<string, CheckboxData>();
+    private initialViewCheck: boolean = false;
 
     constructor(private emitterService: EmitterService) { }
 
@@ -36,7 +37,6 @@ export class UifChoiceFieldGroupComponent implements OnDestroy, AfterViewInit {
         this.initializeComponent();
         this.initializeSubscription();
         this.populateCheckboxValues();
-        this.emitInitialValues();
     }
 
     private initializeComponent(): void {
@@ -62,17 +62,6 @@ export class UifChoiceFieldGroupComponent implements OnDestroy, AfterViewInit {
             let checkboxdata = this.getCheckboxData(checkbox, checkboxField);
             this.checkboxValues.set(checkboxdata.value, checkboxdata);
         }
-    }
-
-    //can this be done better? by not using setTimeout? E.g. by doing it on ngOnInit?
-    //if so, the settimeout can be removed from uiftextfieldcomponent as well
-    private emitInitialValues(): void {
-        setTimeout(() => {
-            if (this.checkboxValues.size > 0) {
-                let checkboxdata = Array.from(this.checkboxValues.values());
-                this.uifValuesChanged.emit(checkboxdata);
-            }
-        }, 500);
     }
 
     private getCheckboxData(checkbox: Element, checkboxField: HTMLElement): CheckboxData {
