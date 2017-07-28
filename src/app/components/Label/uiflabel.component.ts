@@ -1,14 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
     moduleId: module.id,
     selector: 'uif-label',
     templateUrl: './uiflabel.component.html'
 })
-export class UifLabelComponent implements OnInit {
+export class UifLabelComponent {
     @Input() uifDisabled: boolean = false;
     @Input() uifRequired: boolean = false;
-    constructor() { }
-
-    ngOnInit() { }
 }
