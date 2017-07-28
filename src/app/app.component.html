@@ -6,6 +6,12 @@
 
 <h1 class="ms-font-xxl">ListItem examples:</h1>
 <!-- List of available action icons: https://github.com/OfficeDev/office-ui-fabric-core/blob/master/src/data/icons.json -->
+<uif-list [uifId]="'simpleList'">
+</uif-list>
+
+
+<br/>
+<uif-list [uifId]="'testList'" [uifMultiSelect]="false"> 
 <uif-listitem 
   [uifId]="'listitem1'" 
   [uifPrimaryText]="'List Item: Extended and selectable'" 
@@ -55,6 +61,7 @@
   [uifSelectable]="true"
   [uifSelected]="true"
   ></uif-listitem>
+ </uif-list> 
 <hr/>
 
 <h1 class="ms-font-xxl">Spinner examples:</h1>

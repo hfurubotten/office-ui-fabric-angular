@@ -1,4 +1,6 @@
-import { Component, AfterViewInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, AfterViewInit, Input, Output, EventEmitter, ElementRef } from '@angular/core';
+import { ListItemData } from '../DataObjects/ListItemData';
+import { EmitterService } from '../EmitterService/emitter.service';
 import 'office-ui-fabric-js/src/components/ListItem/ListItem';
 
 @Component({
@@ -24,18 +26,61 @@ export class UifListItemComponent implements AfterViewInit {
     @Output() uifAction1Clicked: EventEmitter<any> = new EventEmitter<any>();
     @Output() uifAction2Clicked: EventEmitter<any> = new EventEmitter<any>();
     @Output() uifAction3Clicked: EventEmitter<any> = new EventEmitter<any>();
+    private emitterService: EmitterService;
     private listItem: fabric.ListItem;
     private listItemContainer: HTMLElement;
-    private initialized: boolean = false;
+    private isChecked: boolean = false;
 
-    constructor() { }
+    constructor(private elementReference: ElementRef, private emitter: EmitterService) {
+        this.emitterService = emitter;
+    }
 
     private initialize(): void {
-        if (this.uifId !== null && this.uifId !== undefined) {
-            this.listItemContainer = document.getElementById(this.uifId);
-            this.listItem = new fabric.ListItem(this.listItemContainer);
-            this.initialized = true;
+        this.listItemContainer = document.getElementById(this.uifId);
+        this.setInitialCheckedValue();
+        if (!this.parentIsList()) {
+            this.initializeComponent();
         }
+    }
+
+    private initializeComponent(): void {
+        this.listItem = new fabric.ListItem(this.listItemContainer);
+    }
+
+    private setInitialCheckedValue(): void {
+        if (this.uifSelected) {
+            this.isChecked = true;
+        }
+    }
+
+    private parentIsList(): boolean {
+        let parentElement = <HTMLElement>this.elementReference.nativeElement.parentElement;
+        let isList = parentElement.classList.contains('ms-List');
+
+        return isList;
+    }
+
+    private getListItemData(): ListItemData {
+        let listItemdata = new ListItemData();
+        listItemdata.id = this.uifId;
+        listItemdata.isSelected = this.isChecked;
+        listItemdata.isSelectable = this.uifSelectable;
+
+        return listItemdata;
+    }
+
+    private toggleChecked(): void {
+        this.isChecked = this.isChecked === true ? false : true;
+    }
+
+    private emitListItemDataToListComponent(): void {
+        let listItemData = this.getListItemData();
+        this.emitterService.emit(listItemData);
+    }
+
+    public checkboxClick(): void {
+        this.toggleChecked();
+        this.emitListItemDataToListComponent();
     }
 
     public actionButton1Click(): void {
