@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, AfterViewInit, OnChanges, Output, EventEmitter } from '@angular/core';
 import 'office-ui-fabric-js/src/components/Panel/Panel';
 
 @Component({
@@ -6,7 +6,7 @@ import 'office-ui-fabric-js/src/components/Panel/Panel';
     selector: 'uif-panel',
     templateUrl: './uifpanel.component.html'
 })
-export class UifPanelComponent implements OnInit {
+export class UifPanelComponent implements OnInit, AfterViewInit, OnChanges {
     @Input() uifId: string = '';
     @Input() uifPanelHeader: string = '';
     @Input() uifOpen: boolean = false;
@@ -16,30 +16,28 @@ export class UifPanelComponent implements OnInit {
     @Input() uifDarkOverlay: boolean = false;
     @Output() uifCloseButtonClicked: EventEmitter<any> = new EventEmitter<any>();
     @Output() uifOverlayClicked: EventEmitter<any> = new EventEmitter<any>();
-    private panelSizeBaseClass: string = 'ms-Panel--';
     private panelElement: Element;
     private panel: fabric.Panel;
-    panelId: string;
+    public panelSizeCss: string = '';
+    public panelId: string;
 
-    constructor() { }
-
-    private createPanel():void {
-        if(this.uifId != null) {
+    private initialize(): void {
+        if (this.uifId !== null && this.uifId !== undefined) {
             var panelContainer = document.getElementById(this.uifId);
             this.panelElement = panelContainer.querySelector(".ms-Panel");
             this.togglePanel();
         }
     }
-    
-    private togglePanel():void {
-        if(this.uifOpen) {
+
+    private togglePanel(): void {
+        if (this.uifOpen) {
             this.panel = new fabric.Panel(this.panelElement);
             this.handlePersistence();
         }
     }
 
-    private handlePersistence():void {
-        if(this.uifPersistent) {
+    private handlePersistence(): void {
+        if (this.uifPersistent) {
             this.panel.panelHost.overlay.remove();
         } else {
             this.panel.panelHost.overlay.overlayElement.onclick = () => this.overlayClick();
@@ -47,33 +45,39 @@ export class UifPanelComponent implements OnInit {
         }
     }
 
-    private setPanelOverlayColor():void {
-        if(this.uifDarkOverlay) {
+    private setPanelOverlayColor(): void {
+        if (this.uifDarkOverlay) {
             this.panel.panelHost.overlay.overlayElement.classList.add('ms-Overlay--dark');
         }
     }
 
-    getPanelSize():string {
-        return this.panelSizeBaseClass + this.uifPanelSize;
+    private setPanelSize(): void {
+        let panelSizeBaseClass = 'ms-Panel--';
+        this.panelSizeCss = panelSizeBaseClass + this.uifPanelSize;
     }
 
-    overlayClick():void {
+    private setOverlayId(): void {
+        this.panelId = this.uifId + 'Overlay';
+    }
+
+    public overlayClick(): void {
         this.uifOverlayClicked.emit();
     }
 
-    closeButtonClick():void {
+    public closeButtonClick(): void {
         this.uifCloseButtonClicked.emit();
     }
 
-    ngOnChanges(changes: any) {
+    public ngOnChanges() {
         this.togglePanel();
-     }
-
-    ngAfterViewInit() {
-        this.createPanel();        
     }
 
-    ngOnInit() {
-        this.panelId = this.uifId + 'Overlay';
+    public ngAfterViewInit() {
+        this.initialize();
+    }
+
+    public ngOnInit() {
+        this.setOverlayId();
+        this.setPanelSize();
     }
 }
