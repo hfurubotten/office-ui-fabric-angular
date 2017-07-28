@@ -25,7 +25,7 @@ export class UifCheckBoxComponent implements AfterViewInit {
     }
 
     private initialize() {
-        if (this.uifId != null) {
+        if (this.uifId !== null && this.uifId !== undefined) {
             let checkboxElement = document.getElementById(this.uifId);
             this.checkboxLabel = <HTMLElement>checkboxElement.querySelector('.ms-CheckBox-field');
             this.checkbox = new fabric.CheckBox(checkboxElement);
@@ -50,7 +50,7 @@ export class UifCheckBoxComponent implements AfterViewInit {
         this.checkboxData.disabled = this.uifDisabled;
     }
 
-    checkboxClicked(): void {
+    public checkboxClicked(): void {
         this.uifChecked = this.uifChecked === true ? false : true;
         if (!this.isDisabled()) {
             this.assignCheckboxData();
@@ -59,7 +59,7 @@ export class UifCheckBoxComponent implements AfterViewInit {
         }
     }
 
-    ngAfterViewInit() {
+    public ngAfterViewInit() {
         this.initialize();
     }
 
