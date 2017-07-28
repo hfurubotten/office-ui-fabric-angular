@@ -18,7 +18,6 @@ export class UifCheckBoxComponent implements AfterViewInit {
     private emitterService: EmitterService;
     private checkboxLabel: HTMLElement;
     private checkbox: fabric.CheckBox;
-    private checkboxData: CheckboxData = new CheckboxData();
 
     constructor(private emitter: EmitterService) {
         this.emitterService = emitter;
@@ -44,18 +43,29 @@ export class UifCheckBoxComponent implements AfterViewInit {
         return disabled;
     }
 
-    private assignCheckboxData(): void {
-        this.checkboxData.value = this.uifId;
-        this.checkboxData.checked = this.uifChecked;
-        this.checkboxData.disabled = this.uifDisabled;
+    private getCheckboxData(): CheckboxData {
+        let checkboxData = new CheckboxData();
+        checkboxData.value = this.uifId;
+        checkboxData.checked = this.uifChecked;
+        checkboxData.disabled = this.uifDisabled;
+
+        return checkboxData;
+    }
+
+    private toggleChecked() {
+        this.uifChecked = this.uifChecked === true ? false : true;
+    }
+
+    private emitCheckboxDataToChoiceFieldGroupComponent(): void {
+        let checkboxData =  this.getCheckboxData();
+        this.emitterService.emit(checkboxData);
     }
 
     public checkboxClicked(): void {
-        this.uifChecked = this.uifChecked === true ? false : true;
         if (!this.isDisabled()) {
-            this.assignCheckboxData();
+            this.toggleChecked();
             this.uifClicked.emit(this.uifChecked);
-            this.emitterService.emit(this.checkboxData);
+            this.emitCheckboxDataToChoiceFieldGroupComponent();
         }
     }
 
