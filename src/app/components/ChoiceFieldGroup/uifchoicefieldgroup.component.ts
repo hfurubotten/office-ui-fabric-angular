@@ -84,7 +84,7 @@ export class UifChoiceFieldGroupComponent implements OnDestroy, AfterViewInit {
         return checkboxdata;
     }
 
-    clickEvent(eventInput: CheckboxData): void {
+    public clickEvent(eventInput: CheckboxData): void {
         if (eventInput != null) {
             this.checkboxValues.set(eventInput.value, eventInput);
             let checkboxdata = Array.from(this.checkboxValues.values());
@@ -92,11 +92,11 @@ export class UifChoiceFieldGroupComponent implements OnDestroy, AfterViewInit {
         }
     }
 
-    ngAfterViewInit() {
+    public ngAfterViewInit() {
         this.initialize();
     }
 
-    ngOnDestroy() {
+    public ngOnDestroy() {
         this.subscription.unsubscribe();
     }
 
