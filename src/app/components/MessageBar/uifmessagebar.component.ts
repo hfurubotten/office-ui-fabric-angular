@@ -11,16 +11,16 @@ export class UifMessageBarComponent implements OnInit {
     @Input() uifLinkURL: string = '';
     @Input() uifType: string = '';
     public iconCssClass: string;
-    
-    private addLinkToContent():void {
-         if(this.uifLinkLabel != '' && this.uifLinkURL != '') {
-             this.uifContent += '<br/>' + '<a href="' + this.uifLinkURL + '" class="ms-Link">' + this.uifLinkLabel + '</a>';
-         }
+
+    private addLinkToContent(): void {
+        if (this.uifLinkLabel != '' && this.uifLinkURL != '') {
+            this.uifContent += '<br/>' + '<a href="' + this.uifLinkURL + '" class="ms-Link">' + this.uifLinkLabel + '</a>';
+        }
     }
 
     private setIconCssClass(): void {
         let baseClass = 'ms-Icon--';
-        switch(this.uifType) {
+        switch (this.uifType) {
             case 'success':
                 this.iconCssClass = baseClass + 'Completed';
                 break;
