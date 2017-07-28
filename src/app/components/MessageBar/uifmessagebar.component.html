@@ -1,7 +1,7 @@
-<div [ngClass]="getCssClass()">
+<div class="ms-MessageBar" [ngClass]="'ms-MessageBar--' + uifType" >
   <div class="ms-MessageBar-content">
     <div class="ms-MessageBar-icon">
-      <i [ngClass]="getCssIcon()"></i>
+      <i class="ms-Icon" [ngClass]="iconCssClass" ></i>
     </div>
     <div class="ms-MessageBar-text" [innerHTML]="uifContent">
     </div>
