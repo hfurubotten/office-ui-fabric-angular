@@ -73,14 +73,14 @@ export class UifListItemComponent implements AfterViewInit {
         this.isChecked = this.isChecked === true ? false : true;
     }
 
-    private emitListItemDataToListComponent(): void {
+    private emitListItemDataToEmitterService(): void {
         let listItemData = this.getListItemData();
         this.emitterService.emit(listItemData);
     }
 
     public checkboxClick(): void {
         this.toggleChecked();
-        this.emitListItemDataToListComponent();
+        this.emitListItemDataToEmitterService();
     }
 
     public actionButton1Click(): void {

@@ -29,6 +29,8 @@ export class UifListComponent implements AfterViewInit {
     private initializeComponent(): void {
         this.listContainer = document.getElementById(this.uifId);
         this.list = new fabric.List(this.listContainer);
+        this.setListItems();
+        this.handleInitialSelectedItemsIfNotMultiselect();
     }
 
     private initializeSubscription(): void {
@@ -39,13 +41,26 @@ export class UifListComponent implements AfterViewInit {
         );
     }
 
-    public clickEvent(eventInput: ListItemData): void {
-        if (eventInput != null) {
-            console.log(eventInput);
-            // this.checkboxValues.set(eventInput.value, eventInput);
-            // let checkboxdata = Array.from(this.checkboxValues.values());
-            // this.uifValuesChanged.emit(checkboxdata);
+
+    private handleInitialSelectedItemsIfNotMultiselect(): void {
+        if (!this.uifMultiSelect) {
+            let numberOfSelectedItems = this.getNumberofSelectedItems();
+            if (numberOfSelectedItems > 1) {
+                this.clearAllSelected();
+            }
         }
+    }
+
+    //TODO: might be buggy - should perhaps get listitems from DOM instead
+    private getNumberofSelectedItems(): number {
+        let numberOfSelectedItems = 0;
+        this.listItems.forEach((listItem) => {
+            if (listItem.isSelected) {
+                numberOfSelectedItems++;
+            }
+        });
+
+        return numberOfSelectedItems;
     }
 
     private getListItemElements(): NodeListOf<Element> {
@@ -77,12 +92,26 @@ export class UifListComponent implements AfterViewInit {
         }
     }
 
-    //this component needs to know if any of the listitems are selected - does it?
-    //when a select click event occurs - 
+    private setSelectedItem(): void {
+        //TODO: set one item to selected - needed for clearing + setting if multiselect is false
+        let listItems = this.getListItemElements();
+        listItems[0].classList.add('is-selected');
+    }
 
+    //on init: if !multiselect: then unselect everything? or everything excep the last/first selected item?
 
     //also needs to keep track of which elements are selected and should emit/output on change
     //functionality needs to be similar to checkbox
+
+    public clickEvent(eventInput: ListItemData): void {
+        if (eventInput != null) {
+            console.log(eventInput);
+            // this.checkboxValues.set(eventInput.value, eventInput);
+            // let checkboxdata = Array.from(this.checkboxValues.values());
+            // this.uifValuesChanged.emit(checkboxdata);
+        }
+    }
+
 
     public ngAfterViewInit() {
         this.initialize();
