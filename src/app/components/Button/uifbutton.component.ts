@@ -7,7 +7,7 @@ import 'office-ui-fabric-js/src/components/Button/Button';
     templateUrl: './uifbutton.component.html',
 })
 
-export class UifButtonComponent implements AfterViewInit  {
+export class UifButtonComponent implements AfterViewInit {
     @Input() uifId: string = '';
     @Input() uifLabel: string = '';
     @Input() uifDisabled: boolean = false;
