@@ -1,15 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
     moduleId: module.id,
     selector: 'uif-link',
     templateUrl: './uiflink.component.html'
 })
-export class UifLinkComponent implements OnInit {
+export class UifLinkComponent {
     @Input() uifUrl: string = '';
     @Input() uifTitle: string = '';
-
-    constructor() { }
-
-    ngOnInit() { }
 }
