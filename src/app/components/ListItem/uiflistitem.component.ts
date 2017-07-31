@@ -6,7 +6,8 @@ import 'office-ui-fabric-js/src/components/ListItem/ListItem';
 @Component({
     moduleId: module.id,
     selector: 'uif-listitem',
-    templateUrl: './uiflistitem.component.html'
+    templateUrl: './uiflistitem.component.html',
+    styleUrls: ['./uiflistitem.component.css']
 })
 export class UifListItemComponent implements AfterViewInit {
     @Input() uifId: string = '';

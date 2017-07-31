@@ -30,8 +30,9 @@
 <uif-textfield [uifId]="'listitemvaluessimple'" [uifMultiline]="true" [uifAutoAdjustSize]="true" [uifLabel]="'Simple list checked status:'" [value]="listItemsStatusSimple"></uif-textfield>
 <br/>
 
+<uif-button [uifId]="'gridButton'" [uifType]="'primary'" [uifLabel]="'Toggle display as Grid/List'" (uifButtonClicked)="toggleGridList()" ></uif-button>
 <uif-label>Multi-selectable list:</uif-label>
-<uif-list [uifId]="'testList'" [uifMultiSelect]="true" (uifClicked)="listItemValuesChanged($event)" > 
+<uif-list [uifId]="'testList'" [uifMultiSelect]="true" [uifDisplayAsGrid]="showListAsGrid" (uifClicked)="listItemValuesChanged($event)" > 
 <uif-listitem 
   [uifId]="'listitem1'" 
   [uifPrimaryText]="'List Item: Extended and selectable'" 
@@ -65,7 +66,10 @@
 ></uif-listitem>
 <uif-listitem 
   [uifId]="'listitem3'" 
-  [uifPrimaryText]="'List Item: Simple and selected'" 
+  [uifPrimaryText]="'List Item extended and selected'" 
+  [uifSecondaryText]="'Secondary text...'" 
+  [uifTertiaryText]="'Tertiary text...'" 
+  [uifMetaText]="'Meta text'"
   [uifSelectable]="true"
   [uifSelected]="true"
   [uifAction1Enabled]="true"
@@ -73,13 +77,22 @@
 ></uif-listitem>
 <uif-listitem 
   [uifId]="'listitem4'" 
-  [uifPrimaryText]="'List Item: Simple, non-selectable'" 
+  [uifPrimaryText]="'List Item extended, but non-selectable'" 
+  [uifSecondaryText]="'Secondary text...'" 
+  [uifTertiaryText]="'Tertiary text...'" 
+  [uifMetaText]="'Meta text'"
+  [uifAction1Enabled]="true"
   ></uif-listitem>
 <uif-listitem 
   [uifId]="'listitem5'" 
-  [uifPrimaryText]="'List Item: Simple'" 
+  [uifPrimaryText]="'List Item extended'" 
+  [uifSecondaryText]="'Secondary text...'" 
+  [uifTertiaryText]="'Tertiary text...'" 
+  [uifMetaText]="'Meta text'"
+  [uifAction1Enabled]="true"
   [uifSelectable]="true"
   [uifSelected]="true"
+  (click)="listItemClicked()"
   ></uif-listitem>
  </uif-list> 
  <uif-textfield [uifId]="'listitemvalues'" [uifMultiline]="true" [uifAutoAdjustSize]="true" [uifLabel]="'List checked status:'" [value]="listItemsStatus"></uif-textfield>

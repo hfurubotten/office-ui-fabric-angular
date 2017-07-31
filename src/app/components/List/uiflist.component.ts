@@ -1,4 +1,4 @@
-import { Component, ContentChildren, AfterViewInit, Input, Output, QueryList, EventEmitter } from '@angular/core';
+import { Component, ContentChildren, AfterViewInit, OnChanges, Input, Output, QueryList, EventEmitter } from '@angular/core';
 import { UifListItemComponent } from '../ListItem/uiflistitem.component';
 import { EmitterService } from '../EmitterService/emitter.service';
 import { ListItemData } from '../DataObjects/ListItemData';
@@ -12,21 +12,25 @@ import 'office-ui-fabric-js/src/components/List/List';
     providers: [EmitterService]
 })
 
-export class UifListComponent implements AfterViewInit {
+export class UifListComponent implements AfterViewInit, OnChanges {
     @Input() uifId: string = '';
     @Input() uifMultiSelect: boolean = false;
+    @Input() uifDisplayAsGrid: boolean = false;
     @Output() uifClicked: EventEmitter<ListItemData[]> = new EventEmitter<ListItemData[]>();
     @ContentChildren(UifListItemComponent) childItems: QueryList<UifListItemComponent>
     private list: fabric.List;
     private listContainer: HTMLElement;
     private listItems: Map<string, ListItemData> = new Map<string, ListItemData>();
     private subscription: Subscription;
+    private initialized: boolean = false;
 
     constructor(private emitterService: EmitterService) { }
 
     private initialize(): void {
         this.initializeComponent();
         this.initializeSubscription();
+        this.displayAsGrid();
+        this.initialized = true;
     }
 
     private initializeComponent(): void {
@@ -113,6 +117,18 @@ export class UifListComponent implements AfterViewInit {
         });
     }
 
+    private displayAsGrid(): void {
+        let listItemElements = this.getListItemElements();
+
+        for (let i = 0; i < listItemElements.length; i++) {
+            if (this.uifDisplayAsGrid) {
+                listItemElements[i].classList.add('ms-List--grid');
+            } else {
+                listItemElements[i].classList.remove('ms-List--grid');
+            }
+        }
+    }
+
     private emitListItemData(): void {
         let listItemData = Array.from(this.listItems.values());
         this.uifClicked.emit(listItemData);
@@ -131,6 +147,12 @@ export class UifListComponent implements AfterViewInit {
 
     public ngAfterViewInit() {
         this.initialize();
+    }
+
+    public ngOnChanges() {
+        if (this.initialized) {
+            this.displayAsGrid();
+        }
     }
 
 }

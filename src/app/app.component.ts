@@ -24,6 +24,11 @@ export class AppComponent implements OnInit {
   listItemsStatusSimple: string;
   spinSpinners: boolean = true;
   hideSpinners: boolean = false;
+  showListAsGrid: boolean = false;
+
+  toggleGridList(): void {
+    this.showListAsGrid = this.showListAsGrid === true ? false : true;
+  }
 
   singleCheckboxClicked(value: boolean) {
     this.singleCheckboxChecked = value;
@@ -49,6 +54,10 @@ export class AppComponent implements OnInit {
     for (let i = 0; i < values.length; i++) {
       this.listItemsStatusSimple += '{id: ' + values[i].id + '} {isSelected: ' + values[i].isSelected + '} {isSelectable: ' + values[i].isSelectable + '}\n';
     }
+  }
+
+  listItemClicked(): void {
+    console.log('List item clicked');
   }
 
   stopSpinners() {
