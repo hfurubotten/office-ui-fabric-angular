@@ -1,4 +1,5 @@
-import { Component, AfterViewInit, Input } from '@angular/core';
+import { Component, ContentChildren, AfterViewInit, Input, Output, QueryList, EventEmitter } from '@angular/core';
+import { UifListItemComponent } from '../ListItem/uiflistitem.component';
 import { EmitterService } from '../EmitterService/emitter.service';
 import { ListItemData } from '../DataObjects/ListItemData';
 import { Subscription } from 'rxjs/Subscription';
@@ -14,6 +15,8 @@ import 'office-ui-fabric-js/src/components/List/List';
 export class UifListComponent implements AfterViewInit {
     @Input() uifId: string = '';
     @Input() uifMultiSelect: boolean = false;
+    @Output() uifClicked: EventEmitter<ListItemData[]> = new EventEmitter<ListItemData[]>();
+    @ContentChildren(UifListItemComponent) childItems: QueryList<UifListItemComponent>
     private list: fabric.List;
     private listContainer: HTMLElement;
     private listItems: Map<string, ListItemData> = new Map<string, ListItemData>();
@@ -41,39 +44,17 @@ export class UifListComponent implements AfterViewInit {
         );
     }
 
-
-    private handleInitialSelectedItemsIfNotMultiselect(): void {
-        if (!this.uifMultiSelect) {
-            let numberOfSelectedItems = this.getNumberofSelectedItems();
-            if (numberOfSelectedItems > 1) {
-                this.clearAllSelected();
-            }
-        }
-    }
-
-    //TODO: might be buggy - should perhaps get listitems from DOM instead
-    private getNumberofSelectedItems(): number {
-        let numberOfSelectedItems = 0;
-        this.listItems.forEach((listItem) => {
-            if (listItem.isSelected) {
-                numberOfSelectedItems++;
-            }
-        });
-
-        return numberOfSelectedItems;
-    }
-
-    private getListItemElements(): NodeListOf<Element> {
-        let listItems = this.listContainer.querySelectorAll('.ms-ListItem');
-        return listItems;
-    }
-
     private setListItems(): void {
         let listItems = this.getListItemElements();
         for (let i = 0; i < listItems.length; i++) {
             let listItem = this.getListItemData(listItems[i]);
             this.listItems.set(listItem.id, listItem);
         }
+    }
+
+    private getListItemElements(): NodeListOf<Element> {
+        let listItems = this.listContainer.querySelectorAll('.ms-ListItem');
+        return listItems;
     }
 
     private getListItemData(listItemElement: Element): ListItemData {
@@ -85,40 +66,71 @@ export class UifListComponent implements AfterViewInit {
         return listItemData;
     }
 
-    private clearAllSelected(): void {
+    private handleInitialSelectedItemsIfNotMultiselect(): void {
+        if (!this.uifMultiSelect) {
+            let numberOfSelectedItems = this.getNumberofSelectedItems();
+            if (numberOfSelectedItems > 1) {
+                this.clearAllSelected(null);
+                this.clearAllSelectedChildComponents(null);
+            }
+        }
+    }
+
+    private getNumberofSelectedItems(): number {
+        let numberOfSelectedItems = 0;
+        this.listItems.forEach((listItem) => {
+            if (listItem.isSelected) {
+                numberOfSelectedItems++;
+            }
+        });
+
+        return numberOfSelectedItems;
+    }
+
+    private updateListItemCheckedStatus(id: string, selected: boolean) {
+        let listItem = this.listItems.get(id);
+        listItem.isSelected = selected;
+        this.listItems.set(listItem.id, listItem);
+    }
+
+    private clearAllSelected(currentlySelectedId: string): void {
         let listItems = this.getListItemElements();
         for (let i = 0; i < listItems.length; i++) {
-            listItems[i].classList.remove('is-selected');
+            if (listItems[i].id !== currentlySelectedId) {
+                listItems[i].classList.remove('is-selected');
+                this.updateListItemCheckedStatus(listItems[i].id, false);
+            }
         }
     }
 
-    private setSelectedItem(): void {
-        //TODO: set one item to selected - needed for clearing + setting if multiselect is false
-        let listItems = this.getListItemElements();
-        listItems[0].classList.add('is-selected');
+    private clearAllSelectedChildComponents(currentlySelectedId: string) {
+        setTimeout(() => {
+            this.childItems.forEach(listItem => {
+                if (listItem.uifId !== currentlySelectedId) {
+                    listItem.isChecked = false;
+                }
+            });
+        });
     }
 
-    //on init: if !multiselect: then unselect everything? or everything excep the last/first selected item?
-
-    //also needs to keep track of which elements are selected and should emit/output on change
-    //functionality needs to be similar to checkbox
+    private emitListItemData(): void {
+        let listItemData = Array.from(this.listItems.values());
+        this.uifClicked.emit(listItemData);
+    }
 
     public clickEvent(eventInput: ListItemData): void {
-        if (eventInput != null) {
-            console.log(eventInput);
-            // this.checkboxValues.set(eventInput.value, eventInput);
-            // let checkboxdata = Array.from(this.checkboxValues.values());
-            // this.uifValuesChanged.emit(checkboxdata);
+        if (eventInput) {
+            if (!this.uifMultiSelect) {
+                this.clearAllSelected(eventInput.id)
+                this.clearAllSelectedChildComponents(eventInput.id)
+            }
+            this.listItems.set(eventInput.id, eventInput);
+            this.emitListItemData();
         }
     }
-
 
     public ngAfterViewInit() {
         this.initialize();
-
-        // this.setListItems();
-        // this.clearAllSelected();
-
     }
 
 }

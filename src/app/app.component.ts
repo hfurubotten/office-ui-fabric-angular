@@ -1,5 +1,6 @@
 import { Component, OnInit, ComponentFactory } from '@angular/core';
 import { CheckboxData } from './Components/DataObjects/CheckboxData'
+import { ListItemData } from './Components/DataObjects/ListItemData'
 
 @Component({
   moduleId: module.id,
@@ -19,6 +20,8 @@ export class AppComponent implements OnInit {
   displayPersistentPanel: boolean = false;
   singleCheckboxChecked: boolean = false;
   checkboxValues: string;
+  listItemsStatus: string;
+  listItemsStatusSimple: string;
   spinSpinners: boolean = true;
   hideSpinners: boolean = false;
 
@@ -27,9 +30,24 @@ export class AppComponent implements OnInit {
   }
 
   choiceFieldGroupValuesChanged(values: CheckboxData[]) {
+
     this.checkboxValues = '';
     for (let i = 0; i < values.length; i++) {
       this.checkboxValues += '{value: ' + values[i].value + '} {checked: ' + values[i].checked + '} {disabled: ' + values[i].disabled + '}\n';
+    }
+  }
+
+  listItemValuesChanged(values: ListItemData[]) {
+    this.listItemsStatus = '';
+    for (let i = 0; i < values.length; i++) {
+      this.listItemsStatus += '{id: ' + values[i].id + '} {isSelected: ' + values[i].isSelected + '} {isSelectable: ' + values[i].isSelectable + '}\n';
+    }
+  }
+
+  listItemValuesChangedSimple(values: ListItemData[]) {
+    this.listItemsStatusSimple = '';
+    for (let i = 0; i < values.length; i++) {
+      this.listItemsStatusSimple += '{id: ' + values[i].id + '} {isSelected: ' + values[i].isSelected + '} {isSelectable: ' + values[i].isSelectable + '}\n';
     }
   }
 

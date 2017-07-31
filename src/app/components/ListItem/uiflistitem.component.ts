@@ -29,7 +29,7 @@ export class UifListItemComponent implements AfterViewInit {
     private emitterService: EmitterService;
     private listItem: fabric.ListItem;
     private listItemContainer: HTMLElement;
-    private isChecked: boolean = false;
+    public isChecked: boolean = false;
 
     constructor(private elementReference: ElementRef, private emitter: EmitterService) {
         this.emitterService = emitter;
@@ -56,6 +56,7 @@ export class UifListItemComponent implements AfterViewInit {
     private parentIsList(): boolean {
         let parentElement = <HTMLElement>this.elementReference.nativeElement.parentElement;
         let isList = parentElement.classList.contains('ms-List');
+        
 
         return isList;
     }
