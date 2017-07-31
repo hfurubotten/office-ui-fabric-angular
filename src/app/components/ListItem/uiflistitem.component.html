@@ -3,7 +3,7 @@
   <span class="ms-ListItem-secondaryText">{{uifSecondaryText}}</span>
   <span class="ms-ListItem-tertiaryText">{{uifTertiaryText}}</span>
   <span class="ms-ListItem-metaText">{{uifMetaText}}</span>
-  <div class="ms-ListItem-selectionTarget"></div>
+  <div class="ms-ListItem-selectionTarget" (click)="checkboxClick()"></div>
   <div class="ms-ListItem-actions">
     <div class="ms-ListItem-action" *ngIf="uifAction1Enabled" (click)="actionButton1Click()">
        <i class="ms-Icon" [ngClass]="'ms-Icon--' + uifAction1Icon"></i> 

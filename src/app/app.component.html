@@ -6,6 +6,33 @@
 
 <h1 class="ms-font-xxl">ListItem examples:</h1>
 <!-- List of available action icons: https://github.com/OfficeDev/office-ui-fabric-core/blob/master/src/data/icons.json -->
+<uif-label>Simple, single item selectable list:</uif-label>
+<uif-list [uifId]="'simpleList'" [uifMultiSelect]="false" (uifClicked)="listItemValuesChangedSimple($event)">
+  <uif-listitem 
+  [uifId]="'simpleitem#1'" 
+  [uifPrimaryText]="'List Item: Simple #1'" 
+  [uifSelectable]="true"
+  [uifSelected]="true"
+  ></uif-listitem>
+  <uif-listitem 
+  [uifId]="'simpleitem#2'" 
+  [uifPrimaryText]="'List Item: Simple #2'" 
+  [uifSelectable]="true"
+  [uifSelected]="false"
+  ></uif-listitem>
+  <uif-listitem 
+  [uifId]="'simpleitem#3'" 
+  [uifPrimaryText]="'List Item: Simple #3'" 
+  [uifSelectable]="true"
+  [uifSelected]="false"
+  ></uif-listitem>
+</uif-list>
+<uif-textfield [uifId]="'listitemvaluessimple'" [uifMultiline]="true" [uifAutoAdjustSize]="true" [uifLabel]="'Simple list checked status:'" [value]="listItemsStatusSimple"></uif-textfield>
+<br/>
+
+<uif-button [uifId]="'gridButton'" [uifType]="'primary'" [uifLabel]="'Toggle display as Grid/List'" (uifButtonClicked)="toggleGridList()" ></uif-button>
+<uif-label>Multi-selectable list:</uif-label>
+<uif-list [uifId]="'testList'" [uifMultiSelect]="true" [uifDisplayAsGrid]="showListAsGrid" (uifClicked)="listItemValuesChanged($event)" > 
 <uif-listitem 
   [uifId]="'listitem1'" 
   [uifPrimaryText]="'List Item: Extended and selectable'" 
@@ -39,7 +66,10 @@
 ></uif-listitem>
 <uif-listitem 
   [uifId]="'listitem3'" 
-  [uifPrimaryText]="'List Item: Simple and selected'" 
+  [uifPrimaryText]="'List Item extended and selected'" 
+  [uifSecondaryText]="'Secondary text...'" 
+  [uifTertiaryText]="'Tertiary text...'" 
+  [uifMetaText]="'Meta text'"
   [uifSelectable]="true"
   [uifSelected]="true"
   [uifAction1Enabled]="true"
@@ -47,14 +77,25 @@
 ></uif-listitem>
 <uif-listitem 
   [uifId]="'listitem4'" 
-  [uifPrimaryText]="'List Item: Simple, non-selectable'" 
+  [uifPrimaryText]="'List Item extended, but non-selectable'" 
+  [uifSecondaryText]="'Secondary text...'" 
+  [uifTertiaryText]="'Tertiary text...'" 
+  [uifMetaText]="'Meta text'"
+  [uifAction1Enabled]="true"
   ></uif-listitem>
 <uif-listitem 
   [uifId]="'listitem5'" 
-  [uifPrimaryText]="'List Item: Simple'" 
+  [uifPrimaryText]="'List Item extended'" 
+  [uifSecondaryText]="'Secondary text...'" 
+  [uifTertiaryText]="'Tertiary text...'" 
+  [uifMetaText]="'Meta text'"
+  [uifAction1Enabled]="true"
   [uifSelectable]="true"
   [uifSelected]="true"
+  (click)="listItemClicked()"
   ></uif-listitem>
+ </uif-list> 
+ <uif-textfield [uifId]="'listitemvalues'" [uifMultiline]="true" [uifAutoAdjustSize]="true" [uifLabel]="'List checked status:'" [value]="listItemsStatus"></uif-textfield>
 <hr/>
 
 <h1 class="ms-font-xxl">Spinner examples:</h1>
