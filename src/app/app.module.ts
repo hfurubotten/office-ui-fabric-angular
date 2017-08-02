@@ -23,7 +23,15 @@ import * as components from './components';
     components.UifChoiceFieldGroupComponent,
     components.UifSpinnerComponent,
     components.UifListItemComponent,
-    components.UifListComponent
+    components.UifListComponent,
+    components.UifTableComponent,
+    components.UifTableHeadComponent,
+    components.UifTableHeaderComponent,
+    components.UifTableRowComponent,
+    components.UifTableRowSelectComponent,
+    components.UifTableHeaderSelectComponent,
+    components.UifTableBodyComponent,
+    components.UifTableCellComponent
   ],
   imports: [
     BrowserModule,

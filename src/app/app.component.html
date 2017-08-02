@@ -4,6 +4,40 @@
   </h1>
 </div>
 
+<h1 class="ms-font-xxl">Table examples:</h1>
+  <uif-table [uifId]="'tableTest'" [uifSelectable]="true" [uifFixed]="false"> 
+  <thead uif-table-head>
+     <tr uif-table-row> 
+      <th uif-table-header-select></th>
+      <th uif-table-header>File name</th>
+      <th uif-table-header>Location</th>
+      <th uif-table-header>Modified</th>
+      <th uif-table-header>Type</th>
+      <th uif-table-header>Size</th>
+     </tr> 
+   </thead> 
+   <tbody uif-table-body>
+    <tr uif-table-row>
+      <td uif-table-row-select></td>
+      <td uif-table-cell>file1.txt</td>
+      <td uif-table-cell>~file1.txt</td>
+      <td uif-table-cell>Jul 31, 2017</td>
+      <td uif-table-cell>TXT</td>
+      <td uif-table-cell>20</td>
+    </tr>
+    <tr uif-table-row>
+      <td uif-table-row-select></td>
+      <td uif-table-cell>file2.txt</td>
+      <td uif-table-cell>~file2.txt</td>
+      <td uif-table-cell>Jul 31, 2017</td>
+      <td uif-table-cell>TXT</td>
+      <td uif-table-cell>5</td>
+    </tr>
+  </tbody> 
+  </uif-table> 
+<br/>
+<hr/>
+
 <h1 class="ms-font-xxl">ListItem examples:</h1>
 <!-- List of available action icons: https://github.com/OfficeDev/office-ui-fabric-core/blob/master/src/data/icons.json -->
 <uif-label>Simple, single item selectable list:</uif-label>
