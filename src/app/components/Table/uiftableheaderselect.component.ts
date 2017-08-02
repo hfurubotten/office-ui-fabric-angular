@@ -7,7 +7,7 @@ import { Component, ElementRef } from '@angular/core';
 export class UifTableHeaderSelectComponent {
     private checkMark: HTMLElement;
 
-    constructor(private elementReference: ElementRef) {}
+    constructor(private elementReference: ElementRef) { }
 
     private initializeCheckMark() {
         this.checkMark = <HTMLElement>this.elementReference.nativeElement;

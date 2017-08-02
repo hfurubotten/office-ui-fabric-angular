@@ -28,7 +28,7 @@ import * as components from './components';
     components.UifTableHeadComponent,
     components.UifTableHeaderComponent,
     components.UifTableRowComponent,
-    components.UifTableRowSelectComponent,
+    components.UifTableCellSelectComponent,
     components.UifTableHeaderSelectComponent,
     components.UifTableBodyComponent,
     components.UifTableCellComponent

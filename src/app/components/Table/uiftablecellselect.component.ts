@@ -2,10 +2,10 @@ import { Component, ElementRef, AfterViewInit } from '@angular/core';
 
 @Component({
     moduleId: module.id,
-    selector: 'td[uif-table-row-select]',
-    templateUrl: './uiftablerowselect.component.html'
+    selector: 'td[uif-table-cell-select]',
+    templateUrl: './uiftablecellselect.component.html'
 })
-export class UifTableRowSelectComponent implements AfterViewInit {
+export class UifTableCellSelectComponent implements AfterViewInit {
     private checkbox: HTMLElement;
 
     public constructor(private elementReference: ElementRef) { }
