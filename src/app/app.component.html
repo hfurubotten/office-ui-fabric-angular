@@ -5,9 +5,9 @@
 </div>
 
 <h1 class="ms-font-xxl">Table examples:</h1>
-  <uif-table [uifId]="'tableTest'" [uifSelectable]="true" [uifFixed]="false"> 
+  <uif-table [uifId]="'tableTest'" [uifSelectable]="true" [uifFixed]="true" (uifRowClicked)="rowClicked($event)" > 
   <thead uif-table-head>
-     <tr uif-table-row> 
+     <tr uif-table-row>  
       <th uif-table-header-select></th>
       <th uif-table-header>File name</th>
       <th uif-table-header>Location</th>
@@ -17,7 +17,7 @@
      </tr> 
    </thead> 
    <tbody uif-table-body>
-    <tr uif-table-row>
+    <tr uif-table-row [uifSelected]="true">
       <td uif-table-cell-select></td>
       <td uif-table-cell>file1.txt</td>
       <td uif-table-cell>~file1.txt</td>
@@ -36,6 +36,9 @@
   </tbody> 
   </uif-table> 
 <br/>
+
+<uif-textfield [uifId]="'tablevalues'" [uifMultiline]="true" [uifAutoAdjustSize]="true" [uifLabel]="'Table selected values'" [value]="tableValues"></uif-textfield>
+
 <hr/>
 
 <h1 class="ms-font-xxl">ListItem examples:</h1>

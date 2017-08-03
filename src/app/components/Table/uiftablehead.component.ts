@@ -6,8 +6,5 @@ import { Component } from '@angular/core';
     templateUrl: './uiftablehead.component.html'
 })
 export class UifTableHeadComponent {
-
-    constructor () {
-
-    }
+    
 }

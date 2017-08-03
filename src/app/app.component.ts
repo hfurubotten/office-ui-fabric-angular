@@ -1,6 +1,7 @@
 import { Component, OnInit, ComponentFactory } from '@angular/core';
 import { CheckboxData } from './Components/DataObjects/CheckboxData'
 import { ListItemData } from './Components/DataObjects/ListItemData'
+import { TableRowData } from './Components/DataObjects/TableRowData'
 
 @Component({
   moduleId: module.id,
@@ -25,6 +26,14 @@ export class AppComponent implements OnInit {
   spinSpinners: boolean = true;
   hideSpinners: boolean = false;
   showListAsGrid: boolean = false;
+  tableValues: string;
+
+  rowClicked(values: TableRowData[]): void {
+    this.tableValues = '';
+    for (let i = 0; i < values.length; i++) {
+      this.tableValues += '{selected: ' + values[i].selected + '} {rowvalues: ' + values[i].data + '}\n';
+    }
+  }
 
   toggleGridList(): void {
     this.showListAsGrid = this.showListAsGrid === true ? false : true;
@@ -35,7 +44,6 @@ export class AppComponent implements OnInit {
   }
 
   choiceFieldGroupValuesChanged(values: CheckboxData[]) {
-
     this.checkboxValues = '';
     for (let i = 0; i < values.length; i++) {
       this.checkboxValues += '{value: ' + values[i].value + '} {checked: ' + values[i].checked + '} {disabled: ' + values[i].disabled + '}\n';

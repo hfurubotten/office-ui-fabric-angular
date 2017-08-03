@@ -10,7 +10,7 @@ export class UifTableCellSelectComponent implements AfterViewInit {
 
     public constructor(private elementReference: ElementRef) { }
 
-    private initializeCheckbox() {
+    private initializeCheckbox(): void {
         this.checkbox = <HTMLElement>this.elementReference.nativeElement;
         this.checkbox.classList.add('ms-Table-rowCheck');
     }

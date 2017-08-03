@@ -9,7 +9,7 @@ export class UifTableHeaderSelectComponent {
 
     constructor(private elementReference: ElementRef) { }
 
-    private initializeCheckMark() {
+    private initializeCheckMark(): void {
         this.checkMark = <HTMLElement>this.elementReference.nativeElement;
         this.checkMark.classList.add('ms-Icon');
         this.checkMark.classList.add('ms-Icon--CheckMark');
