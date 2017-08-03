@@ -9,18 +9,30 @@ import { Component, ElementRef, AfterViewInit } from '@angular/core';
 export class UifTableRowComponent implements AfterViewInit {
     private tablerow: HTMLElement;
 
-    constructor(private elementReference: ElementRef) { }
+    public constructor(private elementReference: ElementRef) { }
 
-    addRowClickedEventHandler(): void {
+    private initialize(): void {
         this.tablerow = <HTMLElement>this.elementReference.nativeElement;
+        this.addRowClickedEventHandler();
+    }
+
+    private addRowClickedEventHandler(): void {
         this.tablerow.addEventListener('click', this.rowClicked.bind(this));
     }
 
-    rowClicked(): void {
-        console.log("Row was clicked!");
+    private deselectTableHeader() {
+        let parentRow = this.tablerow.parentElement;
+        if (parentRow.nodeName === 'THEAD') {
+            this.tablerow.classList.add('is-selected'); //adding it will make office fabric remove it
+        }
     }
 
-    ngAfterViewInit() {
-        this.addRowClickedEventHandler();
+    private rowClicked(): void {
+        console.log("Row was clicked!");
+        this.deselectTableHeader();
+    }
+
+    public ngAfterViewInit() {
+        this.initialize();
     }
 }
