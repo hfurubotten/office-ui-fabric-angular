@@ -29,6 +29,11 @@ export class AppComponent implements OnInit {
   tableValues: string;
   pivotLarge: boolean = false;
   pivotTabbed: boolean = false;
+  progressPercent: number = 50;
+
+  dragTest(value: number) {
+    this.progressPercent = value;
+  }
 
   pivotLinkClicked($event) {
     console.log('The following pivot was clicked: ' + $event);
