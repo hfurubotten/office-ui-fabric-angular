@@ -1,25 +1,3 @@
-<div class="ms-Pivot">
-  <ul class="ms-Pivot-links">
-    <li class="ms-Pivot-link is-selected" data-content="files" title="My files" tabindex="1">
-      My files
-    </li>
-    <li class="ms-Pivot-link " data-content="recent" title="Recent" tabindex="1">
-      Recent
-    </li>
-    <li class="ms-Pivot-link " data-content="shared" title="Shared with me" tabindex="1">
-      Shared with me
-    </li>
-    <li class="ms-Pivot-link" tabindex="1">
-      <i class="ms-Pivot-ellipsis ms-Icon ms-Icon--More"></i>
-    </li>
-  </ul>
-  <div class="ms-Pivot-content" data-content="files">
-    This is the my files tab.
-  </div>
-  <div class="ms-Pivot-content" data-content="recent">
-    This is the recent tab.
-  </div>
-  <div class="ms-Pivot-content" data-content="shared">
-    This is the shared with me tab.
-  </div>
+<div [id]="uifId" class="ms-Pivot" [class.ms-Pivot--large]="uifLarge" [class.ms-Pivot--tabs]="uifTabs">
+  <ng-content></ng-content>
 </div>

@@ -27,6 +27,20 @@ export class AppComponent implements OnInit {
   hideSpinners: boolean = false;
   showListAsGrid: boolean = false;
   tableValues: string;
+  pivotLarge: boolean = false;
+  pivotTabbed: boolean = false;
+
+  pivotLinkClicked($event) {
+    console.log('The following pivot was clicked: ' + $event);
+  }
+
+  setPivotLarge(): void {
+    this.pivotLarge = this.pivotLarge === true ? false : true;
+  }
+
+  setPivotTabbed(): void {
+    this.pivotTabbed = this.pivotTabbed === true ? false : true;
+  }
 
   rowClicked(values: TableRowData[]): void {
     this.tableValues = '';

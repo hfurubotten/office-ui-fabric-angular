@@ -31,7 +31,12 @@ import * as components from './components';
     components.UifTableCellSelectComponent,
     components.UifTableHeaderSelectComponent,
     components.UifTableBodyComponent,
-    components.UifTableCellComponent
+    components.UifTableCellComponent,
+    components.UifPivotComponent,
+    components.UifPivotLinksComponent,
+    components.UifPivotLinkComponent,
+    components.UifPivotContentComponent,
+    components.UifPivotEllipsisComponent
   ],
   imports: [
     BrowserModule,
