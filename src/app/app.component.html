@@ -4,6 +4,35 @@
   </h1>
 </div>
 
+<h1 class="ms-font-xxl">Pivot examples:</h1>
+<uif-choicefieldgroup [uifId]="'pivotSize'" [uifLabel]="'Pivot options:'">
+  <uif-checkbox [uifId]="'pivotLarge'" [uifLabel]="'Make pivot large'" (uifClicked)="setPivotLarge()"></uif-checkbox> 
+  <uif-checkbox [uifId]="'pivotTabbed'" [uifLabel]="'Make pivot tabbed'" (uifClicked)="setPivotTabbed()"></uif-checkbox> 
+</uif-choicefieldgroup>
+<br/>
+
+<uif-pivot [uifId]="'testPivot'" [uifLarge]="pivotLarge" [uifTabs]="pivotTabbed">
+  <uif-pivot-links>
+    <uif-pivot-link [uifTitle]="'My files'" [uifIsSelected]="true" [uifDataContent]="'files'" (uifClicked)="pivotLinkClicked($event)">My files</uif-pivot-link>
+    <uif-pivot-link [uifTitle]="'Recent'" [uifIsSelected]="false" [uifDataContent]="'recent'" (uifClicked)="pivotLinkClicked($event)" >Recent</uif-pivot-link>
+    <uif-pivot-link [uifTitle]="'Shared with me'" [uifIsSelected]="false" [uifDataContent]="'shared'" (uifClicked)="pivotLinkClicked($event)">Shared with me</uif-pivot-link>
+    <uif-pivot-link [uifTitle]="'More...'" [uifIsSelected]="false" [uifDataContent]="'more'" (uifClicked)="pivotLinkClicked($event)">
+      <uif-pivot-ellipsis></uif-pivot-ellipsis>
+    </uif-pivot-link>
+  </uif-pivot-links>
+  <uif-pivot-content [uifDataContent]="'files'">
+    This is the "my files" tab.
+  </uif-pivot-content>
+  <uif-pivot-content [uifDataContent]="'recent'">
+    This is the "recent" tab.
+  </uif-pivot-content>
+  <uif-pivot-content [uifDataContent]="'shared'">
+    This is the "shared with me" tab.
+  </uif-pivot-content>
+</uif-pivot>
+
+<br/><hr/>
+
 <h1 class="ms-font-xxl">Table examples:</h1>
   <uif-table [uifId]="'tableTest'" [uifSelectable]="true" [uifFixed]="true" (uifRowClicked)="rowClicked($event)" > 
   <thead uif-table-head>
