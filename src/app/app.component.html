@@ -4,11 +4,18 @@
   </h1>
 </div>
 
-<h1 class="ms-font-xxl">Progress Indicator examples:</h1>
+<h1 class="ms-font-xxl">SearchBox examples:</h1>
+<uif-searchbox [uifId]="'search'" [uifPlaceholder]="'Search here...'" (searchInputChanged)="searchStringChanged($event)"></uif-searchbox>
+<br/>
+<uif-searchbox [uifId]="'searchCommandbar'" [uifPlaceholder]="''" [uifCommandBar]="true" [uifCollapsed]="true"></uif-searchbox>
+<uif-label>{{searchString}}<uif-label>
+<hr/>
+
+<h1 class="ms-font-xxl">Progress Indicator example:</h1>
 <input type="range" min="0" max="100" step="1" #ref (input)="dragTest(ref.value)">
 <uif-progress-indicator [uifId]="'progress'" [uifTitle]="'Progress indicator example'" [uifProgressPercent]="progressPercent" [uifDescription]="'Indicator description...'"></uif-progress-indicator>
 
-<h1 class="ms-font-xxl">Pivot examples:</h1>
+<h1 class="ms-font-xxl">Pivot example:</h1>
 <uif-choicefieldgroup [uifId]="'pivotSize'" [uifLabel]="'Pivot options:'">
   <uif-checkbox [uifId]="'pivotLarge'" [uifLabel]="'Make pivot large'" (uifClicked)="setPivotLarge()"></uif-checkbox> 
   <uif-checkbox [uifId]="'pivotTabbed'" [uifLabel]="'Make pivot tabbed'" (uifClicked)="setPivotTabbed()"></uif-checkbox> 
@@ -37,7 +44,7 @@
 
 <br/><hr/>
 
-<h1 class="ms-font-xxl">Table examples:</h1>
+<h1 class="ms-font-xxl">Table example:</h1>
   <uif-table [uifId]="'tableTest'" [uifSelectable]="true" [uifFixed]="true" (uifRowClicked)="rowClicked($event)" > 
   <thead uif-table-head>
      <tr uif-table-row>  

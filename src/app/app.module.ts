@@ -37,7 +37,8 @@ import * as components from './components';
     components.UifPivotLinkComponent,
     components.UifPivotContentComponent,
     components.UifPivotEllipsisComponent,
-    components.UifProgressIndicatorComponent
+    components.UifProgressIndicatorComponent,
+    components.UifSearchBoxComponent
   ],
   imports: [
     BrowserModule,
