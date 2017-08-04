@@ -15,10 +15,8 @@ export class UifSpinnerComponent implements AfterViewInit, OnChanges {
     private spinner: fabric.Spinner;
     private initialized: boolean = false;
 
-    constructor() { }
-
     private initialize(): void {
-        if (this.uifId !== null && this.uifId !== undefined) {
+        if (this.uifId) {
             let spinnerContainer = document.getElementById(this.uifId);
             this.spinner = new fabric.Spinner(spinnerContainer);
             this.initialized = true;

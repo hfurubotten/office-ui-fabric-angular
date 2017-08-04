@@ -17,7 +17,7 @@ export class UifButtonComponent implements AfterViewInit {
     private button: fabric.Button;
 
     private initialize(): void {
-        if (this.uifId !== null && this.uifId !== undefined) {
+        if (this.uifId) {
             var buttonElement = document.getElementById(this.uifId);
             this.button = new fabric.Button(buttonElement);
         }

@@ -24,7 +24,7 @@ export class UifListComponent implements AfterViewInit, OnChanges {
     private subscription: Subscription;
     private initialized: boolean = false;
 
-    constructor(private emitterService: EmitterService) { }
+    public constructor(private emitterService: EmitterService) { }
 
     private initialize(): void {
         this.initializeComponent();

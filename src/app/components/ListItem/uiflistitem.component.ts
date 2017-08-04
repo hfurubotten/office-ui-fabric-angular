@@ -32,7 +32,7 @@ export class UifListItemComponent implements AfterViewInit {
     private listItemContainer: HTMLElement;
     public isChecked: boolean = false;
 
-    constructor(private elementReference: ElementRef, private emitter: EmitterService) {
+    public constructor(private elementReference: ElementRef, private emitter: EmitterService) {
         this.emitterService = emitter;
     }
 

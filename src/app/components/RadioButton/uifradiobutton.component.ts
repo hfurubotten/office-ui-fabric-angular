@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, AfterViewInit } from '@angular/core';
 import 'office-ui-fabric-js/src/components/RadioButton/RadioButton';
 
 @Component({
@@ -6,7 +6,7 @@ import 'office-ui-fabric-js/src/components/RadioButton/RadioButton';
     selector: 'uif-radiobutton',
     templateUrl: './uifradiobutton.component.html'
 })
-export class UifRadioButtonComponent implements OnInit {
+export class UifRadioButtonComponent implements AfterViewInit {
     @Input() uifLabel: string = '';
     @Input() uifId: string = '';
     @Input() uifRequired: boolean = false;
@@ -16,24 +16,22 @@ export class UifRadioButtonComponent implements OnInit {
     private choiceFieldGroup: HTMLElement;
     private choiceFieldComponents: fabric.RadioButton[];
     
-    constructor() { }
-
-    createRadioButtons():void {
-        if(this.uifId != null) {
+    private initialize():void {
+        if(this.uifId) {
             this.choiceFieldGroup = document.getElementById(this.uifId);
             new fabric.RadioButton(this.choiceFieldGroup);
-            this.initialize();
+            this.initializeComponent();
         }
     }
 
-    onValueChanged(selected: Option):void {
+    public onValueChanged(selected: Option):void {
         if(selected.value != this.uifSelectedValue && selected.disabled != true) {
             this.uifSelectedValue = selected.value;
             this.uifSelectedValueChange.emit(this.uifSelectedValue);
         }
     }
 
-    private initialize():void {
+    private initializeComponent():void {
             this.choiceFieldGroup = this.choiceFieldGroup;
             this.choiceFieldComponents = [];
             this.initalSetup();
@@ -62,10 +60,8 @@ export class UifRadioButtonComponent implements OnInit {
         }
     }
 
-    ngOnInit() { }
-
-    ngAfterViewInit() {
-        this.createRadioButtons();
+    public ngAfterViewInit() {
+        this.initialize();
      }
 }
 

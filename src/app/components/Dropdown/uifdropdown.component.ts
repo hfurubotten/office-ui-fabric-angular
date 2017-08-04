@@ -19,7 +19,7 @@ export class UifDropdownComponent implements OnInit, AfterViewInit {
     public uifSelected: { value: string, text: string } = { 'value': '', 'text': '' };
 
     private initialize(): void {
-        if (this.uifId !== null && this.uifId !== undefined) {
+        if (this.uifId) {
             var dropdownElement = document.getElementById(this.uifId);
             this.dropdown = new fabric.Dropdown(dropdownElement);
         }
