@@ -30,6 +30,12 @@ export class AppComponent implements OnInit {
   pivotLarge: boolean = false;
   pivotTabbed: boolean = false;
   progressPercent: number = 50;
+  searchString: string = '';
+
+  searchStringChanged(searchValue: string) {
+    this.searchString = searchValue;
+  }
+
 
   dragTest(value: number) {
     this.progressPercent = value;
