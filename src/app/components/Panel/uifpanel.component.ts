@@ -22,7 +22,7 @@ export class UifPanelComponent implements OnInit, AfterViewInit, OnChanges {
     public panelId: string;
 
     private initialize(): void {
-        if (this.uifId !== null && this.uifId !== undefined) {
+        if (this.uifId) {
             var panelContainer = document.getElementById(this.uifId);
             this.panelElement = panelContainer.querySelector(".ms-Panel");
             this.togglePanel();

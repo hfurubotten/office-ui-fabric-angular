@@ -22,7 +22,7 @@ export class UifOverlayComponent implements AfterViewInit, OnChanges {
     }
 
     private showOverlay(): void {
-        if (this.overlay != null) {
+        if (this.overlay) {
             if (this.uifShow) {
                 this.overlay.show();
             } else {

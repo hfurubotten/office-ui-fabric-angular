@@ -22,10 +22,8 @@ export class UifTextFieldComponent implements OnInit, AfterViewInit {
     private textfieldElement: HTMLElement;
     public inputType: string = 'Text';
 
-    constructor() { }
-
     private initialize(): void {
-        if (this.uifId != null) {
+        if (this.uifId) {
             let textfieldContainer = document.getElementById(this.uifId);
             this.textfieldElement = <HTMLElement>textfieldContainer.querySelector('.ms-TextField-field');
             var textfield = new fabric.TextField(textfieldContainer);
@@ -39,7 +37,7 @@ export class UifTextFieldComponent implements OnInit, AfterViewInit {
     }
 
     private setAutoAdjustSize(): void {
-        if (this.uifId != null && this.uifMultiline && this.uifAutoAdjustSize) {
+        if (this.uifId && this.uifMultiline && this.uifAutoAdjustSize) {
             this.textfieldElement.style.height = '';
             let scrollHeight = this.textfieldElement.scrollHeight + 20; // +20 to avoid vertical scroll bars
             this.textfieldElement.style.height = scrollHeight + 'px';

@@ -19,12 +19,12 @@ export class UifCheckBoxComponent implements AfterViewInit {
     private checkboxLabel: HTMLElement;
     private checkbox: fabric.CheckBox;
 
-    constructor(private emitter: EmitterService) {
+    public constructor(private emitter: EmitterService) {
         this.emitterService = emitter;
     }
 
     private initialize() {
-        if (this.uifId !== null && this.uifId !== undefined) {
+        if (this.uifId) {
             let checkboxElement = document.getElementById(this.uifId);
             this.checkboxLabel = <HTMLElement>checkboxElement.querySelector('.ms-CheckBox-field');
             this.checkbox = new fabric.CheckBox(checkboxElement);

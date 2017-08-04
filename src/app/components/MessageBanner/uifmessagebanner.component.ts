@@ -17,7 +17,7 @@ export class UifMessageBannerComponent implements AfterViewInit {
     private messageBanner: fabric.MessageBanner;
 
     private initialize(): void {
-        if (this.uifId !== '' && this.uifId !== undefined) {
+        if (this.uifId) {
             var messageBanner = document.getElementById(this.uifId);
             this.messageBanner = new fabric.MessageBanner(messageBanner);
         }
