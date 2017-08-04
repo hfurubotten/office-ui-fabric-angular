@@ -4,6 +4,10 @@
   </h1>
 </div>
 
+<h1 class="ms-font-xxl">Progress Indicator examples:</h1>
+<input type="range" min="0" max="100" step="1" #ref (input)="dragTest(ref.value)">
+<uif-progress-indicator [uifId]="'progress'" [uifTitle]="'Progress indicator example'" [uifProgressPercent]="progressPercent" [uifDescription]="'Indicator description...'"></uif-progress-indicator>
+
 <h1 class="ms-font-xxl">Pivot examples:</h1>
 <uif-choicefieldgroup [uifId]="'pivotSize'" [uifLabel]="'Pivot options:'">
   <uif-checkbox [uifId]="'pivotLarge'" [uifLabel]="'Make pivot large'" (uifClicked)="setPivotLarge()"></uif-checkbox> 
@@ -14,7 +18,7 @@
 <uif-pivot [uifId]="'testPivot'" [uifLarge]="pivotLarge" [uifTabs]="pivotTabbed">
   <uif-pivot-links>
     <uif-pivot-link [uifTitle]="'My files'" [uifIsSelected]="true" [uifDataContent]="'files'" (uifClicked)="pivotLinkClicked($event)">My files</uif-pivot-link>
-    <uif-pivot-link [uifTitle]="'Recent'" [uifIsSelected]="false" [uifDataContent]="'recent'" (uifClicked)="pivotLinkClicked($event)" >Recent</uif-pivot-link>
+    <uif-pivot-link [uifTitle]="'Recent'" [uifIsSelected]="false" [uifDataContent]="'recent'" (uifClicked)="pivotLinkClicked($event)">Recent</uif-pivot-link>
     <uif-pivot-link [uifTitle]="'Shared with me'" [uifIsSelected]="false" [uifDataContent]="'shared'" (uifClicked)="pivotLinkClicked($event)">Shared with me</uif-pivot-link>
     <uif-pivot-link [uifTitle]="'More...'" [uifIsSelected]="false" [uifDataContent]="'more'" (uifClicked)="pivotLinkClicked($event)">
       <uif-pivot-ellipsis></uif-pivot-ellipsis>
@@ -285,4 +289,4 @@
 <span class="ms-font-m">Testing data binding:</span> <input class="ms-font-m" [(ngModel)]="textFieldValue" />
 <br/>
 <span class="ms-font-m">Testing data binding:</span> <input class="ms-font-m" [(ngModel)]="anotherTextFieldValue" />
-<br>
+<br/>
